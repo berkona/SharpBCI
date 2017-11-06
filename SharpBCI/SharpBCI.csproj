@@ -6,7 +6,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>SharpBCI</RootNamespace>
     <AssemblyName>SharpBCI</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseMSBuildEngine>false</UseMSBuildEngine>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,6 +32,7 @@
     <Reference Include="SharpOSC">
       <HintPath>SharpOSC.dll</HintPath>
     </Reference>
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="Smoothers.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="TimeSeriesSmootherPipeable.cs" />
-    <Compile Include="ComplexPatch.cs" />
     <Compile Include="DSPLib.cs" />
   </ItemGroup>
   <ItemGroup>
