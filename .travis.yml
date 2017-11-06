@@ -1,0 +1,7 @@
+language: csharp
+install:
+  - nuget restore SharpBCI.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release SharpBCI.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./UnitTests/bin/Release/UnitTests.dll
