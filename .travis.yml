@@ -1,7 +1,37 @@
 language: csharp
+sudo: false
+branches:
+  only:
+  - master
+env:
+  global:
+  - GH_REPO_NAME: SharpBCI
+  - DOXYFILE: "$TRAVIS_BUILD_DIR/Doxyfile"
+  - GH_REPO_REF: github.com/berkona/SharpBCI.git
+addons:
+  apt:
+    packages:
+    - doxygen
+    - doxygen-doc
+    - doxygen-latex
+    - doxygen-gui
+    - graphviz
 install:
-  - nuget restore SharpBCI.sln
-  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+- nuget restore SharpBCI.sln
+- nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release SharpBCI.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./SharpBCI.Tests/bin/Release/SharpBCI.Tests.dll
+- xbuild /p:Configuration=Release SharpBCI.sln
+- mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./SharpBCI.Tests/bin/Release/SharpBCI.Tests.dll
+after_success:
+- cd $TRAVIS_BUILD_DIR
+- chmod +x generateDocumentationAndDeploy.sh
+- "./generateDocumentationAndDeploy.sh"
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: SyS2TfG1CcqMJps+3ZWGWA/g/MUFYy36EHOuRum5TOVbmlWbhb1VWFsxomTqMTytX9g86NIb6fhJ8lgAh9bs3msjOp7T0/cNim4O/bPkM3nBaTj9LOQvyrnH6YYwKA8Th1rISwkWhFt8x59Utuif2xUTaY0IWJKYE68VfwHtj8Zr7wkWUHpyyesuoop7JCY0wuQU9IL1BZWqbdFM2daC/sce3Gm8tRx6ztr9QWlpmt+yWn4RrMd4/eL36MOFOB9Kzjdq9wVZPP7P0C3rQBSG8sGv+a/4+qHp2Lyc0m3AIZY15AFwqzD1PcYqC+SXOmnqH6Y9nYoRYtNoTrDwOjvTkkldkYXt8t11xNjqYu8U2RxULzEqkMn14JKKQazBvsPQfnGM+foU6ezmUKgyo/u3cDx2zyqx3NORi45XRkH5Opi+AECnmONkBRGAIS/BTDEJ5Qfrm+Q3zn/dblMWFsjiXeE+5knf3ngs14373ZdXe/P6bIoZ6pr+fUqUz4amqTq/phEHJs5/vhsYlvTe9+iTO1S0qmtB/y/EbAexCi8wIsVTowcLSbPICfbwKUxvXPvVcNRkcQ8pq0qI+qvvf3sNHLM0kFnJwOxWTOFuAJheOOsg0OyTzFFvQNqfPsVrN4s6hCwT23zLNAstnK/ndopGCvP6SoC0y/wrncVwa1tJh4E=
+  file: SharpBCI/bin/Release/SharpBCI.dll
+  on:
+    tag: true
+    repo: berkona/SharpBCI
