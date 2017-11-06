@@ -18,6 +18,5 @@ Global
 		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

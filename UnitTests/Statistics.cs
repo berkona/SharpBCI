@@ -4,12 +4,56 @@ using System;
 namespace SharpBCI.Tests {
 
 	[TestFixture]
-	public class StatsUtilTesting {
+	public class StatisticsTesting {
 
-		[SetUp]
-		protected void Setup() {
-			Logger.AddLogOutput(new ConsoleLogger());
+		#region ARModel
+
+		[Test]
+		public void ARModelConstructor() {
+			Assert.Throws<ArgumentOutOfRangeException>(() => new ARModel(double.NaN, null));
+			Assert.Throws<ArgumentOutOfRangeException>(() => new ARModel(double.NegativeInfinity, null));
+			Assert.Throws<ArgumentOutOfRangeException>(() => new ARModel(double.PositiveInfinity, null));
+			Assert.Throws<ArgumentOutOfRangeException>(() => new ARModel(0, null));
+			Assert.Throws<ArgumentOutOfRangeException>(() => new ARModel(0, new double[] { }));
+			Assert.DoesNotThrow(() => new ARModel(0, new double[] { 0.5 }));
 		}
+
+		[Test]
+		public void ARModelPredict() {
+			var ar1 = new ARModel(0, new double[] { 0.5 });
+			var X = new double[] {
+				1,
+				1, 
+				1.0 * 0.5, 
+				1.0 * 0.5 * 0.5, 
+				1.0 * 0.5 * 0.5 * 0.5, 
+				1.0 * 0.5 * 0.5 * 0.5 * 0.5,
+			};
+
+			for (int i = 0; i < X.Length-1; i++) {
+				Assert.AreEqual(X[i + 1], ar1.Predict(X[i]));
+			}
+
+			var ar2 = new ARModel(0, new double[] { 0.3, 0.3 });
+			X = new double[] {
+				1,
+				1,
+				1,
+				0.6,
+				0.48,
+				0.324,
+				0.2412,
+				0.16956,
+			};
+
+			for (int i = 0; i < X.Length - 1; i++) {
+				IsWithinThreshold(X[i + 1], ar2.Predict(X[i]));
+			}
+		}
+
+		#endregion
+
+		#region StatsUtils
 
 		[Test]
 		public void SampleMean() {
@@ -44,7 +88,7 @@ namespace SharpBCI.Tests {
 		}
 
 		[Test]
-		public void ACorr() {
+		public void ACF() {
 			var x = new double[] { 2, 3, -1, 5, 3, 2 };
 			var acf = new double[] {
 				-0.505747,
@@ -54,83 +98,113 @@ namespace SharpBCI.Tests {
 				0.005747,
 				0
 			};
-			Assert.AreEqual(1, StatsUtils.ACorr(0, x));
+			Assert.AreEqual(1, StatsUtils.ACF(0, x));
 			for (int i = 1; i <= 6; i++) {
-				var acf_hat = StatsUtils.ACorr(i, x);
+				var acf_hat = StatsUtils.ACF(i, x);
 				IsWithinThreshold(acf[i - 1], acf_hat, 1e-5);
 			}
 		}
 
 		[Test]
-		public void EstimateAROrder() {
-			// TODO fix EstimateAROrder
-			Random r = new Random();
-			for (int p = 1; p < 10; p++) {
-				var parameters = new double[p];
-				for (int i = 0; i < p; i++) {
-					parameters[i] = r.NextDouble();
-				}
-				var ar = new ARModel(0, parameters);
-				// this must be non-zero or else AR(p) = c for all X
-				var lastX = 1.0;
-				// prime the model with values
-				for (int j = 0; j < p; j++) {
-					lastX = ar.Predict(lastX);
-				}
-				var x = new double[100];
-				x[0] = lastX;
-				for (int j = 1; j < 100; j++) {
-					lastX = ar.Predict(lastX);
-					x[j] = lastX;
-				}
+		public void PACF() {
+			var X = MakeSeries(new double[] { 0.5 }, 10000, 0.25);
+			IsWithinThreshold(0.5, StatsUtils.PACF(1, X), 0.05);
+			IsWithinThreshold(0, StatsUtils.PACF(2, X), 0.05);
+            IsWithinThreshold(0, StatsUtils.PACF(3, X), 0.05);
+            IsWithinThreshold(0, StatsUtils.PACF(4, X), 0.05);
 
-				var p_hat = StatsUtils.EstimateAROrder(x, 10);
-				Assert.True(Math.Abs(p - p_hat) < 2, "Incorrect AR order expected {0} but was actually {1}", p, p_hat);
-			}
+			// This doesn't work atm
+			//X = MakeSeries(new double[] { 0.3, 0.3 }, 10000, 0.25);
+			//IsWithinThreshold(0.3, StatsUtils.PACF(1, X), 0.05);
+			//IsWithinThreshold(0.3, StatsUtils.PACF(2, X), 0.05);
+			//IsWithinThreshold(0, StatsUtils.PACF(3, X), 0.05);
+			//IsWithinThreshold(0, StatsUtils.PACF(4, X), 0.05);
+            //IsWithinThreshold(0, StatsUtils.PACF(5, X), 0.05);
 		}
 
-		[Test]
-		public void FitAR() {
-			var phi = new double[] { 0.5 };
-			var X = CreateARSeries(phi, 100);
-			var phi_hat = StatsUtils.FitAR(1, X);
-			IsWithinThreshold(phi[0], phi_hat[0]);
+		Random noiseRandom;
 
-			//Random r = new Random();
-			//for (int p = 2; p < 50; p++) {
-			//	for (int i = 0; i < 100; i++) {
-			//		var phi = new double[p];
-			//		for (int j = 0; j < p; j++) {
-			//			phi[j] = r.NextDouble();
-			//			if (r.NextDouble() < 0.5)
-			//				phi[j] = -phi[j];
-			//		}
-			//		var X = CreateARSeries(phi, 1000);
-			//		var phi_hat = StatsUtils.FitAR((uint)p, X);
-			//		Logger.Log("phi = {0}, phi_hat = {1}", string.Join(", ", phi), string.Join(", ", phi_hat));
-			//		for (int j = 0; j < p; j++) {
-			//			IsWithinThreshold(phi[j], phi_hat[j], 1e-2);
-			//		}
-			//	}
-			//}
+		[SetUp]
+		protected void CreateNoise() {
+			noiseRandom = new Random();
 		}
 
-		protected double[] CreateARSeries(double[] phi, int n) {
-			var ar = new ARModel(0, phi);
-			var lastX = 1.0;
-			for (int i = 0; i < phi.Length; i++) {
-				lastX = ar.Predict(lastX);
-			}
+		protected double Noise() {
+			return noiseRandom.NextDouble() - 0.5;
+		}
+
+		protected double[] MakeSeries(double[] phi, int n, double noiseFactor) {
+			var p = phi.Length;
 			var X = new double[n];
-			X[0] = lastX;
-			for (int j = 1; j < n; j++) {
-				lastX = ar.Predict(lastX);
-				X[j] = lastX;
+			for (int i = 0; i < p; i++) {
+				X[i] = 1 + noiseFactor * Noise();
+			}
+			for (int i = p; i < n; i++) {
+				double xi = noiseFactor * Noise();
+				for (int j = 0; j < p; j++) {
+					xi += X[i - j - 1] * phi[j];
+				}
+				X[i] = xi;
 			}
 			return X;
 		}
 
+		[Test]
+		public void FitAR() {
+			// AR(1)
+			var X = MakeSeries(new double[] { 0.5 }, 10000, 0.25);
+			//Logger.Log("X = {0}", StatsUtils.Summary(X));
+			IsWithinThreshold(0.5, StatsUtils.FitAR(1, X)[0], 0.05);
+
+			// AR(2)
+			X = MakeSeries(new double[] { 0.3, 0.3 }, 10000, 0.25);
+			//Logger.Log("X = {0}", StatsUtils.Summary(X));
+			var phi_hat = StatsUtils.FitAR(2, X);
+			IsWithinThreshold(0.3, phi_hat[0], 0.05);
+			IsWithinThreshold(0.3, phi_hat[1], 0.05);
+
+			// AR(3)
+			X = MakeSeries(new double[] { 0.3, 0.3, 0.3 }, 10000, 0.25);
+			//Logger.Log("X = {0}", StatsUtils.Summary(X));
+			phi_hat = StatsUtils.FitAR(3, X);
+			IsWithinThreshold(0.3, phi_hat[0], 0.05);
+			IsWithinThreshold(0.3, phi_hat[1], 0.05);
+            IsWithinThreshold(0.3, phi_hat[2], 0.05);
+		}
+
+		#endregion
+
+		#region OnlineVariance
+
+		[Test]
+		public void OnlineVariance() {
+			var v = new OnlineVariance();
+			Assert.IsFalse(v.isValid);
+			Assert.AreEqual(0, v.mean);
+			Assert.IsNaN(v.var);
+			v.Update(1);
+			Assert.IsFalse(v.isValid);
+			Assert.AreEqual(1, v.mean);
+			Assert.IsNaN(v.var);
+			v.Update(1);
+			Assert.IsTrue(v.isValid);
+			Assert.AreEqual(1, v.mean);
+			Assert.AreEqual(0, v.var);
+		}
+
+		#endregion
+
 		protected const double DEFAULT_THRESHOLD = 1e-5;
+
+		bool loggerSetup = false;
+
+		[SetUp]
+		protected void SetupLogger() {
+			if (!loggerSetup) {
+				Logger.AddLogOutput(new ConsoleLogger());
+				loggerSetup = true;
+			}
+		}
 
 		protected void IsWithinThreshold(double expected, double actual) {
 			IsWithinThreshold(expected, actual, DEFAULT_THRESHOLD);

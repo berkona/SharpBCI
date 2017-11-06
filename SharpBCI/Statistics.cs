@@ -28,11 +28,19 @@ namespace SharpBCI {
 			return x.Select((xi) => (xi - mu) * (xi - mu)).Sum() / (x.Length - 1);
 		}
 
+		public static string Summary(double[] x) {
+			return string.Format("double[\nn: {0}, mean: {1}, std. deviation: {2}\nfirst 5: {3}\nlast 5: {4}\n]",
+								 x.Length, SampleMean(x), Math.Sqrt(SampleVar(x)),
+								 string.Join(", ", x.Take(5)),
+			                     string.Join(", ", x.Reverse().Take(5))
+								);
+		}
+
 		/**
 		 * Calculate ACF(k|x, mu, sigmaSq)
 		 * Assumes the mean and variance of the population of X is known
 		 */
-		public static double ACorr(int k, double[] x) {
+		public static double ACF(int k, double[] x) {
 			var mu = SampleMean(x);
 			var n = x.Length;
 			var cov = 0.0;
@@ -53,7 +61,7 @@ namespace SharpBCI {
 			double[] pacf = new double[maxOrder];
 			for (uint i = 1; i <= maxOrder; i++) {
 				// pacf(i) = pacf[i-1]
-				pacf[i - 1] = PartialACorr(i, x);
+				pacf[i - 1] = PACF(i, x);
 			}
 
 			var pacf_bar = SampleMean(pacf);
@@ -78,7 +86,7 @@ namespace SharpBCI {
 		 * Calculate PACF(k|x)
 		 * Uses a Yule-Walker Estimation of AR model, so is atleast O(N^3)
 		 */
-		public static double PartialACorr(uint k, double[] x) {
+		public static double PACF(uint k, double[] x) {
 			return FitAR(k, x)[k - 1];
 		}
 
@@ -98,9 +106,10 @@ namespace SharpBCI {
 			// a column vector of auto-correlations from 1 to p
 			double[][] r = MatrixUtils.Create((int) p, 1);
 			for (int i = 1; i <= p; i++) {
-				r[i-1][0] = ACorr(i, x);
+				r[i-1][0] = ACF(i, x);
 			}
-			Logger.Log("r:\n{0}", MatrixUtils.ToString(r));
+
+			//Console.WriteLine("r:\n{0}", MatrixUtils.ToString(r));
 
 			// construct R, a system of equations to solve the PHI vector given r
 			// p = 3 should look like
@@ -125,15 +134,15 @@ namespace SharpBCI {
 					k += step;
 				}
 			}
-
-			//Logger.Log("R:\n{0}", MatrixUtils.ToString(R));
+			//Console.WriteLine("R:\n{0}", MatrixUtils.ToString(R));
 			// invert R to solve for phi
 			R = MatrixUtils.Inverse(R);
-			//Logger.Log("R^-1:\n{0}", MatrixUtils.ToString(R));
+			//Console.WriteLine("R^-1:\n{0}", MatrixUtils.ToString(R));
 
 			// R = phi * r => phi = R^-1 * r
 			// R is a p x p matrix and r is a p x 1 matrix so result is p x 1 matrix (a column vector)
 			var phi = MatrixUtils.Product(R, r);
+			//Console.WriteLine("phi:\n{0}", MatrixUtils.ToString(phi));
 			// we want a normal array (a sort of row vector) for portability so transpose the resulting column vector
 			return MatrixUtils.Transpose(phi)[0];
 		}
@@ -146,7 +155,7 @@ namespace SharpBCI {
 	public class OnlineVariance {
 		public double mean { get { return _mean; } }
 		public double var { get { return _var; } }
-		public bool isValid { get { return n > 2; } }
+		public bool isValid { get { return n >= 2; } }
 
 		uint n = 0;
 		double _mean = 0.0;
@@ -162,7 +171,7 @@ namespace SharpBCI {
 			double delta2 = x - mean;
 			_mean2 += delta * delta2;
 
-			if (n > 2)
+			if (n >= 2)
 				_var = _mean2 / (n - 1);
 		}
 	}
@@ -180,6 +189,9 @@ namespace SharpBCI {
 		readonly double[] parameters;
 		
 		public ARModel(double c, double[] parameters) {
+			if (double.IsNaN(c) || double.IsInfinity(c) || parameters == null || parameters.Length == 0)
+				throw new ArgumentOutOfRangeException();
+			
 			this.c = c;
 			this.parameters = parameters;
 		}
@@ -187,7 +199,9 @@ namespace SharpBCI {
 		public double Predict(double x) {
 			// default to x
 			double x_hat = x;
-			
+
+			previousValues.Enqueue(x);
+
 			// we have sufficient data to allow x_hat to be defined
 			if (previousValues.Count == parameters.Length + 1) {
 				previousValues.Dequeue();
@@ -197,8 +211,6 @@ namespace SharpBCI {
 				}
 				x_hat += c;
 			}
-
-			previousValues.Enqueue(x);
 
 			return x_hat;
 		}
