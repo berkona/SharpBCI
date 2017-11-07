@@ -111,6 +111,9 @@ $(document).ready(function(){initNavTree('interface_sharp_b_c_i_1_1_i_pipeable.h
 <div class="title">SharpBCI.IPipeable Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>All components of the <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html" title="This is the &quot;main&quot; class which you should create. ">SharpBCI</a> pipeline are expected to implement this interface.  
+ <a href="interface_sharp_b_c_i_1_1_i_pipeable.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.IPipeable:</div>
 <div class="dyncontent">
@@ -135,7 +138,7 @@ Inheritance diagram for SharpBCI.IPipeable:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1775fb57fee4ffe5716ff0fe99a17a2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html#a1775fb57fee4ffe5716ff0fe99a17a2a">SetInput</a> (BlockingCollection&lt; object &gt; input)</td></tr>
-<tr class="memdesc:a1775fb57fee4ffe5716ff0fe99a17a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input on this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html">IPipeable</a> to param input Should only be used internally by Connect.  <a href="#a1775fb57fee4ffe5716ff0fe99a17a2a">More...</a><br/></td></tr>
+<tr class="memdesc:a1775fb57fee4ffe5716ff0fe99a17a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input on this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ...">IPipeable</a> to param input Should only be used internally by Connect.  <a href="#a1775fb57fee4ffe5716ff0fe99a17a2a">More...</a><br/></td></tr>
 <tr class="separator:a1775fb57fee4ffe5716ff0fe99a17a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8761061994efc0be275dafe8fc07d61e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html#a8761061994efc0be275dafe8fc07d61e">Connect</a> (<a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html">IPipeable</a> other, bool mirror)</td></tr>
 <tr class="memdesc:a8761061994efc0be275dafe8fc07d61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect the input of other to our output and allow for control of mirror data.  <a href="#a8761061994efc0be275dafe8fc07d61e">More...</a><br/></td></tr>
@@ -147,10 +150,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a9348aeb6dd14dd6ce8c332ba5d1b7552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actually start doing work (i.e., promise to eventually start pushing data to connected pipeables)  <a href="#a9348aeb6dd14dd6ce8c332ba5d1b7552">More...</a><br/></td></tr>
 <tr class="separator:a9348aeb6dd14dd6ce8c332ba5d1b7552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae41775c72425fda3539ae086ef7666f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html#ae41775c72425fda3539ae086ef7666f9">Stop</a> ()</td></tr>
-<tr class="memdesc:ae41775c72425fda3539ae086ef7666f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Require this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html">IPipeable</a> to stop, blocking until actually stopped.  <a href="#ae41775c72425fda3539ae086ef7666f9">More...</a><br/></td></tr>
+<tr class="memdesc:ae41775c72425fda3539ae086ef7666f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Require this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ...">IPipeable</a> to stop, blocking until actually stopped.  <a href="#ae41775c72425fda3539ae086ef7666f9">More...</a><br/></td></tr>
 <tr class="separator:ae41775c72425fda3539ae086ef7666f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>All components of the <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html" title="This is the &quot;main&quot; class which you should create. ">SharpBCI</a> pipeline are expected to implement this interface. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">Pipeable</a> for an ABC which implement this in a performant and flexible manner. </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a8761061994efc0be275dafe8fc07d61e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -215,7 +221,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the input on this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html">IPipeable</a> to param input Should only be used internally by Connect. </p>
+<p>Set the input on this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ...">IPipeable</a> to param input Should only be used internally by Connect. </p>
 
 <p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a3dd47de67c12f9bdb7a521c0ad5f9bb2">SharpBCI.Pipeable</a>.</p>
 
@@ -264,7 +270,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Require this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html">IPipeable</a> to stop, blocking until actually stopped. </p>
+<p>Require this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ...">IPipeable</a> to stop, blocking until actually stopped. </p>
 
 <p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_producer.html#abe7c2e83fd1ef40dd6f997d99987349d">SharpBCI.EEGDeviceProducer</a>, and <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a714316963ff8f7ac8fdd7e4479f3f9c6">SharpBCI.Pipeable</a>.</p>
 

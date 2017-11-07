@@ -2,7 +2,9 @@ var NAVTREE =
 [
   [ "SharpBCI", "index.html", [
     [ "Welcome to the documentation site for SharpBCI, a robust real-time data processing library for C#.", "index.html", [
-      [ "Started", "index.html#Getting", null ]
+      [ "Getting Started", "index.html#getting-started", null ],
+      [ "the Library", "index.html#Creating", null ],
+      [ "Configuration", "index.html#config", null ]
     ] ],
     [ "Packages", null, [
       [ "Packages", "namespaces.html", "namespaces" ],
