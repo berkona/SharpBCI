@@ -8,6 +8,10 @@ using System.Collections.Concurrent;
 
 namespace SharpBCI {
 
+	/**
+	 * All components of the SharpBCI pipeline are expected to implement this interface.
+	 * @see Pipeable for an ABC which implement this in a performant and flexible manner.
+	 */
 	public interface IPipeable {
 		/**
 		 * Set the input on this IPipeable to param input

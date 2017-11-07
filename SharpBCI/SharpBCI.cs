@@ -9,11 +9,24 @@ using System.Threading.Tasks;
 /**
  * \mainpage Welcome to the documentation site for SharpBCI, a robust real-time data processing library for C#.
  * All methods should be assumed to be thread-safe (i.e., atomic) unless otherwise stated in the documentation.
- * \section Getting Started
- * Please read the Manual (//TODO insert link) for more detailed information about getting started.
- * SharpBCI should ideally be created using SharpBCIBuilder, but for flexiblity the "raw" SharpBCIConfig class is also provided
+ * 
+ * \tableofcontents
+ * 
+ * \section getting-started Getting Started
+ * //TODO create getting started section
+ * 
+ * \section Creating the Library
+ * SharpBCI should ideally be created using SharpBCIBuilder, but for flexiblity the "raw" SharpBCIConfig class is also provided.
+ * \section config Configuration
+ * 
+ * SharpBCI uses a Pipes-and-Filters model for processing data.  Which components are created, 
+ * the parameters of those components, and how they are connected to one another is controlled by
+ * a JSON configuration file.  The example repo contains an example configuration file which
+ * is sufficient for simple applications which wish to identify some small number of 
+ * signals which are differentiated by frequency bands. 
+ * 
+ * //TODO Insert description of config file here
  */
-
 
 namespace SharpBCI {
 
