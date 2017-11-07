@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpBCI", "SharpBCI\SharpBCI.csproj", "{F79D3784-C36E-4BE6-93FC-986481B2EABB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpBCI.Tests", "SharpBCI.Tests\SharpBCI.Tests.csproj", "{5C200640-2196-41CC-BB6A-3D6D63E370D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F79D3784-C36E-4BE6-93FC-986481B2EABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79D3784-C36E-4BE6-93FC-986481B2EABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79D3784-C36E-4BE6-93FC-986481B2EABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79D3784-C36E-4BE6-93FC-986481B2EABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C200640-2196-41CC-BB6A-3D6D63E370D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

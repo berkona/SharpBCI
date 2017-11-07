@@ -1,0 +1,64 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F79D3784-C36E-4BE6-93FC-986481B2EABB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SharpBCI</RootNamespace>
+    <AssemblyName>SharpBCI</AssemblyName>
+    <UseMSBuildEngine>false</UseMSBuildEngine>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="SharpOSC">
+      <HintPath>SharpOSC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DeviceAdapters.cs" />
+    <Compile Include="EEGData.cs" />
+    <Compile Include="FFT.cs" />
+    <Compile Include="FilterPipeable.cs" />
+    <Compile Include="Filters.cs" />
+    <Compile Include="IndexableQueue.cs" />
+    <Compile Include="IPredictorPipeable.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="Matrix.cs" />
+    <Compile Include="Pipeline.cs" />
+    <Compile Include="PipelineSerializer.cs" />
+    <Compile Include="Predictor.cs" />
+    <Compile Include="PredictorPipeable.cs" />
+    <Compile Include="Preprocessors.cs" />
+    <Compile Include="SharpBCI.cs" />
+    <Compile Include="Smoothers.cs" />
+    <Compile Include="Statistics.cs" />
+    <Compile Include="TimeSeriesSmootherPipeable.cs" />
+    <Compile Include="DSPLib.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AggregatePredictors.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
