@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['channels',['channels',['../class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a5c4d167d19d09f6f930a482db852ac69',1,'SharpBCI.EEGDeviceAdapter.channels()'],['../class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3de9635ac1944af5ff2ac8ac20fc3ded',1,'SharpBCI.SharpBCI.channels()']]],
-  ['current',['current',['../class_sharp_b_c_i_1_1_time_series_smoother.html#a18840ca004a4977436bdc7d60cea5c86',1,'SharpBCI::TimeSeriesSmoother']]]
+  ['bandlookup',['bandLookup',['../class_sharp_b_c_i_1_1_predictor.html#a23dd603e4a48b0f12921d58a9f91252a',1,'SharpBCI::Predictor']]],
+  ['bands',['bands',['../class_sharp_b_c_i_1_1_predictor.html#aad107a8fb722300eae48d45e66e97f94',1,'SharpBCI::Predictor']]],
+  ['bandweights',['bandWeights',['../class_sharp_b_c_i_1_1_predictor.html#ae2d0a153c7aa0a0f832ebcee8ac7e370',1,'SharpBCI::Predictor']]]
 ];

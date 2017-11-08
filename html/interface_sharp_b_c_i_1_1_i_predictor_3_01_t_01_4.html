@@ -117,10 +117,9 @@ Inheritance diagram for SharpBCI.IPredictor&lt; T &gt;:</div>
  <div class="center">
   <img src="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.png" usemap="#SharpBCI.IPredictor&lt; T &gt;_map" alt=""/>
   <map id="SharpBCI.IPredictor&lt; T &gt;_map" name="SharpBCI.IPredictor&lt; T &gt;_map">
-<area href="class_sharp_b_c_i_1_1_aggregate_k_n_n_predictor.html" title="An IPredictor which uses a 3-dimensional loci of points in the form of an array of EEGEvent&#39;s to clas..." alt="SharpBCI.AggregateKNNPredictor" shape="rect" coords="0,56,332,80"/>
-<area href="class_sharp_b_c_i_1_1_nearest_neighbor_predictor.html" alt="SharpBCI.NearestNeighborPredictor" shape="rect" coords="342,56,674,80"/>
-<area href="class_sharp_b_c_i_1_1_correlation_coefficent_nearest_neigbor_predictor.html" alt="SharpBCI.CorrelationCoefficentNearestNeigborPredictor" shape="rect" coords="171,112,503,136"/>
-<area href="class_sharp_b_c_i_1_1_k_nearest_neighbor.html" alt="SharpBCI.KNearestNeighbor" shape="rect" coords="513,112,845,136"/>
+<area href="class_sharp_b_c_i_1_1_predictor.html" title="An IPredictor which uses a 3-dimensional loci of points in the form of an array of EEGEvent&#39;s to clas..." alt="SharpBCI.Predictor" shape="rect" coords="140,56,410,80"/>
+<area href="class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html" alt="SharpBCI.AggregateKNNCorrelationPredictor" shape="rect" coords="0,112,270,136"/>
+<area href="class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html" alt="SharpBCI.AggregateKNNDTWPredictor" shape="rect" coords="280,112,550,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -128,6 +127,8 @@ Inheritance diagram for SharpBCI.IPredictor&lt; T &gt;:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aecb16fdf13e2e18231ac46d1c3062a4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#aecb16fdf13e2e18231ac46d1c3062a4d">AddTrainingData</a> (int label, T data)</td></tr>
 <tr class="separator:aecb16fdf13e2e18231ac46d1c3062a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9104d1e0db6275104f5e80beef1d8e31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#a9104d1e0db6275104f5e80beef1d8e31">ClearTrainingData</a> ()</td></tr>
+<tr class="separator:a9104d1e0db6275104f5e80beef1d8e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0f54060aaec1d8ca6db41d514d59666"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#af0f54060aaec1d8ca6db41d514d59666">Predict</a> (T test)</td></tr>
 <tr class="separator:af0f54060aaec1d8ca6db41d514d59666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -158,6 +159,23 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a9104d1e0db6275104f5e80beef1d8e31"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.IPredictor&lt; T &gt;.ClearTrainingData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a35ec542f6bde19de4074566378683ea5">SharpBCI.Predictor</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="af0f54060aaec1d8ca6db41d514d59666"></a>
 <div class="memitem">
 <div class="memproto">
@@ -175,7 +193,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li>/home/travis/build/berkona/SharpBCI/SharpBCI/<a class="el" href="_predictor_8cs.html">Predictor.cs</a></li>
+<li>/home/travis/build/berkona/SharpBCI/SharpBCI/<a class="el" href="_aggregate_predictors_8cs.html">AggregatePredictors.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

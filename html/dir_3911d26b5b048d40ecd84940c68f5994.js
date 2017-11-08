@@ -3,8 +3,12 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
     [ "obj", "dir_32fab413a8b1b974c70f071b896ca7c6.html", "dir_32fab413a8b1b974c70f071b896ca7c6" ],
     [ "Properties", "dir_bd7f4621e231727f654ad05974109346.html", "dir_bd7f4621e231727f654ad05974109346" ],
     [ "AggregatePredictors.cs", "_aggregate_predictors_8cs.html", [
+      [ "IPredictor< T >", "interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html", "interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4" ],
+      [ "IPredictorPipeable", "interface_sharp_b_c_i_1_1_i_predictor_pipeable.html", "interface_sharp_b_c_i_1_1_i_predictor_pipeable" ],
       [ "AggregatePredictionPipeable", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable" ],
-      [ "AggregateKNNPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_predictor" ]
+      [ "Predictor", "class_sharp_b_c_i_1_1_predictor.html", "class_sharp_b_c_i_1_1_predictor" ],
+      [ "AggregateKNNCorrelationPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor" ],
+      [ "AggregateKNNDTWPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor" ]
     ] ],
     [ "ComplexPatch.cs", "_complex_patch_8cs.html", [
       [ "Complex", "struct_system_1_1_numerics_1_1_complex.html", "struct_system_1_1_numerics_1_1_complex" ]
@@ -21,6 +25,7 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
       [ "FFT", "class_d_s_p_lib_1_1_f_f_t.html", "class_d_s_p_lib_1_1_f_f_t" ],
       [ "DSP", "class_d_s_p_lib_1_1_d_s_p.html", null ]
     ] ],
+    [ "DynamicTimeWarping.cs", "_dynamic_time_warping_8cs.html", "_dynamic_time_warping_8cs" ],
     [ "EEGData.cs", "_e_e_g_data_8cs.html", "_e_e_g_data_8cs" ],
     [ "FFT.cs", "_f_f_t_8cs.html", [
       [ "IVectorizedSmoother< T >", "interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html", "interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4" ],
@@ -46,9 +51,6 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
     [ "IndexableQueue.cs", "_indexable_queue_8cs.html", [
       [ "IndexableQueue< T >", "class_sharp_b_c_i_1_1_indexable_queue_3_01_t_01_4.html", "class_sharp_b_c_i_1_1_indexable_queue_3_01_t_01_4" ]
     ] ],
-    [ "IPredictorPipeable.cs", "_i_predictor_pipeable_8cs.html", [
-      [ "IPredictorPipeable", "interface_sharp_b_c_i_1_1_i_predictor_pipeable.html", "interface_sharp_b_c_i_1_1_i_predictor_pipeable" ]
-    ] ],
     [ "Logger.cs", "_logger_8cs.html", "_logger_8cs" ],
     [ "Matrix.cs", "_matrix_8cs.html", null ],
     [ "Pipeline.cs", "_pipeline_8cs.html", [
@@ -59,11 +61,6 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
       [ "SerializedPipeline", "class_sharp_b_c_i_1_1_serialized_pipeline.html", "class_sharp_b_c_i_1_1_serialized_pipeline" ],
       [ "SerializedStage", "class_sharp_b_c_i_1_1_serialized_stage.html", "class_sharp_b_c_i_1_1_serialized_stage" ],
       [ "SerializedConnectionInfo", "class_sharp_b_c_i_1_1_serialized_connection_info.html", "class_sharp_b_c_i_1_1_serialized_connection_info" ]
-    ] ],
-    [ "Predictor.cs", "_predictor_8cs.html", "_predictor_8cs" ],
-    [ "PredictorPipeable.cs", "_predictor_pipeable_8cs.html", [
-      [ "PredictorPipeable", "class_sharp_b_c_i_1_1_predictor_pipeable.html", "class_sharp_b_c_i_1_1_predictor_pipeable" ],
-      [ "DynamicallyAveragedData", "class_sharp_b_c_i_1_1_dynamically_averaged_data.html", "class_sharp_b_c_i_1_1_dynamically_averaged_data" ]
     ] ],
     [ "Preprocessors.cs", "_preprocessors_8cs.html", [
       [ "IPreprocessor", "interface_sharp_b_c_i_1_1_i_preprocessor.html", "interface_sharp_b_c_i_1_1_i_preprocessor" ],

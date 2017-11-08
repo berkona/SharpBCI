@@ -117,9 +117,8 @@ Inheritance diagram for SharpBCI.IPredictorPipeable:</div>
  <div class="center">
   <img src="interface_sharp_b_c_i_1_1_i_predictor_pipeable.png" usemap="#SharpBCI.IPredictorPipeable_map" alt=""/>
   <map id="SharpBCI.IPredictorPipeable_map" name="SharpBCI.IPredictorPipeable_map">
-<area href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ..." alt="SharpBCI.IPipeable" shape="rect" coords="122,0,357,24"/>
+<area href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ..." alt="SharpBCI.IPipeable" shape="rect" coords="0,0,235,24"/>
 <area href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html" title="A pipeable which aggregates received EEGEvents into an array based on the reported EEGEvent timestamp..." alt="SharpBCI.AggregatePredictionPipeable" shape="rect" coords="0,112,235,136"/>
-<area href="class_sharp_b_c_i_1_1_predictor_pipeable.html" alt="SharpBCI.PredictorPipeable" shape="rect" coords="245,112,480,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -129,6 +128,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:acaae950cb218e44e3481676a2bcd8241"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a041741527611f1e4aca6c00710a80c3e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_pipeable.html#a041741527611f1e4aca6c00710a80c3e">StopTraining</a> (int id)</td></tr>
 <tr class="separator:a041741527611f1e4aca6c00710a80c3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d0d254ab5916f705ac4bce2dea3418"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_pipeable.html#a74d0d254ab5916f705ac4bce2dea3418">ClearTrainingData</a> ()</td></tr>
+<tr class="separator:a74d0d254ab5916f705ac4bce2dea3418"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_interface_sharp_b_c_i_1_1_i_pipeable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interface_sharp_b_c_i_1_1_i_pipeable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html">SharpBCI.IPipeable</a></td></tr>
 <tr class="memitem:a1775fb57fee4ffe5716ff0fe99a17a2a inherit pub_methods_interface_sharp_b_c_i_1_1_i_pipeable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html#a1775fb57fee4ffe5716ff0fe99a17a2a">SetInput</a> (BlockingCollection&lt; object &gt; input)</td></tr>
 <tr class="memdesc:a1775fb57fee4ffe5716ff0fe99a17a2a inherit pub_methods_interface_sharp_b_c_i_1_1_i_pipeable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input on this <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html" title="All components of the SharpBCI pipeline are expected to implement this interface. ...">IPipeable</a> to param input Should only be used internally by Connect.  <a href="#a1775fb57fee4ffe5716ff0fe99a17a2a">More...</a><br/></td></tr>
@@ -147,6 +148,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae41775c72425fda3539ae086ef7666f9 inherit pub_methods_interface_sharp_b_c_i_1_1_i_pipeable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a74d0d254ab5916f705ac4bce2dea3418"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.IPredictorPipeable.ClearTrainingData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a5bbe6ffbbe14ce0ccb2d6e59338da07a">SharpBCI.AggregatePredictionPipeable</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="acaae950cb218e44e3481676a2bcd8241"></a>
 <div class="memitem">
 <div class="memproto">
@@ -161,7 +179,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#aad04e6f696308b2953245f2fc84e5f62">SharpBCI.AggregatePredictionPipeable</a>, and <a class="el" href="class_sharp_b_c_i_1_1_predictor_pipeable.html#a615a559e97b392194f01db266cfd2224">SharpBCI.PredictorPipeable</a>.</p>
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#aad04e6f696308b2953245f2fc84e5f62">SharpBCI.AggregatePredictionPipeable</a>.</p>
 
 </div>
 </div>
@@ -179,12 +197,12 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a2d50e5d2eb8eeb0bd85499ce580371ae">SharpBCI.AggregatePredictionPipeable</a>, and <a class="el" href="class_sharp_b_c_i_1_1_predictor_pipeable.html#a0842e65ef71b0b95139269d85b354a5c">SharpBCI.PredictorPipeable</a>.</p>
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a2d50e5d2eb8eeb0bd85499ce580371ae">SharpBCI.AggregatePredictionPipeable</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this interface was generated from the following file:<ul>
-<li>/home/travis/build/berkona/SharpBCI/SharpBCI/<a class="el" href="_i_predictor_pipeable_8cs.html">IPredictorPipeable.cs</a></li>
+<li>/home/travis/build/berkona/SharpBCI/SharpBCI/<a class="el" href="_aggregate_predictors_8cs.html">AggregatePredictors.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

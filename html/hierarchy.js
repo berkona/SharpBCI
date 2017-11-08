@@ -5,7 +5,6 @@ var hierarchy =
     [ "DSPLib.DFT", "class_d_s_p_lib_1_1_d_f_t.html", null ],
     [ "DSPLib.DSP", "class_d_s_p_lib_1_1_d_s_p.html", null ],
     [ "SharpBCI.DummyAdapterSignal", "struct_sharp_b_c_i_1_1_dummy_adapter_signal.html", null ],
-    [ "SharpBCI.DynamicallyAveragedData", "class_sharp_b_c_i_1_1_dynamically_averaged_data.html", null ],
     [ "SharpBCI.DynamicTimeWarping", "class_sharp_b_c_i_1_1_dynamic_time_warping.html", null ],
     [ "SharpBCI.EEGDeviceAdapter", "class_sharp_b_c_i_1_1_e_e_g_device_adapter.html", [
       [ "SharpBCI.InstrumentedDummyAdapter", "class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html", [
@@ -37,14 +36,12 @@ var hierarchy =
     [ "SharpBCI.IndexableQueue< T >", "class_sharp_b_c_i_1_1_indexable_queue_3_01_t_01_4.html", null ],
     [ "SharpBCI.IPipeable", "interface_sharp_b_c_i_1_1_i_pipeable.html", [
       [ "SharpBCI.IPredictorPipeable", "interface_sharp_b_c_i_1_1_i_predictor_pipeable.html", [
-        [ "SharpBCI.AggregatePredictionPipeable", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html", null ],
-        [ "SharpBCI.PredictorPipeable", "class_sharp_b_c_i_1_1_predictor_pipeable.html", null ]
+        [ "SharpBCI.AggregatePredictionPipeable", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html", null ]
       ] ],
       [ "SharpBCI.Pipeable", "class_sharp_b_c_i_1_1_pipeable.html", [
         [ "SharpBCI.AggregatePredictionPipeable", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html", null ],
         [ "SharpBCI.EEGDeviceProducer", "class_sharp_b_c_i_1_1_e_e_g_device_producer.html", null ],
         [ "SharpBCI.FFTPipeable", "class_sharp_b_c_i_1_1_f_f_t_pipeable.html", null ],
-        [ "SharpBCI.PredictorPipeable", "class_sharp_b_c_i_1_1_predictor_pipeable.html", null ],
         [ "SharpBCI.RawEventEmitter", "class_sharp_b_c_i_1_1_raw_event_emitter.html", null ],
         [ "SharpBCI.SimpleFilterPipeable", "class_sharp_b_c_i_1_1_simple_filter_pipeable.html", null ],
         [ "SharpBCI.TimeSeriesSmootherPipeable", "class_sharp_b_c_i_1_1_time_series_smoother_pipeable.html", null ],
@@ -52,10 +49,9 @@ var hierarchy =
       ] ]
     ] ],
     [ "SharpBCI.IPredictor< T >", "interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html", [
-      [ "SharpBCI.AggregateKNNPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_predictor.html", null ],
-      [ "SharpBCI.NearestNeighborPredictor", "class_sharp_b_c_i_1_1_nearest_neighbor_predictor.html", [
-        [ "SharpBCI.CorrelationCoefficentNearestNeigborPredictor", "class_sharp_b_c_i_1_1_correlation_coefficent_nearest_neigbor_predictor.html", null ],
-        [ "SharpBCI.KNearestNeighbor", "class_sharp_b_c_i_1_1_k_nearest_neighbor.html", null ]
+      [ "SharpBCI.Predictor", "class_sharp_b_c_i_1_1_predictor.html", [
+        [ "SharpBCI.AggregateKNNCorrelationPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html", null ],
+        [ "SharpBCI.AggregateKNNDTWPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html", null ]
       ] ]
     ] ],
     [ "SharpBCI.IPreprocessor", "interface_sharp_b_c_i_1_1_i_preprocessor.html", [

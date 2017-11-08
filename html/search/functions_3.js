@@ -6,6 +6,5 @@ var searchData=
   ['dispose',['Dispose',['../class_sharp_b_c_i_1_1_console_logger.html#a93537c55a12a2cb31a3968758c811ded',1,'SharpBCI.ConsoleLogger.Dispose()'],['../class_sharp_b_c_i_1_1_file_logger.html#ab7570ff571ebeecbbc3437218be65993',1,'SharpBCI.FileLogger.Dispose()']]],
   ['dummyadapter',['DummyAdapter',['../class_sharp_b_c_i_1_1_dummy_adapter.html#a8f12c89b4f94a6f9beb49787cc719128',1,'SharpBCI.DummyAdapter.DummyAdapter(DummyAdapterSignal signal, double sampleRate)'],['../class_sharp_b_c_i_1_1_dummy_adapter.html#ad1b7490f7aadbb1148a84b59caada133',1,'SharpBCI.DummyAdapter.DummyAdapter(DummyAdapterSignal signal, double sampleRate, double signalToNoise)']]],
   ['dummyadaptersignal',['DummyAdapterSignal',['../struct_sharp_b_c_i_1_1_dummy_adapter_signal.html#ac2fd60e6f2c5eb2e7fcf0e3f114a9075',1,'SharpBCI::DummyAdapterSignal']]],
-  ['dynamicallyaverageddata',['DynamicallyAveragedData',['../class_sharp_b_c_i_1_1_dynamically_averaged_data.html#afb44dda6f2391dddf65acab35cd30efb',1,'SharpBCI::DynamicallyAveragedData']]],
   ['dynamictimewarping',['DynamicTimeWarping',['../class_sharp_b_c_i_1_1_dynamic_time_warping.html#a4a64c28b917dc511f399a9c779e04353',1,'SharpBCI::DynamicTimeWarping']]]
 ];

@@ -92,6 +92,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="functions_f.html#index_f"><span>f</span></a></li>
       <li><a href="functions_g.html#index_g"><span>g</span></a></li>
       <li><a href="functions_i.html#index_i"><span>i</span></a></li>
+      <li><a href="functions_k.html#index_k"><span>k</span></a></li>
       <li><a href="functions_l.html#index_l"><span>l</span></a></li>
       <li><a href="functions_m.html#index_m"><span>m</span></a></li>
       <li><a href="functions_n.html#index_n"><span>n</span></a></li>
@@ -147,10 +148,14 @@ $(document).ready(function(){initNavTree('functions_c.html','');});
 </li>
 <li>channels
 : <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a5c4d167d19d09f6f930a482db852ac69">SharpBCI.EEGDeviceAdapter</a>
+, <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a87bfea5e6fc9c61c14e74af37a7f1cf2">SharpBCI.Predictor</a>
 , <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3de9635ac1944af5ff2ac8ac20fc3ded">SharpBCI.SharpBCI</a>
 </li>
-<li>Clear()
-: <a class="el" href="class_sharp_b_c_i_1_1_dynamically_averaged_data.html#ab7158f7844fa3332416d409575b845ad">SharpBCI.DynamicallyAveragedData</a>
+<li>ClearTrainingData()
+: <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a5bbe6ffbbe14ce0ccb2d6e59338da07a">SharpBCI.AggregatePredictionPipeable</a>
+, <a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#a9104d1e0db6275104f5e80beef1d8e31">SharpBCI.IPredictor&lt; T &gt;</a>
+, <a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_pipeable.html#a74d0d254ab5916f705ac4bce2dea3418">SharpBCI.IPredictorPipeable</a>
+, <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a35ec542f6bde19de4074566378683ea5">SharpBCI.Predictor</a>
 </li>
 <li>Close()
 : <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a8192f9ae2f6601c32418f952b0dfaec6">SharpBCI.SharpBCI</a>
@@ -159,16 +164,19 @@ $(document).ready(function(){initNavTree('functions_c.html','');});
 : <a class="el" href="struct_system_1_1_numerics_1_1_complex.html#a3691858a124aa0ead3e7fa275ea5c493">System.Numerics.Complex</a>
 </li>
 <li>Compute()
-: <a class="el" href="class_sharp_b_c_i_1_1_correlation_coefficent_nearest_neigbor_predictor.html#a79226934fde3fde908cb5bf1fd4ba585">SharpBCI.CorrelationCoefficentNearestNeigborPredictor</a>
-, <a class="el" href="class_sharp_b_c_i_1_1_k_nearest_neighbor.html#a2d8e3896bdd40006292a65a730c260fa">SharpBCI.KNearestNeighbor</a>
-, <a class="el" href="class_sharp_b_c_i_1_1_nearest_neighbor_predictor.html#a2e02122bb6b9d9836d4f668b5b54acbe">SharpBCI.NearestNeighborPredictor</a>
+: <a class="el" href="class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html#a296506a870239b19f902fd32286cb4b9">SharpBCI.AggregateKNNCorrelationPredictor</a>
+, <a class="el" href="class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html#a408f8e6c91f7f26252b7b4b81ab1fe56">SharpBCI.AggregateKNNDTWPredictor</a>
+, <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a6b443572ab1915f1129500730c13d240">SharpBCI.Predictor</a>
+</li>
+<li>ComputeDistances()
+: <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a5265d37b297bb85db5d5921c887f13e6">SharpBCI.Predictor</a>
 </li>
 <li>Conjugate()
 : <a class="el" href="struct_system_1_1_numerics_1_1_complex.html#a456506abb341a417cdb061bb641ab2cb">System.Numerics.Complex</a>
 </li>
 <li>Connect()
 : <a class="el" href="interface_sharp_b_c_i_1_1_i_pipeable.html#a8761061994efc0be275dafe8fc07d61e">SharpBCI.IPipeable</a>
-, <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a484ed00cf334e582bbca3f02b2de32b4">SharpBCI.Pipeable</a>
+, <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a9ca41f69b9c57f4ef50208f42ceba9ec">SharpBCI.Pipeable</a>
 </li>
 <li>connectionStatus
 : <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a4ee5fa59eef86aad0254305e58d43a63">SharpBCI.SharpBCI</a>

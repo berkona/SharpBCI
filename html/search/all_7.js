@@ -17,7 +17,6 @@ var searchData=
   ['ipipeable',['IPipeable',['../interface_sharp_b_c_i_1_1_i_pipeable.html',1,'SharpBCI']]],
   ['ipredictor_3c_20t_20_3e',['IPredictor&lt; T &gt;',['../interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html',1,'SharpBCI']]],
   ['ipredictorpipeable',['IPredictorPipeable',['../interface_sharp_b_c_i_1_1_i_predictor_pipeable.html',1,'SharpBCI']]],
-  ['ipredictorpipeable_2ecs',['IPredictorPipeable.cs',['../_i_predictor_pipeable_8cs.html',1,'']]],
   ['ipreprocessor',['IPreprocessor',['../interface_sharp_b_c_i_1_1_i_preprocessor.html',1,'SharpBCI']]],
   ['isusingcached',['IsUsingCached',['../class_d_s_p_lib_1_1_d_f_t.html#ab002874e2496131b313e469caaea6f97',1,'DSPLib::DFT']]],
   ['isvalid',['isValid',['../class_sharp_b_c_i_1_1_online_variance.html#a53234283aa92f76ff64c60f006d0f0e1',1,'SharpBCI::OnlineVariance']]],
