@@ -36,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Statistics.cs" />
+    <Compile Include="Predictor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpBCI\SharpBCI.csproj">

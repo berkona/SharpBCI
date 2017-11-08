@@ -43,19 +43,17 @@
     <Compile Include="FilterPipeable.cs" />
     <Compile Include="Filters.cs" />
     <Compile Include="IndexableQueue.cs" />
-    <Compile Include="IPredictorPipeable.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Pipeline.cs" />
     <Compile Include="PipelineSerializer.cs" />
-    <Compile Include="Predictor.cs" />
-    <Compile Include="PredictorPipeable.cs" />
     <Compile Include="Preprocessors.cs" />
     <Compile Include="SharpBCI.cs" />
     <Compile Include="Smoothers.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="TimeSeriesSmootherPipeable.cs" />
     <Compile Include="DSPLib.cs" />
+    <Compile Include="DynamicTimeWarping.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregatePredictors.cs" />

@@ -2,186 +2,288 @@
 using System.Linq;
 using System.Collections.Generic;
 
-namespace SharpBCI {
+namespace SharpBCI
+{
+    public interface IPredictor<T>
+    {
+        void AddTrainingData(int label, T data);
+        void ClearTrainingData();
+        int Predict(T test);
+    }
 
-	/**
+    public interface IPredictorPipeable : IPipeable
+    {
+        void StartTraining(int id);
+        void StopTraining(int id);
+        void ClearTrainingData();
+    }
+
+    /**
 	 * A pipeable which aggregates received EEGEvents into an array based on the reported EEGEvent timestamp
 	 * and then uses an IPredictor<EEGEvent[]> to train/classify on them
 	 */
-	public class AggregatePredictionPipeable : Pipeable, IPredictorPipeable {
+    public class AggregatePredictionPipeable : Pipeable, IPredictorPipeable
+    {
 
-		public static int ID_PREDICT = 0;
+        public static int ID_PREDICT = 0;
 
-		IPredictor<EEGEvent[]> predictor;
-		int trainingId = ID_PREDICT;
-		DateTime currentTimeStep;
-		EEGEvent[] buffer;
-		EEGDataType[] types;
-		Dictionary<EEGDataType, int> indexMap;
+        IPredictor<EEGEvent[]> predictor;
+        int trainingId = ID_PREDICT;
+        DateTime currentTimeStep;
+        EEGEvent[] buffer;
+        EEGDataType[] types;
+        Dictionary<EEGDataType, int> indexMap;
 
-		public AggregatePredictionPipeable(int channels, int k, double thresholdProb, object[] typeNames) 
-			: this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray()) {}
+        public AggregatePredictionPipeable(int channels, int k, double thresholdProb, object[] typeNames)
+            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray()) { }
 
-		public AggregatePredictionPipeable(int channels, int k, double thresholdProb, EEGDataType[] types) {
-			this.types = types;
+        public AggregatePredictionPipeable(int channels, int k, double thresholdProb, EEGDataType[] types)
+        {
+            if (channels <= 0 || k <= 0 || thresholdProb < 0 || thresholdProb >= 1)
+                throw new ArgumentOutOfRangeException();
+            
+            if (types.Length == 0 || types == null)
+                    throw new ArgumentOutOfRangeException();
+            this.types = types;
 
-			buffer = new EEGEvent[types.Length];
+            buffer = new EEGEvent[types.Length];
 
-			predictor = new AggregateKNNPredictor(channels, k, thresholdProb, types);
-			indexMap = new Dictionary<EEGDataType, int>();
-			for (int i = 0; i < types.Length; i++) {
-				indexMap.Add(types[i], i);
-			}
-		}
+            predictor = new AggregateKNNCorrelationPredictor(channels, k, thresholdProb, types);
+            indexMap = new Dictionary<EEGDataType, int>();
+            for (int i = 0; i < types.Length; i++)
+            {
+                indexMap.Add(types[i], i);
+            }
+        }
 
-		protected override bool Process(object item) {
-			EEGEvent evt = (EEGEvent)item;
-			if (!types.Contains(evt.type))
-				return true;
+        public void ClearTrainingData()
+        {
+            predictor.ClearTrainingData();
+        }
 
-			if (evt.timestamp != currentTimeStep) {
-				CheckBufferAndPredict();
-				currentTimeStep = evt.timestamp;
-			}
-			
-			buffer[indexMap[evt.type]] = evt;
+        public void StartTraining(int id)
+        {
+            if (trainingId != ID_PREDICT)
+                throw new InvalidOperationException("Training already started");
+            trainingId = id;
+        }
 
-			return true;
-		}
+        public void StopTraining(int id)
+        {
+            if (trainingId == ID_PREDICT)
+                throw new InvalidOperationException("No training started");
+            trainingId = ID_PREDICT;
+        }
 
-		void CheckBufferAndPredict() {
-			for (int i = 0; i < buffer.Length; i++) {
-				if (buffer[i] == null) return;
-			}
+        protected override bool Process(object item)
+        {
+            EEGEvent evt = (EEGEvent)item;
+            if (!types.Contains(evt.type))
+                return true;
 
-			if (trainingId == ID_PREDICT) {
-				var prediction = predictor.Predict(buffer);
-				if (prediction != -1)
-					Logger.Log(string.Format("Predicted: {0}", prediction));
-					Add(new TrainedEvent(prediction));
-			} else {
-				predictor.AddTrainingData(trainingId, buffer);
-			}
+            if (evt.timestamp != currentTimeStep)
+            {
+                CheckBufferAndPredict();
+                currentTimeStep = evt.timestamp;
+            }
 
-			buffer = new EEGEvent[types.Length];
-		}
+            buffer[indexMap[evt.type]] = evt;
 
-		public void StartTraining(int id) {
-			if (trainingId != ID_PREDICT)
-				throw new InvalidOperationException("Training already started");
-			trainingId = id;
-		}
+            return true;
+        }
 
-		public void StopTraining(int id) {
-			if (trainingId == ID_PREDICT)
-				throw new InvalidOperationException("No training started");
-			trainingId = ID_PREDICT;
-		}
-	}
+        void CheckBufferAndPredict()
+        {
+            for (int i = 0; i < buffer.Length; i++)
+            {
+                if (buffer[i] == null) return;
+            }
 
-	/**
+            if (trainingId == ID_PREDICT)
+            {
+                var prediction = predictor.Predict(buffer);
+                if (prediction != -1)
+                    Logger.Log(string.Format("Predicted: {0}", prediction));
+                Add(new TrainedEvent(prediction));
+            }
+            else
+            {
+                predictor.AddTrainingData(trainingId, buffer);
+            }
+
+            buffer = new EEGEvent[types.Length];
+        }
+    }
+
+    /**
 	 * An IPredictor which uses a 3-dimensional loci of points in the form of an array of EEGEvent's to classify EEG data
 	 */
-	public class AggregateKNNPredictor : IPredictor<EEGEvent[]> {
 
-		readonly Dictionary<EEGDataType, int> bandLookup = new Dictionary<EEGDataType, int>();
-		readonly Dictionary<int, List<double[,]>> pointCloud = new Dictionary<int, List<double[,]>>();
-		readonly EEGDataType[] bands;
-		readonly int channels;
-		readonly int k;
-		readonly double thresholdProb;
+    public abstract class Predictor : IPredictor<EEGEvent[]>
+    {
 
-		public AggregateKNNPredictor(int channels, int k, double thresholdProb, EEGDataType[] bands) {
-			this.channels = channels;
-			this.bands = bands;
-			this.k = k;
+        protected readonly Dictionary<EEGDataType, int> bandLookup = new Dictionary<EEGDataType, int>();
+        protected readonly Dictionary<int, List<double[][]>> trainingData = new Dictionary<int, List<double[][]>>();
+        protected readonly EEGDataType[] bands;
+        protected readonly int channels;
+        protected readonly int k;
+        protected readonly double thresholdProb;
+        protected double[] bandWeights, channelWeights;
+
+        public Predictor(int channels, int k, double thresholdProb, EEGDataType[] bands)
+        {
+
+            if (channels <= 0 || k <= 0 || thresholdProb < 0 || thresholdProb >= 1)
+                throw new ArgumentOutOfRangeException();
+
+            if (bands == null || bands.Length == 0)
+                throw new ArgumentOutOfRangeException();
+            
+            this.channels = channels;
+            this.channelWeights = Enumerable.Repeat<double>(1, channels).ToArray();
+            this.bands = bands;
+            this.bandWeights = Enumerable.Repeat<double>(1, bands.Length).ToArray();
+            this.k = k;
             this.thresholdProb = thresholdProb;
 
-			for (int i = 0; i < bands.Length; i++) {
-				bandLookup.Add(bands[i], i);
-			}
-		}
+            for (int i = 0; i < bands.Length; i++)
+            {
+                bandLookup.Add(bands[i], i);
+            }
+        }
 
-		public int Predict(EEGEvent[] events) {
-			var bandSpacePoint = TransformToBandSpace(events);
+        public void AddTrainingData(int id, EEGEvent[] events)
+        {
+            if (!trainingData.ContainsKey(id))
+                trainingData.Add(id, new List<double[][]>());
+            trainingData[id].Add(TransformToBandSpace(events));
+        }
 
-			var distances = new List<KeyValuePair<int, double>>();
+        public void ClearTrainingData() {
+            trainingData.Clear();
+        }
 
-			// O(N) * O(|channels|) * O(|bands|) performance
-			foreach (var pair in pointCloud) {
-				foreach (var point in pair.Value) { 
-					double dist = Distance(bandSpacePoint, point);
-					distances.Add(new KeyValuePair<int, double>(pair.Key, dist));
-				}
-			}
+        public int Predict(EEGEvent[] events)
+        {
+            var nearestNeighbors = ComputeDistances(TransformToBandSpace(events));
 
-			if (distances.Count == 0)
-				return -1;
+            if (nearestNeighbors == null)
+                return -1;
 
-			var nearestNeighbors = distances.OrderByDescending((x) => x.Value).Take(k);
+            int prediction = Vote(nearestNeighbors);
 
-			// use a plurality voting system weighted by distance from us
-			double voteSum = 0;
-			Dictionary<int, double> votes = new Dictionary<int, double>();
-			foreach (var neighbor in nearestNeighbors) {
-				if (!votes.ContainsKey(neighbor.Key))
-					votes.Add(neighbor.Key, 0);
-				var vote = 1.0 / neighbor.Value;
-				votes[neighbor.Key] += vote;
-				voteSum += vote;
-			}
+            return prediction;
 
-			var winner = votes.OrderBy((x) => x.Value).First();
-			return winner.Value / voteSum > thresholdProb ? winner.Key : -1;
-		}
+        }
 
-		public void AddTrainingData(int id, EEGEvent[] events) {
-			if (!pointCloud.ContainsKey(id))
-				pointCloud.Add(id, new List<double[,]>());
-			pointCloud[id].Add(TransformToBandSpace(events));
-		}
+        public List<KeyValuePair<int, double>> ComputeDistances(double[][] data)
+        {
+            var distances = new List<KeyValuePair<int, double>>();
 
-		double[,] TransformToBandSpace(EEGEvent[] events) {
-			// transform to a set of points in band-space
-			double[,] points = new double[channels, bands.Length];
-			foreach (EEGEvent evt in events) {
-				var bIdx = bandLookup[evt.type];
-				for (int cIdx = 0; cIdx < evt.data.Length; cIdx++) {
-					points[cIdx, bIdx] = evt.data[cIdx];
-				}
-			}
-			return points;
-		}
+            // O(N) * O(|channels|) * O(|bands|) performance
+            foreach (var pair in trainingData)
+            {
+                foreach (var point in pair.Value)
+                {
+                    double dist = Distance(data, point);
+                    distances.Add(new KeyValuePair<int, double>(pair.Key, dist));
+                }
+            }
 
-		double Distance(double[,] a, double[,] b) {
-			double dist = 0;
-			for (int cIdx = 0; cIdx < channels; cIdx++) {
-				double[] aRow = new double[a.GetLength(1)];
-				double[] bRow = new double[b.GetLength(1)];
-				for (int bIdx = 0; bIdx < bands.Length; bIdx++) {
-					aRow [bIdx] = a [cIdx, bIdx];
-					bRow [bIdx] = b [cIdx, bIdx];
-				}
-				dist += (Corr(aRow,bRow)+1) / bands.Length;
-			}
-			dist /= channels;
-			return dist;
-		}
+            if (distances.Count == 0)
+                return null;
 
-		double Corr(double[] x, double[] y)
-		{
+            return distances.ToList();
+        }
 
-			double xAvg = x.Average ();
-			double yAvg = y.Average ();
+        public int Vote(List<KeyValuePair<int, double>> neighbors)
+        {
+            var nearestNeighbors = neighbors.OrderByDescending((x) => x.Value).Take(k);
 
-			double numerator = x.Zip (y, (xi, yi) => (xi - xAvg) * (yi - yAvg)).Sum ();
+            // use a plurality voting system weighted by distance from us
+            double voteSum = 0;
+            Dictionary<int, double> votes = new Dictionary<int, double>();
+            foreach (var neighbor in nearestNeighbors)
+            {
+                if (!votes.ContainsKey(neighbor.Key))
+                    votes.Add(neighbor.Key, 0);
+                var vote = 1.0 / neighbor.Value;
+                votes[neighbor.Key] += vote;
+                voteSum += vote;
+            }
 
-			double xSumSq = x.Sum (i => Math.Pow ((i - xAvg), 2));
-			double ySumSq = y.Sum (i => Math.Pow ((i - yAvg), 2));
+            var winner = votes.OrderBy((x) => x.Value).First();
+            return winner.Value / voteSum > thresholdProb ? winner.Key : -1;
+        }
 
-			double denominator = Math.Sqrt (xSumSq * ySumSq);
 
-			return numerator / denominator;
-		}
-	}
+        double[][] TransformToBandSpace(EEGEvent[] events)
+        {
+            // transform to a set of points in band-space
+            double[][] points = new double[channels][];
+            for (int i = 0; i < points.Length; i++)
+                points[i] = new double[bands.Length];
+
+            foreach (EEGEvent evt in events)
+            {
+                var bIdx = bandLookup[evt.type];
+                for (int cIdx = 0; cIdx < evt.data.Length; cIdx++)
+                {
+                    points[cIdx] = evt.data;
+                }
+            }
+            return points;
+        }
+
+        double Distance(double[][] a, double[][] b)
+        {
+            double dist = 0;
+            for (int channel = 0; channel < channels; channel++)
+            {
+                dist += ((Compute(a[channel], b[channel]) + 1) * channelWeights[channel]) / bands.Length;
+            }
+            dist /= channels;
+            return dist;
+        }
+
+        protected abstract double Compute(double[] x, double[] y);
+    }
+
+    public class AggregateKNNCorrelationPredictor : Predictor
+    {
+
+        public AggregateKNNCorrelationPredictor(int channels, int k, double thresholdProb, EEGDataType[] bands)
+            : base(channels, k, thresholdProb, bands) { }
+
+        protected override double Compute(double[] x, double[] y) => WeightedCorr(x, y);
+
+
+        private double WeightedCorr(double[] x, double[] y)
+        {
+
+            double xAvg = x.Average();
+            double yAvg = y.Average();
+
+            double numerator = x.Zip(y, (xi, yi) => (xi - xAvg) * (yi - yAvg)).Sum();
+
+            double xSumSq = x.Sum(i => Math.Pow((i - xAvg), 2));
+            double ySumSq = y.Sum(i => Math.Pow((i - yAvg), 2));
+
+            double denominator = Math.Sqrt(xSumSq * ySumSq);
+
+            return numerator / denominator;
+        }
+    }
+
+    public class AggregateKNNDTWPredictor : Predictor
+    {
+        public AggregateKNNDTWPredictor(int channels, int k, double thresholdProb, EEGDataType[] bands)
+            : base(channels, k, thresholdProb, bands) { }
+
+
+        protected override double Compute(double[] x, double[] y)
+        {
+            return new DynamicTimeWarping(x, y).GetCost();
+        }
+    }
 }
