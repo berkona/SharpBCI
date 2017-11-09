@@ -35,7 +35,9 @@ namespace SharpBCI
         Dictionary<EEGDataType, int> indexMap;
 
         public AggregatePredictionPipeable(int channels, int k, double thresholdProb, object[] typeNames)
-            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray()) { }
+            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray()){
+
+        }
 
         public AggregatePredictionPipeable(int channels, int k, double thresholdProb, EEGDataType[] types)
         {
@@ -67,6 +69,7 @@ namespace SharpBCI
                 throw new InvalidOperationException("Training already started");
             trainingId = id;
         }
+
 
         public void StopTraining(int id)
         {

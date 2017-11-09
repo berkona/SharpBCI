@@ -49,12 +49,13 @@ namespace SharpBCI
             if (x.Length == 0 || x.Length != y.Length || y.Length != b.Length)
                 throw new ArgumentOutOfRangeException();
 
+            double weightSum = b.Sum();
             double wxAvg = WeightedMean(x, b);
             double wyAvg = WeightedMean(y, b);
 
             return x.Zip(y, (xi, yi) => (xi - wxAvg) * (yi - wyAvg))
                     .Zip(b, (i, j) => (i * j))
-                    .Sum();
+                    .Sum() / weightSum;
         }
 
         public static double WeightedCorrelation(double[] x, double[] y, double[] b)
