@@ -41,9 +41,9 @@ namespace SharpBCI
         {
             if (channels <= 0 || k <= 0 || thresholdProb < 0 || thresholdProb >= 1)
                 throw new ArgumentOutOfRangeException();
-            
+
             if (types.Length == 0 || types == null)
-                    throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException();
             this.types = types;
 
             buffer = new EEGEvent[types.Length];
@@ -138,7 +138,7 @@ namespace SharpBCI
 
             if (bands == null || bands.Length == 0)
                 throw new ArgumentOutOfRangeException();
-            
+
             this.channels = channels;
             this.channelWeights = Enumerable.Repeat<double>(1, channels).ToArray();
             this.bands = bands;
@@ -159,7 +159,8 @@ namespace SharpBCI
             trainingData[id].Add(TransformToBandSpace(events));
         }
 
-        public void ClearTrainingData() {
+        public void ClearTrainingData()
+        {
             trainingData.Clear();
         }
 
@@ -196,9 +197,9 @@ namespace SharpBCI
             return distances.ToList();
         }
 
-        public int Vote(List<KeyValuePair<int, double>> neighbors)
+        public int Vote(List<KeyValuePair<int, double>> distances)
         {
-            var nearestNeighbors = neighbors.OrderByDescending((x) => x.Value).Take(k);
+            var nearestNeighbors = distances.OrderByDescending((x) => x.Value).Take(k);
 
             // use a plurality voting system weighted by distance from us
             double voteSum = 0;
@@ -255,23 +256,9 @@ namespace SharpBCI
         public AggregateKNNCorrelationPredictor(int channels, int k, double thresholdProb, EEGDataType[] bands)
             : base(channels, k, thresholdProb, bands) { }
 
-        protected override double Compute(double[] x, double[] y) => WeightedCorr(x, y);
-
-
-        private double WeightedCorr(double[] x, double[] y)
+        protected override double Compute(double[] x, double[] y)
         {
-
-            double xAvg = x.Average();
-            double yAvg = y.Average();
-
-            double numerator = x.Zip(y, (xi, yi) => (xi - xAvg) * (yi - yAvg)).Sum();
-
-            double xSumSq = x.Sum(i => Math.Pow((i - xAvg), 2));
-            double ySumSq = y.Sum(i => Math.Pow((i - yAvg), 2));
-
-            double denominator = Math.Sqrt(xSumSq * ySumSq);
-
-            return numerator / denominator;
+            return StatsUtils.WeightedCorrelation(x, y, bandWeights);
         }
     }
 
