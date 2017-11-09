@@ -3,6 +3,7 @@ var class_sharp_b_c_i_1_1_sharp_b_c_i =
     [ "SharpBCI", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3a1fef163f303e6b7d0aacd72aacc7a5", null ],
     [ "AddRawHandler", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a524a4d4cfa604ec48655b820c33c1bf2", null ],
     [ "AddTrainedHandler", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a8fa9c8dad54c67668cbbfdd2734ca0ed", null ],
+    [ "ClearTrainingData", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a85de505abb6754e4d945bed1c59b9cfc", null ],
     [ "Close", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a8192f9ae2f6601c32418f952b0dfaec6", null ],
     [ "GetTrainedIds", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#ad59186b699bc1116ae946e2e690bdb59", null ],
     [ "RemoveRawHandler", "class_sharp_b_c_i_1_1_sharp_b_c_i.html#ae7465d4262ea17036d3cc33cbc6bdaf4", null ],

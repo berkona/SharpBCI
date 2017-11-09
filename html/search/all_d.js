@@ -3,7 +3,7 @@ var searchData=
   ['phase',['Phase',['../struct_system_1_1_numerics_1_1_complex.html#af01cc0a44334e72ff4b49e564e6bd22d',1,'System::Numerics::Complex']]],
   ['pipeable',['Pipeable',['../class_sharp_b_c_i_1_1_pipeable.html',1,'SharpBCI']]],
   ['pipeline_2ecs',['Pipeline.cs',['../_pipeline_8cs.html',1,'']]],
-  ['pipelinefile',['PipelineFile',['../class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html#acfae5df93d7b67b7c38b03cf0a1d68cd',1,'SharpBCI.SharpBCIBuilder.PipelineFile()'],['../class_sharp_b_c_i_1_1_sharp_b_c_i_config.html#a5a8a49f2d026156e3b45d29c9c5354cc',1,'SharpBCI.SharpBCIConfig.pipelineFile()']]],
+  ['pipelinefile',['pipelineFile',['../class_sharp_b_c_i_1_1_sharp_b_c_i_config.html#a5a8a49f2d026156e3b45d29c9c5354cc',1,'SharpBCI.SharpBCIConfig.pipelineFile()'],['../class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html#acfae5df93d7b67b7c38b03cf0a1d68cd',1,'SharpBCI.SharpBCIBuilder.PipelineFile()']]],
   ['pipelineserializer_2ecs',['PipelineSerializer.cs',['../_pipeline_serializer_8cs.html',1,'']]],
   ['predict',['Predict',['../interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#af0f54060aaec1d8ca6db41d514d59666',1,'SharpBCI.IPredictor&lt; T &gt;.Predict()'],['../class_sharp_b_c_i_1_1_predictor.html#ad7b0700e7c3dba9d60a62724a8e3a3b6',1,'SharpBCI.Predictor.Predict()'],['../class_sharp_b_c_i_1_1_a_r_model.html#a7c7cc4f9b919636369ba48976bc592c1',1,'SharpBCI.ARModel.Predict()']]],
   ['predictor',['Predictor',['../class_sharp_b_c_i_1_1_predictor.html',1,'SharpBCI']]],

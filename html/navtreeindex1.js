@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"class_sharp_b_c_i_1_1_sharp_b_c_i_config.html#a5a8a49f2d026156e3b45d29c9c5354cc":[2,0,1,42,1],
 "class_sharp_b_c_i_1_1_sharp_b_c_i_config.html#a7c14bd0a89fe5a084595889286fea058":[2,0,1,42,0],
 "class_sharp_b_c_i_1_1_simple_filter_pipeable.html":[2,0,1,18],
 "class_sharp_b_c_i_1_1_simple_filter_pipeable.html#a201050d8f678a5c5417c5d454488afa1":[2,0,1,18,0],
@@ -65,8 +66,8 @@ var NAVTREEINDEX1 =
 "functions_x.html":[2,3,0,20],
 "functions_z.html":[2,3,0,21],
 "hierarchy.html":[2,2],
-"index.html":[0],
 "index.html":[],
+"index.html":[0],
 "index.html#Creating":[0,1],
 "index.html#config":[0,2],
 "index.html#getting-started":[0,0],
