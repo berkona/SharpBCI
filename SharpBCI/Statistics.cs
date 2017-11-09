@@ -33,6 +33,42 @@ namespace SharpBCI
             return x.Select((xi) => (xi - mu) * (xi - mu)).Sum() / (x.Length - 1);
         }
 
+        public static double SampleStd(double[] x)
+        {
+            if (x == null || x.Length == 0)
+                throw new ArgumentOutOfRangeException();
+            return Math.Sqrt(SampleVar(x));
+        }
+
+        public static double Cov(double[] x, double[] y)
+        {
+            if (x == null || x.Length == 0 || x.Length != y.Length)
+                throw new ArgumentOutOfRangeException();
+
+            double xAvg = SampleMean(x);
+            double yAvg = SampleMean(y);
+
+            return x.Zip(y, (xi, yi) => (xi - xAvg) * (yi - yAvg)).Sum() / (x.Length-1);
+        }
+
+        public static double Corr(double[] x, double[] y)
+        {
+            if (x == null || x.Length == 0 || x.Length != y.Length)
+                throw new ArgumentOutOfRangeException();
+           
+            double xAvg = SampleMean(x);
+            double yAvg = SampleMean(y);
+
+            double numerator = x.Zip(y, (xi, yi) => (xi - xAvg) * (yi - yAvg)).Sum();
+
+            double xSumSq = x.Sum(i => Math.Pow((i - xAvg), 2));
+            double ySumSq = y.Sum(i => Math.Pow((i - yAvg), 2));
+
+            double denominator = Math.Sqrt(xSumSq * ySumSq);
+
+            return numerator / denominator;
+        }
+
         public static double WeightedMean(double[] x, double[] b)
         {
 
