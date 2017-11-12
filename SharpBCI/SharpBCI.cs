@@ -422,7 +422,7 @@ namespace SharpBCI {
             }
             csv.append("\n");
             StreamWriter file = new StreamWriter (rawLogFile, true);
-            file.WriteLineAsync(csv);
+            file.WriteAsync(csv);
         }
 
 		internal void EmitRawEvent(EEGEvent evt) { 
