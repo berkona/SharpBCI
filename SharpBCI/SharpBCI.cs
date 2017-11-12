@@ -192,6 +192,11 @@ namespace SharpBCI {
 		 */
 		public double[] connectionStatus { get { return _connectionStatus; } }
 
+        /**
+         * Logging file name
+         */
+        public readonly string rawLogFile;
+
 		// end public variables
 
 		// readonlys
@@ -391,6 +396,34 @@ namespace SharpBCI {
 					throw new ArgumentException("Handler '" + handler + "' not registered for EEGDataType: " + type);
 			}
 		}
+
+        /**
+         * Records the raw data for the current session
+         * @throws ArgumentException if dataType is null
+         */
+        public void logRawData(EEGDataType dataType) {
+            if (dataType == null) {
+                throw new ArgumentException("dataType cannot be null");
+            }
+            this.AddRawHandler(dataType, OnRawEEGData);
+        }
+
+        internal void OnRawEEGData(EEGDataEvent evt) {
+            if (rawLogFile == null) {
+                rawLogFile = DateTime.Now.ToString("MM/dd_HH:mm:ss") + ".csv";
+            }
+            var csv = new StringBuilder();
+            csv.append(evt.timestamp);
+            csv.append(",");
+            csv.append(evt.type.ToString());
+            for (int i = 0; i < evt.data.Length; i++) {
+                csv.append(",");
+                csv.append(evt.data[i].toString());
+            }
+            csv.append("\n");
+            StreamWriter file = new StreamWriter (rawLogFile, true);
+            file.WriteLineAsync(csv);
+        }
 
 		internal void EmitRawEvent(EEGEvent evt) { 
 			lock (rawHandlers) {
