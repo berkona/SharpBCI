@@ -191,12 +191,7 @@ namespace SharpBCI {
 		 * @returns 4 = no connection, 2 = ok connection, 1 = good connection, 3 = unused, complain to Muse about that
 		 */
 		public double[] connectionStatus { get { return _connectionStatus; } }
-
-        /**
-         * Logging file name
-         */
-        public readonly string rawLogFile;
-
+        
 		// end public variables
 
 		// readonlys
@@ -218,6 +213,17 @@ namespace SharpBCI {
 
 		// variables
 		double[] _connectionStatus;
+
+        /**
+         * Logging file name
+         */
+        string rawLogFile;
+
+        /**
+         * Logging file stream
+         */
+        StreamWriter file;
+
 		// end variables
 
 		/**
@@ -398,22 +404,29 @@ namespace SharpBCI {
 		}
 
         /**
-         * Records the raw data for the current session
-         * @throws ArgumentException if dataType is null
+         * Records the raw data for the current session to a newly created file
          */
         public void logRawData(EEGDataType dataType) {
+            this.logRawData(dataType, null);
+        }
+
+        /**
+         * Records the raw data for the current session to the filename/filepath specified
+         * @throws ArgumentException if dataType is null
+         */
+
+        public void logRawData(EEGDataType dataType, String fileName) {
             if (dataType == null) {
                 throw new ArgumentException("dataType cannot be null");
             }
+            rawLogFile = fileName;
+            file = new StreamWriter (rawLogFile, true);
             this.AddRawHandler(dataType, OnRawEEGData);
         }
 
         internal void OnRawEEGData(EEGDataEvent evt) {
-            if (rawLogFile == null) {
-                rawLogFile = DateTime.Now.ToString("MM/dd_HH:mm:ss") + ".csv";
-            }
             var csv = new StringBuilder();
-            csv.append(evt.timestamp);
+            csv.append(evt.timestamp.ToString("HH:mm:ss.fff"));
             csv.append(",");
             csv.append(evt.type.ToString());
             for (int i = 0; i < evt.data.Length; i++) {
@@ -421,11 +434,13 @@ namespace SharpBCI {
                 csv.append(evt.data[i].toString());
             }
             csv.append("\n");
-            StreamWriter file = new StreamWriter (rawLogFile, true);
+            if (file == null) {
+                file = new StreamWriter(rawLogFile, true);
+            }
             file.WriteAsync(csv);
         }
 
-		internal void EmitRawEvent(EEGEvent evt) { 
+		internal void EmitRawEvent(EEGEvent evt) {
 			lock (rawHandlers) {
 				if (!rawHandlers.ContainsKey(evt.type))
 					return;
