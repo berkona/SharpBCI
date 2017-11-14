@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text;
 
 // note to devs: this will appear on the main page of documentation site
 /**
@@ -416,28 +418,30 @@ namespace SharpBCI {
          */
 
         public void logRawData(EEGDataType dataType, String fileName) {
-            if (dataType == null) {
-                throw new ArgumentException("dataType cannot be null");
+            if (fileName == null) {
+                fileName = DateTime.Now.ToString("HH-mm-ss");
+                fileName = fileName + ".csv";
             }
             rawLogFile = fileName;
             file = new StreamWriter (rawLogFile, true);
             this.AddRawHandler(dataType, OnRawEEGData);
         }
 
-        internal void OnRawEEGData(EEGDataEvent evt) {
+        internal void OnRawEEGData(EEGEvent evt) {
             var csv = new StringBuilder();
-            csv.append(evt.timestamp.ToString("HH:mm:ss.fff"));
-            csv.append(",");
-            csv.append(evt.type.ToString());
+            csv.Append(evt.timestamp.ToString("HH:mm:ss.fff"));
+            csv.Append(",");
+            csv.Append(evt.type.ToString());
             for (int i = 0; i < evt.data.Length; i++) {
-                csv.append(",");
-                csv.append(evt.data[i].toString());
+                csv.Append(",");
+                csv.Append(evt.data[i].ToString());
             }
-            csv.append("\n");
             if (file == null) {
                 file = new StreamWriter(rawLogFile, true);
             }
-            file.WriteAsync(csv);
+            String csvString = csv.ToString();
+            file.WriteLineAsync(csvString);
+            file.FlushAsync();
         }
 
 		internal void EmitRawEvent(EEGEvent evt) {
