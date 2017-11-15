@@ -224,7 +224,7 @@ namespace SharpBCI {
         /**
          * Logging file stream
          */
-        StreamWriter file;
+		AsyncStreamWriter file;
 
 		// end variables
 
@@ -423,7 +423,7 @@ namespace SharpBCI {
                 fileName = fileName + ".csv";
             }
             rawLogFile = fileName;
-            file = new StreamWriter (rawLogFile, true);
+            //file = new StreamWriter (rawLogFile, true);
             this.AddRawHandler(dataType, OnRawEEGData);
         }
 
@@ -437,11 +437,10 @@ namespace SharpBCI {
                 csv.Append(evt.data[i].ToString());
             }
             if (file == null) {
-                file = new StreamWriter(rawLogFile, true);
+                file = new AsyncStreamWriter(rawLogFile, true);
             }
-            String csvString = csv.ToString();
-            file.WriteLineAsync(csvString);
-            file.FlushAsync();
+            var csvString = csv.ToString();
+			file.WriteLine(csvString);
         }
 
 		internal void EmitRawEvent(EEGEvent evt) {
@@ -471,6 +470,9 @@ namespace SharpBCI {
 			foreach (var stage in stages) {
 				stage.Stop();
 			}
+			if (file != null) {
+				file.Close();
+					}
 		}
 
 		void UpdateConnectionStatus(EEGEvent evt) {
