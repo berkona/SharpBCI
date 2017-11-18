@@ -408,8 +408,8 @@ namespace SharpBCI {
         /**
          * Records the raw data for the current session to a newly created file
          */
-        public void logRawData(EEGDataType dataType) {
-            this.logRawData(dataType, null);
+        public void LogRawData(EEGDataType dataType) {
+            this.LogRawData(dataType, null);
         }
 
         /**
@@ -417,13 +417,19 @@ namespace SharpBCI {
          * @throws ArgumentException if dataType is null
          */
 
-        public void logRawData(EEGDataType dataType, String fileName) {
+        public void LogRawData(EEGDataType dataType, String fileName) {
             if (fileName == null) {
                 fileName = DateTime.Now.ToString("HH-mm-ss");
                 fileName = fileName + ".csv";
             }
             rawLogFile = fileName;
-            //file = new StreamWriter (rawLogFile, true);
+            var csv = new StringBuilder();
+            csv.Append("Timestamp,Data Type,Extra,Data");
+            if (file == null) {
+                file = new AsyncStreamWriter(rawLogFile, true);
+            }
+            var writableCsv = csv.ToString();
+            file.WriteLine(writableCsv);
             this.AddRawHandler(dataType, OnRawEEGData);
         }
 
@@ -432,6 +438,10 @@ namespace SharpBCI {
             csv.Append(evt.timestamp.ToString("HH:mm:ss.fff"));
             csv.Append(",");
             csv.Append(evt.type.ToString());
+            if (evt.extra != null) {
+                csv.Append(evt.extra.ToString());
+            }
+            csv.Append(",");
             for (int i = 0; i < evt.data.Length; i++) {
                 csv.Append(",");
                 csv.Append(evt.data[i].ToString());
@@ -439,8 +449,8 @@ namespace SharpBCI {
             if (file == null) {
                 file = new AsyncStreamWriter(rawLogFile, true);
             }
-            var csvString = csv.ToString();
-			file.WriteLine(csvString);
+            var writableCsv = csv.ToString();
+			file.WriteLine(writableCsv);
         }
 
 		internal void EmitRawEvent(EEGEvent evt) {
