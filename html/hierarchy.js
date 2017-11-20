@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "SharpBCI.ARModel", "class_sharp_b_c_i_1_1_a_r_model.html", null ],
+    [ "SharpBCI.AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", null ],
     [ "System.Numerics.Complex", "struct_system_1_1_numerics_1_1_complex.html", null ],
     [ "DSPLib.DFT", "class_d_s_p_lib_1_1_d_f_t.html", null ],
     [ "DSPLib.DSP", "class_d_s_p_lib_1_1_d_s_p.html", null ],

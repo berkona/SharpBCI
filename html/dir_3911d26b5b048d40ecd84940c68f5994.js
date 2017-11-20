@@ -10,6 +10,9 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
       [ "AggregateKNNCorrelationPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor" ],
       [ "AggregateKNNDTWPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor" ]
     ] ],
+    [ "AsyncStreamWriter.cs", "_async_stream_writer_8cs.html", [
+      [ "AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", "class_sharp_b_c_i_1_1_async_stream_writer" ]
+    ] ],
     [ "ComplexPatch.cs", "_complex_patch_8cs.html", [
       [ "Complex", "struct_system_1_1_numerics_1_1_complex.html", "struct_system_1_1_numerics_1_1_complex" ]
     ] ],

@@ -149,6 +149,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae7465d4262ea17036d3cc33cbc6bdaf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#ae7465d4262ea17036d3cc33cbc6bdaf4">RemoveRawHandler</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> type, <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a70268de29756f5f85d063f28f4be0a5a">SharpBCIRawHandler</a> handler)</td></tr>
 <tr class="memdesc:ae7465d4262ea17036d3cc33cbc6bdaf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a handler for raw(i.e, anything in EEGDataType) events.  <a href="#ae7465d4262ea17036d3cc33cbc6bdaf4">More...</a><br/></td></tr>
 <tr class="separator:ae7465d4262ea17036d3cc33cbc6bdaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f19efd7134df8bc544ea69911225acb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3f19efd7134df8bc544ea69911225acb">LogRawData</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> dataType)</td></tr>
+<tr class="memdesc:a3f19efd7134df8bc544ea69911225acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the raw data for the current session to a newly created file.  <a href="#a3f19efd7134df8bc544ea69911225acb">More...</a><br/></td></tr>
+<tr class="separator:a3f19efd7134df8bc544ea69911225acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd5ea43f53fcc208e99048a16f435bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#afcd5ea43f53fcc208e99048a16f435bd">LogRawData</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> dataType, String fileName)</td></tr>
+<tr class="memdesc:afcd5ea43f53fcc208e99048a16f435bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the raw data for the current session to the filename/filepath specified.  <a href="#afcd5ea43f53fcc208e99048a16f435bd">More...</a><br/></td></tr>
+<tr class="separator:afcd5ea43f53fcc208e99048a16f435bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8192f9ae2f6601c32418f952b0dfaec6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a8192f9ae2f6601c32418f952b0dfaec6">Close</a> ()</td></tr>
 <tr class="memdesc:a8192f9ae2f6601c32418f952b0dfaec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called when all the <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html" title="This is the &quot;main&quot; class which you should create. ">SharpBCI</a> threads should shutdown.  <a href="#a8192f9ae2f6601c32418f952b0dfaec6">More...</a><br/></td></tr>
 <tr class="separator:a8192f9ae2f6601c32418f952b0dfaec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,6 +332,58 @@ Properties</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3f19efd7134df8bc544ea69911225acb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.SharpBCI.LogRawData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a>&#160;</td>
+          <td class="paramname"><em>dataType</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Records the raw data for the current session to a newly created file. </p>
+
+</div>
+</div>
+<a class="anchor" id="afcd5ea43f53fcc208e99048a16f435bd"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.SharpBCI.LogRawData </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a>&#160;</td>
+          <td class="paramname"><em>dataType</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">String&#160;</td>
+          <td class="paramname"><em>fileName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Records the raw data for the current session to the filename/filepath specified. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">ArgumentException</td><td>if dataType is null </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

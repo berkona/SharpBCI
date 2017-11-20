@@ -6,6 +6,7 @@ var namespace_sharp_b_c_i =
     [ "Predictor", "class_sharp_b_c_i_1_1_predictor.html", "class_sharp_b_c_i_1_1_predictor" ],
     [ "AggregateKNNCorrelationPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor" ],
     [ "AggregateKNNDTWPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor" ],
+    [ "AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", "class_sharp_b_c_i_1_1_async_stream_writer" ],
     [ "EEGDeviceAdapter", "class_sharp_b_c_i_1_1_e_e_g_device_adapter.html", "class_sharp_b_c_i_1_1_e_e_g_device_adapter" ],
     [ "RemoteOSCAdapter", "class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html", "class_sharp_b_c_i_1_1_remote_o_s_c_adapter" ],
     [ "DummyAdapterSignal", "struct_sharp_b_c_i_1_1_dummy_adapter_signal.html", "struct_sharp_b_c_i_1_1_dummy_adapter_signal" ],
