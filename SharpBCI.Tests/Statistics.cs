@@ -87,6 +87,21 @@ namespace SharpBCI.Tests {
 			Assert.AreEqual(0, StatsUtils.SampleVar(x));
 		}
 
+        [Test]
+        public void WeightedMean() {
+            Assert.Throws<ArgumentOutOfRangeException>(() => StatsUtils.WeightedMean(null, null));
+            Assert.Throws<ArgumentOutOfRangeException>(() => StatsUtils.WeightedMean(new double[] { }, new double[] {.1, .2}));
+            Assert.Throws<ArgumentOutOfRangeException>(() => StatsUtils.WeightedMean(new double[] {1, 3, 2, 1 }, new double[] { .1, .2, 2 }));
+            Assert.Throws<ArgumentOutOfRangeException>(() => StatsUtils.WeightedMean(new double[] { }, new double[] { .1, .2 }));
+            Assert.Throws<ArgumentOutOfRangeException>(() => StatsUtils.WeightedMean(new double[] { 1, 3, 4, 1 }, new double[] { .1, .2, 2 }));
+
+            var x = new double[] { 1, 21, 4, 2 };
+            var b = new double[] { .1, 3, 0, 3 };
+
+            IsWithinThreshold(11.3278, StatsUtils.WeightedMean(x, b), 1e-4);
+
+        }
+
 		[Test]
 		public void ACF() {
 			var x = new double[] { 2, 3, -1, 5, 3, 2 };
