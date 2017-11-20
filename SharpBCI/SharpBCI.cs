@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 using System.Threading;
 using System.Threading.Tasks;
+using System.IO;
+using System.Text;
 
 // note to devs: this will appear on the main page of documentation site
 /**
@@ -200,30 +202,41 @@ namespace SharpBCI
 		 * Based on the Muse EEG status updates: 
 		 * @returns 4 = no connection, 2 = ok connection, 1 = good connection, 3 = unused, complain to Muse about that
 		 */
-        public double[] connectionStatus { get { return _connectionStatus; } }
+		public double[] connectionStatus { get { return _connectionStatus; } }
+        
+		// end public variables
 
-        // end public variables
+		// readonlys
+		readonly EEGDeviceAdapter adapter;
 
-        // readonlys
-        readonly EEGDeviceAdapter adapter;
+		readonly IPipeable[] stages;
 
-        readonly IPipeable[] stages;
+		readonly Dictionary<EEGDataType, List<SharpBCIRawHandler>> rawHandlers = new Dictionary<EEGDataType, List<SharpBCIRawHandler>>();
+		readonly Dictionary<int, List<SharpBCITrainedHandler>> trainedHandlers = new Dictionary<int, List<SharpBCITrainedHandler>>();
 
-        readonly Dictionary<EEGDataType, List<SharpBCIRawHandler>> rawHandlers = new Dictionary<EEGDataType, List<SharpBCIRawHandler>>();
-        readonly Dictionary<int, List<SharpBCITrainedHandler>> trainedHandlers = new Dictionary<int, List<SharpBCITrainedHandler>>();
+		readonly TaskFactory taskFactory;
+		readonly CancellationTokenSource cts;
 
-        readonly TaskFactory taskFactory;
-        readonly CancellationTokenSource cts;
+		// IPipeables to train on.
+		readonly IPredictorPipeable[] predictors;
 
-        // IPipeables to train on.
-        readonly IPredictorPipeable[] predictors;
+		readonly List<int> trainedEventIds = new List<int>();
+		// end readonlys
 
-        readonly List<int> trainedEventIds = new List<int>();
-        // end readonlys
+		// variables
+		double[] _connectionStatus;
 
-        // variables
-        double[] _connectionStatus;
-        // end variables
+        /**
+         * Logging file name
+         */
+        string rawLogFile;
+
+        /**
+         * Logging file stream
+         */
+		AsyncStreamWriter file;
+
+		// end variables
 
         /**
          * @param config a valid config object, generally built with SharpBCIBuilder
@@ -423,63 +436,103 @@ namespace SharpBCI
  		 * Remove a handler for raw(i.e, anything in EEGDataType) events
          * @throws ArgumentException if handler is null
 		 */
-        public void RemoveRawHandler(EEGDataType type, SharpBCIRawHandler handler)
-        {
-            if (handler == null)
-                throw new ArgumentException("handler cannot be null");
-            lock (rawHandlers)
-            {
-                if (!rawHandlers.ContainsKey(type))
-                    throw new ArgumentException("No handlers registered for type: " + type);
-                if (!rawHandlers[type].Remove(handler))
-                    throw new ArgumentException("Handler '" + handler + "' not registered for EEGDataType: " + type);
-            }
-        }
+		public void RemoveRawHandler(EEGDataType type, SharpBCIRawHandler handler) {
+			if (handler == null)
+				throw new ArgumentException("handler cannot be null");
+			lock (rawHandlers) {
+				if (!rawHandlers.ContainsKey(type))
+					throw new ArgumentException("No handlers registered for type: " + type);
+				if (!rawHandlers[type].Remove(handler))
+					throw new ArgumentException("Handler '" + handler + "' not registered for EEGDataType: " + type);
+			}
+		}
 
-        internal void EmitRawEvent(EEGEvent evt)
-        {
-            lock (rawHandlers)
-            {
-                if (!rawHandlers.ContainsKey(evt.type))
-                    return;
-
-                // Logger.Log("Emitting evt: " + evt.type);
-                foreach (var handler in rawHandlers[evt.type])
-                {
-                    try
-                    {
-                        handler(evt);
-                    }
-                    catch (Exception e)
-                    {
-                        Logger.Error("Handler " + handler + " encountered exception: " + e);
-                    }
-                }
-            }
+        /**
+         * Records the raw data for the current session to a newly created file
+         */
+        public void LogRawData(EEGDataType dataType) {
+            this.LogRawData(dataType, null);
         }
 
         /**
+         * Records the raw data for the current session to the filename/filepath specified
+         * @throws ArgumentException if dataType is null
+         */
+
+        public void LogRawData(EEGDataType dataType, String fileName) {
+            if (fileName == null) {
+                fileName = DateTime.Now.ToString("HH-mm-ss");
+                fileName = fileName + ".csv";
+            }
+            rawLogFile = fileName;
+            var csv = new StringBuilder();
+            csv.Append("Timestamp,Data Type,Extra,Data");
+            if (file == null) {
+                file = new AsyncStreamWriter(rawLogFile, true);
+            }
+            var writableCsv = csv.ToString();
+            file.WriteLine(writableCsv);
+            this.AddRawHandler(dataType, OnRawEEGData);
+        }
+
+        internal void OnRawEEGData(EEGEvent evt) {
+            var csv = new StringBuilder();
+            csv.Append(evt.timestamp.ToString("HH:mm:ss.fff"));
+            csv.Append(",");
+            csv.Append(evt.type.ToString());
+            if (evt.extra != null) {
+                csv.Append(evt.extra.ToString());
+            }
+            csv.Append(",");
+            for (int i = 0; i < evt.data.Length; i++) {
+                csv.Append(",");
+                csv.Append(evt.data[i].ToString());
+            }
+            if (file == null) {
+                file = new AsyncStreamWriter(rawLogFile, true);
+            }
+            var writableCsv = csv.ToString();
+			file.WriteLine(writableCsv);
+        }
+
+		internal void EmitRawEvent(EEGEvent evt) {
+			lock (rawHandlers) {
+				if (!rawHandlers.ContainsKey(evt.type))
+					return;
+
+				// Logger.Log("Emitting evt: " + evt.type);
+				foreach (var handler in rawHandlers[evt.type]) {
+					try {
+						handler(evt);
+					} catch (Exception e) {
+						Logger.Error("Handler " + handler + " encountered exception: " + e);
+					}
+				}
+			}
+		}
+
+		/**
 		 * Called when all the SharpBCI threads should shutdown.  
 		 * You may or may not continue to receive events after calling this
 		 * You should unregister events before calling this to avoid memory leaks
 		 */
-        public void Close()
-        {
-            Logger.Log("SharpBCI closed");
-            cts.Cancel();
-            foreach (var stage in stages)
-            {
-                stage.Stop();
-            }
-        }
+		public void Close() {
+			Logger.Log("SharpBCI closed");
+			cts.Cancel();
+			foreach (var stage in stages) {
+				stage.Stop();
+			}
+			if (file != null) {
+				file.Close();
+					}
+		}
 
-        void UpdateConnectionStatus(EEGEvent evt)
-        {
-            _connectionStatus = evt.data;
-        }
-    }
+		void UpdateConnectionStatus(EEGEvent evt) {
+			_connectionStatus = evt.data;
+		}
+	}
 
-    /**
+	/**
 	 * An end-point consumer which emits TrainedEvents it received
 	 * Must only be connected to Pipeables which output TrainedEvents
 	 */
