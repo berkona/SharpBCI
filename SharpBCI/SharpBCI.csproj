@@ -77,6 +77,7 @@
     <Compile Include="DSPLib.cs" />
     <Compile Include="AsyncStreamWriter.cs" />
     <Compile Include="DynamicTimeWarping.cs" />
+    <Compile Include="Artifacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregatePredictors.cs" />
