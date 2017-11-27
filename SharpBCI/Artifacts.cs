@@ -7,7 +7,8 @@ namespace SharpBCI {
 	public interface IArtifactDetector {
 		/**
 		 * Update artifact detector using next
-		 * @returns true iff next is an artifact, false otherwise		 */
+		 * @returns true iff next is an artifact, false otherwise
+		 */
 		bool Detect(double next);	
 	}
 
@@ -55,6 +56,9 @@ namespace SharpBCI {
 		readonly Queue<double> latestSamples;
 		readonly IArtifactDetector[] competitors;
 
+		int nInitted = 0;
+		int lastInitted = 0;
+
 		public TournamentArtifactDectector(uint tournamentSize, uint learningSetSize, uint nAccept, int initialMerits) {
 			// arg checking
 			if (tournamentSize == 0 
@@ -80,44 +84,63 @@ namespace SharpBCI {
 		}
 
 		public bool Detect(double data) {
+			// handle keeping samples
+			// TODO examine difference between keeping potential artifact signals
 			latestSamples.Enqueue(data);
-			if (latestSamples.Count >= learningSetSize) {
+			if (latestSamples.Count == learningSetSize + 1) {
 				latestSamples.Dequeue();
+			}
 
-				var n = competitors.Length;
-				var predictions = new bool[n];
-				for (int i = 0; i < n; i++) {
-					predictions[i] = competitors[i].Detect(data);
+			// initialization logic
+			if (nInitted < competitors.Length) {
+				lastInitted++;
+
+				// initialize all models to non-overlapping sets of data
+				if (lastInitted == learningSetSize) {
+					// assume latestSamples.Count == learningSetSize
+					competitors[nInitted] = NewCompetitor();
+					demerits[nInitted] = initialMerits;
+					nInitted++;
+					lastInitted = 0;
 				}
 
-				// sort all competitors
-				var rankedPredictions = predictions
-					.Zip(demerits, Tuple.Create)
-					.OrderByDescending(x => x.Item2)
-					.Select(x => x.Item1).ToList();
-				
-				var consensus = rankedPredictions
-					.Take((int) nAccept)
-					.GroupBy(x => x)
-					.OrderByDescending(g => g.Count())
-					.First().Key;
-
-				// award merits/demerits
-				for (int i = 0; i < n; i++) {
-					demerits[i] = predictions[i] == consensus ? 1 : -1;
-					if (demerits[i] < 0) {
-						demerits[i] = initialMerits;
-						competitors[i] = NewCompetitor();
-					}
-				}
-
-				return consensus;
-			} else {
 				return false;
 			}
+
+			// assume latestSamples.Count == learningSetSize+1
+			latestSamples.Dequeue();
+
+			var n = competitors.Length;
+			var predictions = new bool[n];
+			for (int i = 0; i < n; i++) {
+				predictions[i] = competitors[i].Detect(data);
+			}
+
+			// sort all competitors
+			var rankedPredictions = predictions
+				.Zip(demerits, Tuple.Create)
+				.OrderByDescending(x => x.Item2)
+				.Select(x => x.Item1).ToList();
+			
+			var consensus = rankedPredictions
+				.Take((int) nAccept)
+				.GroupBy(x => x)
+				.OrderByDescending(g => g.Count())
+				.First().Key;
+
+			// award merits/demerits
+			for (int i = 0; i < n; i++) {
+				demerits[i] = Math.Max(initialMerits, demerits[i] + (predictions[i] == consensus ? 1 : -1));
+				if (demerits[i] < 0) {
+					demerits[i] = initialMerits;
+					competitors[i] = NewCompetitor();
+				}
+			}
+
+			return consensus;
 		}
 
-		protected virtual IArtifactDetector NewCompetitor() {
+		protected IArtifactDetector NewCompetitor() {
 			if (latestSamples.Count < learningSetSize) {
 				return new ARArtifactDetector(new ARModel(0, new double[] { 1 }));
 			} else {

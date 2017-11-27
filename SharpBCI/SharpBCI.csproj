@@ -71,13 +71,12 @@
     <Compile Include="PipelineSerializer.cs" />
     <Compile Include="Preprocessors.cs" />
     <Compile Include="SharpBCI.cs" />
-    <Compile Include="Smoothers.cs" />
     <Compile Include="Statistics.cs" />
-    <Compile Include="TimeSeriesSmootherPipeable.cs" />
     <Compile Include="DSPLib.cs" />
     <Compile Include="AsyncStreamWriter.cs" />
     <Compile Include="DynamicTimeWarping.cs" />
     <Compile Include="Artifacts.cs" />
+    <Compile Include="ArtifactPipeables.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregatePredictors.cs" />
