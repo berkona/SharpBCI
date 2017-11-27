@@ -7,7 +7,7 @@ namespace SharpBCI {
 
 		IArtifactDetector[] detectors;
 
-		public TournamentArtifactPipeable(int channels, double sampleRate, double learningTime, uint tournamentSize, uint nAccept, int initialMerits) {
+		public TournamentArtifactPipeable(int channels, double sampleRate, double learningTime, uint tournamentSize, uint nAccept, uint initialMerits) {
 			uint learningSampleSize = (uint) Math.Round(learningTime * sampleRate);
 			detectors = new IArtifactDetector[channels];
 			for (int i = 0; i < channels; i++) {

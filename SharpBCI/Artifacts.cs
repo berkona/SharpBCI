@@ -23,6 +23,9 @@ namespace SharpBCI {
 		double lastPrediction;
 
 		public ARArtifactDetector(ARModel model) {
+			if (model == null)
+				throw new ArgumentException();
+			
 			this.model = model;
 			errorDist = new OnlineVariance();
 		}
@@ -59,28 +62,23 @@ namespace SharpBCI {
 		int nInitted = 0;
 		int lastInitted = 0;
 
-		public TournamentArtifactDectector(uint tournamentSize, uint learningSetSize, uint nAccept, int initialMerits) {
+		public TournamentArtifactDectector(uint tournamentSize, uint learningSetSize, uint nAccept, uint initialMerits) {
 			// arg checking
 			if (tournamentSize == 0 
 			    || learningSetSize == 0 
-			    || nAccept == 0) {
-				throw new ArgumentOutOfRangeException();
+			    || nAccept == 0
+			    || initialMerits == 0
+			    || nAccept > tournamentSize) {
+				throw new ArgumentException();
 			}
 
 			this.nAccept = nAccept;
-			this.initialMerits = initialMerits;
+			this.initialMerits = (int) initialMerits;
 			this.learningSetSize = learningSetSize;
 
 			competitors = new IArtifactDetector[tournamentSize];
 			demerits = new int[tournamentSize];
 			latestSamples = new Queue<double>();
-
-			// init with a bunch of dummies
-			for (int i = 0; i < tournamentSize; i++) {
-				// initially, all competitors think that the next signal will be the same as the last
-				competitors[i] = NewCompetitor();
-				demerits[i] = initialMerits;
-			}
 		}
 
 		public bool Detect(double data) {
