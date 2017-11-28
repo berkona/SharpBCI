@@ -18,7 +18,14 @@ namespace SharpBCI {
 
 		readonly Queue<EEGEvent> eventQueue = new Queue<EEGEvent>();
 
+        /**
+         * Number of channels or sensors collecting data from
+         */
 		public readonly int channels;
+
+        /**
+         * The rate per second that data is expected to be received
+         */
 		public readonly double sampleRate;
 
 		protected EEGDeviceAdapter(int channels, double sampleRate) {
@@ -26,9 +33,21 @@ namespace SharpBCI {
 			this.sampleRate = sampleRate;
 		}
 
+        /**
+         * Function that sets up the listener on and begins flushing data through the pipeline
+         * This function needs to be overridden in each device adapter implementation
+         */
 		public abstract void Start();
+
+        /**
+         * Function that tears down the listener and stops flushing data through the pipeline
+         * This function needs to be overridden in each device adapter implementation
+         */
 		public abstract void Stop();
 
+        /**
+         * Use this function to add a handler function that is called for each EEGEvent of the specified EEGDataType 
+         */
 		public void AddHandler(EEGDataType type, DataHandler handler) {
 			Logger.Log("AddHandler type="+type);
 			if (!handlers.ContainsKey(type)) {
@@ -37,6 +56,9 @@ namespace SharpBCI {
 			handlers[type].Add(handler);
 		}
 
+        /**
+         * Use this function to remove a handler that has been added with the AddHandler function
+         */
 		public void RemoveHandler(EEGDataType type, DataHandler handler) {
 			// Debug.Log("RemoveHandler type="+type);
 			if (!handlers.ContainsKey(type))
@@ -46,6 +68,10 @@ namespace SharpBCI {
 				throw new Exception("Handler was not registered");
 		}
 
+
+        /**
+         * Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines
+         */
 		public void FlushEvents() {
 			//Logger.Log("FlushEvents()");
 			lock (eventQueue) {
@@ -90,8 +116,10 @@ namespace SharpBCI {
 	 */
 	public class RemoteOSCAdapter : EEGDeviceAdapter {
 		
+        /**
+         * Port number that OSC packets can be retrieved from
+         */
 		int port;
-
 		UDPListener listener;
 		Dictionary<string, EEGDataType> typeMap;
 		readonly Converter<object, double> converter = new Converter<object, double>(delegate(object inAdd) {
@@ -106,6 +134,9 @@ namespace SharpBCI {
 			this.port = port;
 		}
 
+        /**
+         * Starts the listener for OSC packets on the specified port number and starts the Run function in a new thread
+         */
 		public override void Start() {
 			Logger.Log("Starting RemoteOSCAdapter");
 			typeMap = InitTypeMap();
@@ -114,6 +145,9 @@ namespace SharpBCI {
 			listenerThread.Start();
 		}
 
+        /**
+         * Stops the listener and stops triggers the stop of the Run function
+         */
 		public override void Stop() {
 			Logger.Log("Stopping RemoteOSCAdapter");
 			stopRequested = true;
@@ -232,6 +266,9 @@ namespace SharpBCI {
 			GenerateSamples();
 		}
 
+        /**
+         * Creates the model for generating sample dummy data
+         */
 		public void StartSignal(int signal) {
 			if (signal < -1 || signal >= signals.Length) throw new ArgumentOutOfRangeException();
 			currentSignal = signal;
