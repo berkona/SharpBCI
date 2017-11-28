@@ -133,21 +133,28 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6bc5578dae837bf0b6d9c55c26d036bb"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a6bc5578dae837bf0b6d9c55c26d036bb">DataHandler</a> (<a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a> evt)</td></tr>
 <tr class="separator:a6bc5578dae837bf0b6d9c55c26d036bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a41278c1e7ace24403c1b631cff5e96ed"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a41278c1e7ace24403c1b631cff5e96ed">Start</a> ()</td></tr>
+<tr class="memdesc:a41278c1e7ace24403c1b631cff5e96ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that sets up the listener on and begins flushing data through the pipeline This function needs to be overridden in each device adapter implementation.  <a href="#a41278c1e7ace24403c1b631cff5e96ed">More...</a><br/></td></tr>
 <tr class="separator:a41278c1e7ace24403c1b631cff5e96ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7f342bb842da7708b5da5d6ff8676b1"><td class="memItemLeft" align="right" valign="top">abstract void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#ab7f342bb842da7708b5da5d6ff8676b1">Stop</a> ()</td></tr>
+<tr class="memdesc:ab7f342bb842da7708b5da5d6ff8676b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that tears down the listener and stops flushing data through the pipeline This function needs to be overridden in each device adapter implementation.  <a href="#ab7f342bb842da7708b5da5d6ff8676b1">More...</a><br/></td></tr>
 <tr class="separator:ab7f342bb842da7708b5da5d6ff8676b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a302f644df8a59f936363b5d6a469bd07"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a302f644df8a59f936363b5d6a469bd07">AddHandler</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> type, <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a6bc5578dae837bf0b6d9c55c26d036bb">DataHandler</a> handler)</td></tr>
+<tr class="memdesc:a302f644df8a59f936363b5d6a469bd07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this function to add a handler function that is called for each <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> of the specified EEGDataType.  <a href="#a302f644df8a59f936363b5d6a469bd07">More...</a><br/></td></tr>
 <tr class="separator:a302f644df8a59f936363b5d6a469bd07"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69d74be6c873c0f35a5cbfa7c5dfedef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a69d74be6c873c0f35a5cbfa7c5dfedef">RemoveHandler</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> type, <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a6bc5578dae837bf0b6d9c55c26d036bb">DataHandler</a> handler)</td></tr>
+<tr class="memdesc:a69d74be6c873c0f35a5cbfa7c5dfedef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this function to remove a handler that has been added with the AddHandler function.  <a href="#a69d74be6c873c0f35a5cbfa7c5dfedef">More...</a><br/></td></tr>
 <tr class="separator:a69d74be6c873c0f35a5cbfa7c5dfedef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c359c3cbea6828e52086ed641e0b14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a09c359c3cbea6828e52086ed641e0b14">FlushEvents</a> ()</td></tr>
+<tr class="memdesc:a09c359c3cbea6828e52086ed641e0b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines.  <a href="#a09c359c3cbea6828e52086ed641e0b14">More...</a><br/></td></tr>
 <tr class="separator:a09c359c3cbea6828e52086ed641e0b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a5c4d167d19d09f6f930a482db852ac69"><td class="memItemLeft" align="right" valign="top">readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a5c4d167d19d09f6f930a482db852ac69">channels</a></td></tr>
+<tr class="memdesc:a5c4d167d19d09f6f930a482db852ac69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of channels or sensors collecting data from.  <a href="#a5c4d167d19d09f6f930a482db852ac69">More...</a><br/></td></tr>
 <tr class="separator:a5c4d167d19d09f6f930a482db852ac69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80a3af93f2df50670ac6812075558baa"><td class="memItemLeft" align="right" valign="top">readonly double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a80a3af93f2df50670ac6812075558baa">sampleRate</a></td></tr>
+<tr class="memdesc:a80a3af93f2df50670ac6812075558baa"><td class="mdescLeft">&#160;</td><td class="mdescRight">The rate per second that data is expected to be received.  <a href="#a80a3af93f2df50670ac6812075558baa">More...</a><br/></td></tr>
 <tr class="separator:a80a3af93f2df50670ac6812075558baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -219,6 +226,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Use this function to add a handler function that is called for each <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> of the specified EEGDataType. </p>
+
 </div>
 </div>
 <a class="anchor" id="a6bc5578dae837bf0b6d9c55c26d036bb"></a>
@@ -274,6 +283,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines. </p>
+
 </div>
 </div>
 <a class="anchor" id="a69d74be6c873c0f35a5cbfa7c5dfedef"></a>
@@ -300,6 +311,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Use this function to remove a handler that has been added with the AddHandler function. </p>
+
 </div>
 </div>
 <a class="anchor" id="a41278c1e7ace24403c1b631cff5e96ed"></a>
@@ -322,6 +335,8 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function that sets up the listener on and begins flushing data through the pipeline This function needs to be overridden in each device adapter implementation. </p>
 
 <p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html#af4fe9d653aab0193d611d8deb4cf5719">SharpBCI.InstrumentedDummyAdapter</a>, and <a class="el" href="class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#ab292d2dc26166c9a2ee873982dded677">SharpBCI.RemoteOSCAdapter</a>.</p>
 
@@ -348,6 +363,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Function that tears down the listener and stops flushing data through the pipeline This function needs to be overridden in each device adapter implementation. </p>
+
 <p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html#ab4fe4eccdb83485988fae2f786e0d5bc">SharpBCI.InstrumentedDummyAdapter</a>, and <a class="el" href="class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#aea4057959fc8197e3c8a13fe8c8ab63e">SharpBCI.RemoteOSCAdapter</a>.</p>
 
 </div>
@@ -363,6 +380,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Number of channels or sensors collecting data from. </p>
+
 </div>
 </div>
 <a class="anchor" id="a80a3af93f2df50670ac6812075558baa"></a>
@@ -374,6 +393,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>The rate per second that data is expected to be received. </p>
 
 </div>
 </div>
