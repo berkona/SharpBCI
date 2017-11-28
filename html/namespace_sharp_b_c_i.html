@@ -117,32 +117,39 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_pipeable.html">IPredictorPipeable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html">AggregatePredictionPipeable</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pipeable which aggregates received EEGEvents into an array based on the reported <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a> timestamp and then uses an IPredictor&lt;EEGEvent[]&gt; to train/classify on them.  <a href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pipeable which aggregates received EEGEvents into an array based on the reported <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> timestamp and then uses an IPredictor&lt;EEGEvent[]&gt; to train/classify on them.  <a href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html">Predictor</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An IPredictor which uses a 3-dimensional loci of points in the form of an array of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a>'s to classify EEG data.  <a href="class_sharp_b_c_i_1_1_predictor.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An IPredictor which uses a 3-dimensional loci of points in the form of an array of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a>'s to classify EEG data.  <a href="class_sharp_b_c_i_1_1_predictor.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html">AggregateKNNCorrelationPredictor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html">AggregateKNNDTWPredictor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_writer.html">AsyncStreamWriter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used internally to asynchronously write a string to a file stream.  <a href="class_sharp_b_c_i_1_1_async_stream_writer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html">EEGDeviceAdapter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An abstract base class from which all device adapters should inherit.  <a href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html">RemoteOSCAdapter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> which connects to an EEGDevice via OSC It then asynchronously listens for messages on a given OSC socket and emits the appropriate EEGEvents for the received OSC message Target Hardware: Muse 2014 and Muse 2016 (via android-bridge.apk)  <a href="class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_sharp_b_c_i_1_1_dummy_adapter_signal.html">DummyAdapterSignal</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple struct which defines a signal of given frequencies and amplitudes (per-channel)  <a href="struct_sharp_b_c_i_1_1_dummy_adapter_signal.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html">InstrumentedDummyAdapter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> which is used to emit a certain set of signals via StartSignal.  <a href="class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_dummy_adapter.html">DummyAdapter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A version of <a class="el" href="class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html" title="An EEGDeviceAdapter which is used to emit a certain set of signals via StartSignal. ">InstrumentedDummyAdapter</a> which constantly emits a given <a class="el" href="struct_sharp_b_c_i_1_1_dummy_adapter_signal.html" title="A simple struct which defines a signal of given frequencies and amplitudes (per-channel) ...">DummyAdapterSignal</a> Generally used for smoke-testing / debugging your <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html" title="This is the &quot;main&quot; class which you should create. ">SharpBCI</a> pipeline.  <a href="class_sharp_b_c_i_1_1_dummy_adapter.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_dynamic_time_warping.html">DynamicTimeWarping</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_series_variable.html">SeriesVariable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which represent various types of events relating to EEG data.  <a href="class_sharp_b_c_i_1_1_e_e_g_event.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html">IVectorizedSmoother&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -234,7 +241,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An end-point consumer which emits TrainedEvents it received Must only be connected to Pipeables which output EEGEvents.  <a href="class_sharp_b_c_i_1_1_raw_event_emitter.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_producer.html">EEGDeviceProducer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps an <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html">EEGDeviceAdapter</a> with a <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">Pipeable</a> and emits EEGDataType.EEG events Should only be used as a producer not consumer.  <a href="class_sharp_b_c_i_1_1_e_e_g_device_producer.html#details">More...</a><br/></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps an <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> with a <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">Pipeable</a> and emits EEGDataType.EEG events Should only be used as a producer not consumer.  <a href="class_sharp_b_c_i_1_1_e_e_g_device_producer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html">TimeSeriesSmoother</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -324,36 +331,59 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>What type of EEG data this <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a> represents. </p>
+<p>What type of EEG data this <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> represents. </p>
 <p>IMPORTANT note to devs: not assigning a value to each field in this enum can break scenes that rely on it. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a679310a95d28d9a928a0eb6960d3ea27"></a>EEG</em>&#160;</td><td class="fielddoc">
+<p>This represents microvolt data organized by channel. </p>
+<p>It may or may not be filtered for artifacts depending on pipeline layout. The length of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> data should equal the number of channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a3f1ed08a8b6b8015c1ee8e6b66d01267"></a>FFT_RAW</em>&#160;</td><td class="fielddoc">
+<p>Data resulting from a Fourier Transform on some number of samples of type = EEG events This <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> has not been smoothed in any way, and is inherently more variable than FFT_SMOOTHED. </p>
+<p>Length of data array depends on window size of the Fourier Transform. Extra data is an int indicating what channel this event belongs to. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a199fe162ce38f1f55e2fbf7e33c3991c"></a>FFT_SMOOTHED</em>&#160;</td><td class="fielddoc">
+<p>Data resulting from a Fourier Transform on some number of samples of type = EEG events This <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> has been smoothed by some function which depends on the underlying pipeline. </p>
+<p>Length of data array depends on window size of the Fourier Transform. Extra data is an int indicating what channel this event belongs to. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651aa55199eb05e4f86945ba9b6c28186b52"></a>ALPHA_ABSOLUTE</em>&#160;</td><td class="fielddoc">
+<p>The sum of power in the alpha band (specifically about 7.5 Hz ~ 13 Hz) in decibels Length of data array is equal to the number of channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a861e7623acdc571c5db2180d64827d0a"></a>BETA_ABSOLUTE</em>&#160;</td><td class="fielddoc">
+<p>The sum of power in the beta band (specifically about 13 Hz ~ 30 Hz) in decibels Length of data array is equal to the number of channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a819c27cfcdc9b71dacd0df97a566c8a5"></a>GAMMA_ABSOLUTE</em>&#160;</td><td class="fielddoc">
+<p>The sum of power in the alpha band (specifically about 30 Hz ~ 44 Hz) in decibels Length of data array is equal to the number of channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651ad81826f89ec3bf8930eff369f0d624d3"></a>DELTA_ABSOLUTE</em>&#160;</td><td class="fielddoc">
+<p>The sum of power in the alpha band (specifically about 1 Hz ~ 4 Hz) in decibels Length of data array is equal to the number of channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a5248e60cd470fac8c07f54606002411a"></a>THETA_ABSOLUTE</em>&#160;</td><td class="fielddoc">
+<p>The sum of power in the alpha band (specifically about 4 Hz ~ 8 Hz) in decibels Length of data array is equal to the number of channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a85fd17b0b120bf6a6294013fe1b084fd"></a>ALPHA_RELATIVE</em>&#160;</td><td class="fielddoc">
+<p>The power of the alpha band in relation to other bands. </p>
+<p>Length of data array should be equal to the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a27066c45190cbcb356d0edb972cb4ed9"></a>BETA_RELATIVE</em>&#160;</td><td class="fielddoc">
+<p>The power of the beta band in relation to other bands. </p>
+<p>Length of data array should be equal to the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651af02a965ff63f83c3e6177f63198bc6c3"></a>GAMMA_RELATIVE</em>&#160;</td><td class="fielddoc">
+<p>The power of the gamma band in relation to other bands. </p>
+<p>Length of data array should be equal to the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a1bcd0d7f687b2d97b13e6a4e6ba03e81"></a>DELTA_RELATIVE</em>&#160;</td><td class="fielddoc">
+<p>The power of the delta band in relation to other bands. </p>
+<p>Length of data array should be equal to the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651affd0d8cf427b56bd17acb0aa40d92c89"></a>THETA_RELATIVE</em>&#160;</td><td class="fielddoc">
+<p>The power of the theta band in relation to other bands. </p>
+<p>Length of data array should be equal to the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
 </td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a093a660576d1484ca08f82f943ba6651a7643982a6ca8757bf8cddc3211688015"></a>CONTACT_QUALITY</em>&#160;</td><td class="fielddoc">
+<p>Indicates a change in contact quality for EEG channels Length of data array should be equal to the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a>. </p>
+<p>The data array indicates a qualitative metric of current connectivity on a per channel basis. Current semantics: 4 = no contact, 2 = poor contact, 1 = good contact </p>
 </td></tr>
 </table>
 
