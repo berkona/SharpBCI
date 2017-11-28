@@ -5,6 +5,9 @@ using System.Collections.Concurrent;
 
 namespace SharpBCI {
 	
+	/**
+	 * Used internally to asynchronously write a string to a file stream.
+	 */
 	public class AsyncStreamWriter {
 
 		StreamWriter writer;

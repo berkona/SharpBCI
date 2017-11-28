@@ -6,7 +6,10 @@ using SharpOSC;
 using DSPLib;
 
 namespace SharpBCI {
-	
+
+	/**
+	 * An abstract base class from which all device adapters should inherit.
+	 */
 	public abstract class EEGDeviceAdapter {
 
 		public delegate void DataHandler(EEGEvent evt);
@@ -79,6 +82,12 @@ namespace SharpBCI {
 		}
 	}
 
+	/**
+	 * An EEGDeviceAdapter which connects to an EEGDevice via OSC
+	 * It then asynchronously listens for messages on a given OSC socket
+	 * and emits the appropriate EEGEvents for the received OSC message
+	 * Target Hardware: Muse 2014 and Muse 2016 (via android-bridge.apk)
+	 */
 	public class RemoteOSCAdapter : EEGDeviceAdapter {
 		
 		int port;
@@ -185,6 +194,9 @@ namespace SharpBCI {
 		}
 	}
 
+	/**
+	 * A simple struct which defines a signal of given frequencies and amplitudes (per-channel)
+	 */
 	public struct DummyAdapterSignal {
 		public readonly double[] freqs;
 		public readonly double[] amplitudes;
@@ -195,6 +207,11 @@ namespace SharpBCI {
 		}
 	}
 
+	/**
+	 * An EEGDeviceAdapter which is used to emit a certain set of signals via StartSignal.
+	 * Generally used for smoke-testing / debugging your SharpBCI pipeline.
+	 * The primarily used is for smoke-testing / debugging IPredictorPipeable implementations, but can be used for other applications.
+	 */
 	public class InstrumentedDummyAdapter : EEGDeviceAdapter {
 		public const int SAMPLE_LENGTH = 256 * 10;
 
@@ -268,6 +285,10 @@ namespace SharpBCI {
 	}
 
 
+	/**
+	 * A version of InstrumentedDummyAdapter which constantly emits a given DummyAdapterSignal
+     * Generally used for smoke-testing / debugging your SharpBCI pipeline
+	 */
 	public class DummyAdapter : InstrumentedDummyAdapter {
 		public DummyAdapter(DummyAdapterSignal signal, double sampleRate) : this(signal, sampleRate, 2) { }
 
