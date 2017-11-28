@@ -477,7 +477,7 @@ namespace SharpBCI
 
         internal void OnRawEEGData(EEGEvent evt) {
             var csv = new StringBuilder();
-            csv.Append(evt.timestamp.ToString("HH:mm:ss.fff"));
+            csv.Append(evt.timestamp.ToString("o"));
             csv.Append(",");
             csv.Append(evt.type.ToString());
             if (evt.extra != null) {
