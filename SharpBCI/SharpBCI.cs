@@ -461,7 +461,7 @@ namespace SharpBCI
 
         public void LogRawData(EEGDataType dataType, String fileName) {
             if (fileName == null) {
-                fileName = DateTime.Now.ToString("HH-mm-ss");
+                fileName = DateTime.Now.ToString();
                 fileName = fileName + ".csv";
             }
             rawLogFile = fileName;

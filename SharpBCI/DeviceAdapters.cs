@@ -321,6 +321,42 @@ namespace SharpBCI {
 		}
 	}
 
+    public class CSVReadAdapter : EEGDeviceAdapter {
+
+        AsyncStreamReader reader;
+        string filePath;
+
+        public CSVReadAdapter(string filePath, double sampleRate) : base(4, sampleRate) {
+            Logger.Log("CSVReadAdapter Constructed");
+            this.filePath = filePath;
+        }
+
+        public override void Start() {
+            Logger.Log("Starting CSVReadAdapter");
+            thread = new Thread(Run);
+            thread.Start();
+        }
+
+        public override void Stop() {
+            Logger.Log("Stopping CSVReadAdapter");
+            isCancelled = true;
+            thread.Join();
+        }
+
+        void Run() {
+            reader = AsyncStreamReader(filePath);
+            //First iteration of ReadLine is for the header which is unused
+            string line = reader.ReadLine();
+            char[] delimiterChars = { ',' };
+            string[] columns;
+            while (!isCancelled) {
+                line = reader.ReadLine();
+                columns = line.Split(delimiterChars);
+                EmitData(new EEGEvent(DateTime.Parse(columns[0], EEGDataType.EEG, int.TryParse(columns[2], null), new double[] { Convert.ToDouble(columns[3]), Convert.ToDouble(columns[4]), Convert.ToDouble(columns[5]), Convert.ToDouble(columns[6]) }));
+            }
+        }
+
+    }
 
 	/**
 	 * A version of InstrumentedDummyAdapter which constantly emits a given DummyAdapterSignal
