@@ -29,5 +29,16 @@ namespace SharpBCI.Tests {
 
 
         #endregion
+
+        #region DBNPredictor
+        [Test]
+        public void DeepBeliefNetwork()
+        {
+            DeepBeliefNetworkPredictor predictor = new DeepBeliefNetworkPredictor(1, new EEGDataType[] { EEGDataType.ALPHA_RELATIVE, EEGDataType.GAMMA_RELATIVE });
+            predictor.AddTrainingData(1, new Double[] {1,1});
+
+
+        }
+        #endregion
     }
 }
