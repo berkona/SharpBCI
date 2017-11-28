@@ -352,7 +352,7 @@ namespace SharpBCI {
             while (!isCancelled) {
                 line = reader.ReadLine();
                 columns = line.Split(delimiterChars);
-                EmitData(new EEGEvent(DateTime.Parse(columns[0], EEGDataType.EEG, int.TryParse(columns[2], null), new double[] { Convert.ToDouble(columns[3]), Convert.ToDouble(columns[4]), Convert.ToDouble(columns[5]), Convert.ToDouble(columns[6]) }));
+                EmitData(new EEGEvent(DateTime.Parse(columns[0]), EEGDataType.EEG, int.TryParse(columns[2], null), new double[] { Convert.ToDouble(columns[3]), Convert.ToDouble(columns[4]), Convert.ToDouble(columns[5]), Convert.ToDouble(columns[6]) }));
             }
         }
 
