@@ -55,7 +55,70 @@ namespace SharpBCI.Tests {
 
 			// nAccept > tournamentSize
 			Assert.Throws<ArgumentException>(() => new TournamentArtifactDectector(1, 1, 2, 1));
+
+			Assert.DoesNotThrow(() => new TournamentArtifactDectector(1, 1, 1, 1));
 		}
 
+		[Test]
+		public void DetectNormal() {
+			var model = new ARModel(0, new double[] { 0.5 });
+			var detector = new TournamentArtifactDectector(1, 1000, 1, 1);
+			var r = new Random();
+			var last = r.NextDouble();
+			// prime detector
+			for (int i = 0; i < 1005; i++) {
+				detector.Detect(last);
+				last = model.Predict(last) + r.NextDouble();
+			}
+
+			//last = model.Predict(last) + r.NextDouble();
+			for (int i = 0; i < 10; i++) {
+				Assert.False(detector.Detect(last));
+				last = model.Predict(last) + r.NextDouble();
+			}
+		}
+
+		[Test]
+		public void DetectArtifact() {
+			var model = new ARModel(0, new double[] { 0.5 });
+			var detector = new TournamentArtifactDectector(1, 1000, 1, 1);
+			var r = new Random();
+			var last = 10 * r.NextDouble();
+			// extra 2 to ensure underlying ARArtifactDetector is primed
+			for (int i = 0; i < 1002; i++) {
+				Assert.False(detector.Detect(last));
+				last = model.Predict(last) + 10 * r.NextDouble();
+			}
+
+			// high-amplitude artifact for 100 samples
+			for (int i = 0; i < 100; i++) {
+				Assert.True(detector.Detect(last + 1000));
+			}
+		}
+
+		[Test]
+		public void DetectModelChange() {
+			// change underlying model and see if it adapts
+			var model = new ARModel(0, new double[] { 0.5 });
+			var detector = new TournamentArtifactDectector(3, 1000, 1, 1);
+			var r = new Random();
+			var last = 10 * r.NextDouble();
+			// extra 2 to ensure underlying ARArtifactDetector is primed
+			for (int i = 0; i< 1002; i++) {
+				Assert.False(detector.Detect(last));
+				last = model.Predict(last) + 10 * r.NextDouble();
+			}
+
+			model = new ARModel(100, new double[] { 0.5 });
+			for (int i = 0; i < 1000; i++) {
+				detector.Detect(last);
+				last = model.Predict(last) + 10 * r.NextDouble();
+			}
+
+			for (int i = 0; i < 100; i++) {
+				Assert.False(detector.Detect(last));
+				last = model.Predict(last) + 10 * r.NextDouble();
+			}
+		}
 	}
 }
