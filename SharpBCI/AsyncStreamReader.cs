@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Threading;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 
 namespace SharpBCI
 {
@@ -26,12 +27,16 @@ namespace SharpBCI
             while ((line = reader.ReadLine()) != null) {
                 readQueue.Add(line);
             }
+            readQueue.CompleteAdding();
             reader.Read();
             reader.Close();
         }
 
+        public IEnumerable<String> GetEnumerable() {
+            return readQueue.GetConsumingEnumerable();
+        }
+
         public void Close() {
-            readQueue.CompleteAdding();
             readingThread.Join();
         }
 

@@ -348,11 +348,12 @@ namespace SharpBCI {
         void Run() {
             reader = new AsyncStreamReader(filePath);
             //First iteration of ReadLine is for the header which is unused
-            string line = reader.ReadLine();
+            string header = reader.ReadLine();
             char[] delimiterChars = { ',' };
             string[] columns;
-            while (!isCancelled) {
-                line = reader.ReadLine();
+            IEnumerable<string> readerEnumberable = reader.GetEnumerable();
+            foreach(string line in readerEnumberable) {
+                Thread.Sleep(4);
                 columns = line.Split(delimiterChars);
 
 				object a = null;
