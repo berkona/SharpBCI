@@ -44,25 +44,25 @@ namespace SharpBCI.Tests {
 	}
 
 	[TestFixture]
-	public class TournamentArtifactDectectorTesting {
+	public class TournamentArtifactDetectorTesting {
 
 		[Test]
 		public void Constructor() {
-			Assert.Throws<ArgumentException>(() => new TournamentArtifactDectector(0, 1, 1, 1));
-			Assert.Throws<ArgumentException>(() => new TournamentArtifactDectector(1, 0, 1, 1));
-			Assert.Throws<ArgumentException>(() => new TournamentArtifactDectector(1, 1, 0, 1));
-			Assert.Throws<ArgumentException>(() => new TournamentArtifactDectector(1, 1, 1, 0));
+			Assert.Throws<ArgumentException>(() => new TournamentArtifactDetector(0, 1, 1, 1));
+			Assert.Throws<ArgumentException>(() => new TournamentArtifactDetector(1, 0, 1, 1));
+			Assert.Throws<ArgumentException>(() => new TournamentArtifactDetector(1, 1, 0, 1));
+			Assert.Throws<ArgumentException>(() => new TournamentArtifactDetector(1, 1, 1, 0));
 
 			// nAccept > tournamentSize
-			Assert.Throws<ArgumentException>(() => new TournamentArtifactDectector(1, 1, 2, 1));
+			Assert.Throws<ArgumentException>(() => new TournamentArtifactDetector(1, 1, 2, 1));
 
-			Assert.DoesNotThrow(() => new TournamentArtifactDectector(1, 1, 1, 1));
+			Assert.DoesNotThrow(() => new TournamentArtifactDetector(1, 1, 1, 1));
 		}
 
 		[Test]
 		public void DetectNormal() {
 			var model = new ARModel(0, new double[] { 0.5 });
-			var detector = new TournamentArtifactDectector(1, 1000, 1, 100);
+			var detector = new TournamentArtifactDetector(1, 1000, 1, 100);
 			var r = new Random(12345);
 			var last = r.NextDouble();
 			// prime detector
@@ -81,7 +81,7 @@ namespace SharpBCI.Tests {
 		[Test]
 		public void DetectArtifact() {
 			var model = new ARModel(0, new double[] { 0.5 });
-			var detector = new TournamentArtifactDectector(1, 1000, 1, 1);
+			var detector = new TournamentArtifactDetector(1, 1000, 1, 1);
 			var r = new Random(12345);
 			var last = 10 * r.NextDouble();
 			// extra 2 to ensure underlying ARArtifactDetector is primed
@@ -100,7 +100,7 @@ namespace SharpBCI.Tests {
 		public void DetectModelChange() {
 			// change underlying model and see if it adapts
 			var model = new ARModel(0, new double[] { 0.5 });
-			var detector = new TournamentArtifactDectector(3, 1000, 1, 1);
+			var detector = new TournamentArtifactDetector(3, 1000, 1, 1);
 			var r = new Random(12345);
 			var last = 10 * r.NextDouble();
 			// extra 2 to ensure underlying ARArtifactDetector is primed
