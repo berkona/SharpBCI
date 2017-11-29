@@ -6,10 +6,22 @@ using DSPLib;
 
 namespace SharpBCI {
 
+	/**
+	 * A common interface for a generic smoother which operates on arrays of type T
+	 * Currently, only used by FFTPipeable for smoothing
+	 */
 	public interface IVectorizedSmoother<T> {
+		/**
+		 * Accept an array of type T and output an array of type T with a smoothing function applied to all values of the input array.
+		 */
 		T[] Smooth(T[] values);
 	}
 
+	/**
+	 * Implements a vectorized version of exponential smoothing
+	 * Each value in the input array is assumed to belong to the same 
+	 * time series as the previous value at the same index in the last input array
+	 */
 	public class ExponentialVectorizedSmoother : IVectorizedSmoother<double> {
 		readonly double[] lastValues;
 		readonly double alpha;
@@ -75,6 +87,21 @@ namespace SharpBCI {
 	/**
 	 * A Pipeable which performs an FFT on each channel
 	 * It outputs an FFTEvent every windowSize samples
+	 * 
+	 * Input Types: EEGEvent of type RAW
+	 * Output Types: EEGEvent of the following types:
+	 * - FFT_RAW
+	 * - FFT_SMOOTHED
+	 * - ALPHA_ABSOLUTE
+	 * - BETA_ABSOLUTE
+	 * - GAMMA_ABSOLUTE
+	 * - DELTA_ABSOLUTE
+	 * - THETA_ABSOLUTE
+	 * - ALPHA_RELATIVE
+	 * - BETA_RELATIVE
+	 * - GAMMA_RELATIVE
+	 * - THETA_RELATIVE
+	 * 
 	 * @see FFTEvent
 	 */
 	public class FFTPipeable : Pipeable {
@@ -99,6 +126,13 @@ namespace SharpBCI {
 		uint nSamples = 0;
 		uint lastFFT = 0;
 
+		/**
+		 * Create a new FFTPipeable which performs an FFT over windowSize.  
+		 * targetFFTRate defaults to 10 Hz with this constructor.
+		 * @param windowSize The size of the FFT window, determines granularity (google FFT)
+		 * @param channels How many channels to operate on
+		 * @param sampleRate Sampling rate of data
+		 * @see EEGEvent		 */
 		public FFTPipeable(int windowSize, int channels, double sampleRate) : this(windowSize, channels, sampleRate, 10) { }
 
 		/**

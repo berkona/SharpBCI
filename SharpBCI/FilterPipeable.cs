@@ -2,7 +2,59 @@ using System;
 using System.Collections.Generic;
 
 namespace SharpBCI {
-	
+
+	/**
+	 * A pipeable which implements a band-pass filter on all incoming data
+	 * Input types: EEGEvent
+	 * Output types: EEGEvent
+	 */
+	public class BandpassPipeable : Pipeable {
+
+		readonly IFilter<double>[] signalFilters;
+		readonly double[] buffer;
+
+		/**
+		 * Create a new BandpassPipeable with the following properties
+		 * @param sampleRate the sampleRate of the underlying adapter
+		 * @param channels the number of channels of the underlying adapter
+		 * @param minFreq minimum cut-off frequency for all channels, interpreted as the center of the frequency cutoff
+		 * @param maxFreq maximum cut-off frequency for all channels, interpreted as the center of the frequenct cutoff
+		 * @param transitionBandwidth signal attentuation will start at fC - transitionBandwidth/2 and end at fC + transitionBandwidth / 2
+		 */
+		public BandpassPipeable(
+			double sampleRate, 
+			int channels, 
+			double minFreq, 
+			double maxFreq, 
+			double transitionBandwidth) {
+
+			signalFilters = new IFilter<double>[channels];
+			buffer = new double[channels];
+
+			for (int i = 0; i<channels; i++) {
+				signalFilters[i] = new ConvolvingDoubleEndedFilter(minFreq, maxFreq, transitionBandwidth, sampleRate, true);
+			}
+
+		}
+
+		protected override bool Process(object item) {
+			EEGEvent evt = (EEGEvent)item;
+			var n = evt.data.Length;
+			for (int i = 0; i<n; i++) {
+				buffer[i] = signalFilters[i].Filter(evt.data[i]);
+			}
+            Add(new EEGEvent(evt.timestamp, evt.type, buffer, evt.extra));
+			return true;
+		}
+
+	}
+
+	/**
+	 * This pipeable is deprecated and may be removed at any point without warning.
+	 * Use BandpassPipeable and TournamentArtifactPipeable in series instead.
+	 * @see BandpassPipeable
+     * @see TournamentArtifactPipeable
+	 */
 	public class SimpleFilterPipeable : Pipeable {
 
 		// signal filters fields

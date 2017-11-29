@@ -11,7 +11,7 @@ namespace SharpBCI.Tests {
         #region AggregateKNNCorrelationPredictor
 
         [Test]
-        public void ARModelConstructor()
+		public void AggregateKNNCorrelationPredictor()
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => new AggregateKNNCorrelationPredictor(0, 2, .1, new EEGDataType[] { EEGDataType.ALPHA_ABSOLUTE }));
             Assert.Throws<ArgumentOutOfRangeException>(() => new AggregateKNNCorrelationPredictor(-2, 2, .1, new EEGDataType[] { EEGDataType.ALPHA_ABSOLUTE }));

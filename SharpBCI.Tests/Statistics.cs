@@ -211,15 +211,15 @@ namespace SharpBCI.Tests {
 
 		protected const double DEFAULT_THRESHOLD = 1e-5;
 
-		bool loggerSetup = false;
+		//bool loggerSetup = false;
 
-		[SetUp]
-		protected void SetupLogger() {
-			if (!loggerSetup) {
-				Logger.AddLogOutput(new ConsoleLogger());
-				loggerSetup = true;
-			}
-		}
+		//[SetUp]
+		//protected void SetupLogger() {
+		//	if (!loggerSetup) {
+		//		Logger.AddLogOutput(new ConsoleLogger());
+		//		loggerSetup = true;
+		//	}
+		//}
 
 		protected void IsWithinThreshold(double expected, double actual) {
 			IsWithinThreshold(expected, actual, DEFAULT_THRESHOLD);
