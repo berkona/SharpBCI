@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace SharpBCI
 {
+
     public interface IPredictor<T>
     {
         void AddTrainingData(int label, T data);
