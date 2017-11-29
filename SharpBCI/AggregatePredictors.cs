@@ -121,7 +121,6 @@ namespace SharpBCI
     /**
 	 * An IPredictor which uses a 3-dimensional loci of points in the form of an array of EEGEvent's to classify EEG data
 	 */
-
     public abstract class Predictor : IPredictor<EEGEvent[]>
     {
 

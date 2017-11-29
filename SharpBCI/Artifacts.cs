@@ -28,7 +28,11 @@ namespace SharpBCI {
 	}
 
 	/**
-	 * A detector which uses an underlying AR model to detect artifacts
+	 * A detector which uses an underlying AR model to detect artifacts.
+	 * The difference between the observed data and the predicted data is known internally as error.
+	 * This error is distributed normally and if the observed error is more than the 95% CI interval,
+	 * the observed data is assumed to be an artifact and is not added to the error distribution.
+	 * In this IArtifactDetector, Error is equal to the variance of another (unfiltered) distribution of error.
 	 */
 	public class ARArtifactDetector : IArtifactDetector {
 		public const double ARTIFACT_THRESHOLD = 2;
@@ -75,7 +79,22 @@ namespace SharpBCI {
 		}
 	}
 
-	public class TournamentArtifactDectector : IArtifactDetector {
+	/**
+     * 
+     * The TournamentArtifactDetector holds a "tournament" of some number ARArtifactDetectors (termed competitors)
+     * The majority consensus of the most well-fit models is the final determination of whether or not the data is an artifact.
+     * The detector defines a concept called "(de)merits".  (De)merits are points which are added 
+     * when the competitor's error is low and taken away when the competitor's error is high.
+     * If the (de)merits of a competitor is less than zero, it will be ejected from the tournament and replaced 
+     * with a newly fit competitor.  Thus, every once in a while, the artifact detector 
+     * will potentially re-fit some number of competitors.  The time interval, in the worst case,
+     * between re-fits of the model is determined by initialMerits.
+     * In this way, the TournamentArtifactDetector will converge on the best fit for
+     * the underlying process while this process is wide-sense stationary.  If the underlying process changes model,
+     * the TournamentArtifactDetector will eventually converge on the best-fit for the new process.
+     * 
+	 */
+	public class TournamentArtifactDetector : IArtifactDetector {
 
 		readonly uint learningSetSize;
 		readonly uint nAccept;
@@ -88,7 +107,15 @@ namespace SharpBCI {
 		int nInitted = 0;
 		int lastInitted = 0;
 
-		public TournamentArtifactDectector(uint tournamentSize, uint learningSetSize, uint nAccept, uint initialMerits) {
+		/**
+		 * 
+		 * @param tournamentSize the number of competitors in the tournament
+		 * @param learningSetSize the size of the dataset used to fit new competitors
+		 * @param nAccept how many competitors should be used to determine the consensus opinion of the detector
+		 * @param initialMerits competitors which have high error will be ejected
+		 * 
+		 */
+		public TournamentArtifactDetector(uint tournamentSize, uint learningSetSize, uint nAccept, uint initialMerits) {
 			// arg checking
 			if (tournamentSize == 0 
 			    || learningSetSize == 0 
