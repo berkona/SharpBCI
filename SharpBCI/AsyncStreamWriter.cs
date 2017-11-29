@@ -27,11 +27,13 @@ namespace SharpBCI {
 			foreach (string line in writeQueue.GetConsumingEnumerable()) {
 				writer.WriteLine(line);	
 			}
+            writer.Flush();
+            writer.Close();
 		}
 
 		public void Close() {
 			writeQueue.CompleteAdding();
-			writingThread.Join();
+            writingThread.Join();
 		}
 
 		public void WriteLine(string line) {
