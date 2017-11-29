@@ -232,7 +232,7 @@ namespace SharpBCI
                 var bIdx = bandLookup[evt.type];
                 for (int cIdx = 0; cIdx < evt.data.Length; cIdx++)
                 {
-                    points[cIdx] = evt.data;
+					points[cIdx][bIdx] = evt.data[cIdx];
                 }
             }
             return points;
