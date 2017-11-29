@@ -128,6 +128,7 @@ namespace SharpBCI
         BackPropagationLearning steacher;
 
         static int MAX_NUM_LABELS = 10;
+        int max_num_labels;
 
         int channels;
         EEGDataType[] bands;
@@ -239,6 +240,10 @@ namespace SharpBCI
             double[][] input = new double[1][];
             input[0] = data;
             return uteacher.RunEpoch(input);
+        }
+
+        public double[] Generate(double[] data) {
+            return network.GenerateOutput(data);
         }
 
         public static double[] FormatOutputVector(double label, int num_labels)

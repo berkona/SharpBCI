@@ -35,7 +35,21 @@ namespace SharpBCI.Tests {
         public void DeepBeliefNetwork()
         {
             DeepBeliefNetworkPredictor predictor = new DeepBeliefNetworkPredictor(1, new EEGDataType[] { EEGDataType.ALPHA_RELATIVE, EEGDataType.GAMMA_RELATIVE });
-            predictor.AddTrainingData(1, new Double[] {1,1});
+
+            Random r = new Random(1131);
+            for (int attempts = 0; attempts < 10; attempts++)
+            {
+                var x = new double[12];
+                for (int i = 0; i < 12; i++)
+                {
+                    x[i] = r.NextDouble();
+                }
+
+                predictor.AddTrainingData(1, x);
+            }
+
+            Assert.IsEmpty(predictor.ToString());
+
 
 
         }
