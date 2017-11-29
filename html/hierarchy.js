@@ -1,6 +1,7 @@
 var hierarchy =
 [
     [ "SharpBCI.ARModel", "class_sharp_b_c_i_1_1_a_r_model.html", null ],
+    [ "SharpBCI.AsyncStreamReader", "class_sharp_b_c_i_1_1_async_stream_reader.html", null ],
     [ "SharpBCI.AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", null ],
     [ "System.Numerics.Complex", "struct_system_1_1_numerics_1_1_complex.html", null ],
     [ "DSPLib.DFT", "class_d_s_p_lib_1_1_d_f_t.html", null ],
@@ -8,6 +9,7 @@ var hierarchy =
     [ "SharpBCI.DummyAdapterSignal", "struct_sharp_b_c_i_1_1_dummy_adapter_signal.html", null ],
     [ "SharpBCI.DynamicTimeWarping", "class_sharp_b_c_i_1_1_dynamic_time_warping.html", null ],
     [ "SharpBCI.EEGDeviceAdapter", "class_sharp_b_c_i_1_1_e_e_g_device_adapter.html", [
+      [ "SharpBCI.CSVReadAdapter", "class_sharp_b_c_i_1_1_c_s_v_read_adapter.html", null ],
       [ "SharpBCI.InstrumentedDummyAdapter", "class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html", [
         [ "SharpBCI.DummyAdapter", "class_sharp_b_c_i_1_1_dummy_adapter.html", null ]
       ] ],

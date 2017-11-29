@@ -10,6 +10,9 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
       [ "AggregateKNNCorrelationPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor" ],
       [ "AggregateKNNDTWPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor" ]
     ] ],
+    [ "AsyncStreamReader.cs", "_async_stream_reader_8cs.html", [
+      [ "AsyncStreamReader", "class_sharp_b_c_i_1_1_async_stream_reader.html", "class_sharp_b_c_i_1_1_async_stream_reader" ]
+    ] ],
     [ "AsyncStreamWriter.cs", "_async_stream_writer_8cs.html", [
       [ "AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", "class_sharp_b_c_i_1_1_async_stream_writer" ]
     ] ],
@@ -21,6 +24,7 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
       [ "RemoteOSCAdapter", "class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html", "class_sharp_b_c_i_1_1_remote_o_s_c_adapter" ],
       [ "DummyAdapterSignal", "struct_sharp_b_c_i_1_1_dummy_adapter_signal.html", "struct_sharp_b_c_i_1_1_dummy_adapter_signal" ],
       [ "InstrumentedDummyAdapter", "class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html", "class_sharp_b_c_i_1_1_instrumented_dummy_adapter" ],
+      [ "CSVReadAdapter", "class_sharp_b_c_i_1_1_c_s_v_read_adapter.html", "class_sharp_b_c_i_1_1_c_s_v_read_adapter" ],
       [ "DummyAdapter", "class_sharp_b_c_i_1_1_dummy_adapter.html", "class_sharp_b_c_i_1_1_dummy_adapter" ]
     ] ],
     [ "DSPLib.cs", "_d_s_p_lib_8cs.html", [
