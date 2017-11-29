@@ -26,6 +26,8 @@ namespace SharpBCI
             while ((line = reader.ReadLine()) != null) {
                 readQueue.Add(line);
             }
+            reader.Read();
+            reader.Close();
         }
 
         public void Close() {
