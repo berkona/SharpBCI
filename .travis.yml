@@ -3,6 +3,7 @@ sudo: false
 branches:
   only:
   - master
+  - /^v.*$/
 env:
   global:
   - GH_REPO_NAME: SharpBCI
