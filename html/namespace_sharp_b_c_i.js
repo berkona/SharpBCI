@@ -6,6 +6,10 @@ var namespace_sharp_b_c_i =
     [ "Predictor", "class_sharp_b_c_i_1_1_predictor.html", "class_sharp_b_c_i_1_1_predictor" ],
     [ "AggregateKNNCorrelationPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_correlation_predictor" ],
     [ "AggregateKNNDTWPredictor", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html", "class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor" ],
+    [ "TournamentArtifactPipeable", "class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html", "class_sharp_b_c_i_1_1_tournament_artifact_pipeable" ],
+    [ "IArtifactDetector", "interface_sharp_b_c_i_1_1_i_artifact_detector.html", "interface_sharp_b_c_i_1_1_i_artifact_detector" ],
+    [ "ARArtifactDetector", "class_sharp_b_c_i_1_1_a_r_artifact_detector.html", "class_sharp_b_c_i_1_1_a_r_artifact_detector" ],
+    [ "TournamentArtifactDectector", "class_sharp_b_c_i_1_1_tournament_artifact_dectector.html", "class_sharp_b_c_i_1_1_tournament_artifact_dectector" ],
     [ "AsyncStreamReader", "class_sharp_b_c_i_1_1_async_stream_reader.html", "class_sharp_b_c_i_1_1_async_stream_reader" ],
     [ "AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", "class_sharp_b_c_i_1_1_async_stream_writer" ],
     [ "EEGDeviceAdapter", "class_sharp_b_c_i_1_1_e_e_g_device_adapter.html", "class_sharp_b_c_i_1_1_e_e_g_device_adapter" ],
@@ -21,6 +25,7 @@ var namespace_sharp_b_c_i =
     [ "ExponentialVectorizedSmoother", "class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html", "class_sharp_b_c_i_1_1_exponential_vectorized_smoother" ],
     [ "XCorrVectorizedSmoother", "class_sharp_b_c_i_1_1_x_corr_vectorized_smoother.html", "class_sharp_b_c_i_1_1_x_corr_vectorized_smoother" ],
     [ "FFTPipeable", "class_sharp_b_c_i_1_1_f_f_t_pipeable.html", "class_sharp_b_c_i_1_1_f_f_t_pipeable" ],
+    [ "BandpassPipeable", "class_sharp_b_c_i_1_1_bandpass_pipeable.html", "class_sharp_b_c_i_1_1_bandpass_pipeable" ],
     [ "SimpleFilterPipeable", "class_sharp_b_c_i_1_1_simple_filter_pipeable.html", "class_sharp_b_c_i_1_1_simple_filter_pipeable" ],
     [ "IFilter< T >", "interface_sharp_b_c_i_1_1_i_filter_3_01_t_01_4.html", "interface_sharp_b_c_i_1_1_i_filter_3_01_t_01_4" ],
     [ "MultiFilter< T >", "class_sharp_b_c_i_1_1_multi_filter_3_01_t_01_4.html", "class_sharp_b_c_i_1_1_multi_filter_3_01_t_01_4" ],
@@ -55,10 +60,6 @@ var namespace_sharp_b_c_i =
     [ "TrainedEventEmitter", "class_sharp_b_c_i_1_1_trained_event_emitter.html", "class_sharp_b_c_i_1_1_trained_event_emitter" ],
     [ "RawEventEmitter", "class_sharp_b_c_i_1_1_raw_event_emitter.html", "class_sharp_b_c_i_1_1_raw_event_emitter" ],
     [ "EEGDeviceProducer", "class_sharp_b_c_i_1_1_e_e_g_device_producer.html", "class_sharp_b_c_i_1_1_e_e_g_device_producer" ],
-    [ "TimeSeriesSmoother", "class_sharp_b_c_i_1_1_time_series_smoother.html", "class_sharp_b_c_i_1_1_time_series_smoother" ],
-    [ "SimpleMovingAverageSmoother", "class_sharp_b_c_i_1_1_simple_moving_average_smoother.html", "class_sharp_b_c_i_1_1_simple_moving_average_smoother" ],
-    [ "SingleExponentialSmoother", "class_sharp_b_c_i_1_1_single_exponential_smoother.html", "class_sharp_b_c_i_1_1_single_exponential_smoother" ],
     [ "OnlineVariance", "class_sharp_b_c_i_1_1_online_variance.html", "class_sharp_b_c_i_1_1_online_variance" ],
-    [ "ARModel", "class_sharp_b_c_i_1_1_a_r_model.html", "class_sharp_b_c_i_1_1_a_r_model" ],
-    [ "TimeSeriesSmootherPipeable", "class_sharp_b_c_i_1_1_time_series_smoother_pipeable.html", "class_sharp_b_c_i_1_1_time_series_smoother_pipeable" ]
+    [ "ARModel", "class_sharp_b_c_i_1_1_a_r_model.html", "class_sharp_b_c_i_1_1_a_r_model" ]
 ];

@@ -17,6 +17,10 @@ var hierarchy =
     ] ],
     [ "SharpBCI.EEGEvent", "class_sharp_b_c_i_1_1_e_e_g_event.html", null ],
     [ "DSPLib.FFT", "class_d_s_p_lib_1_1_f_f_t.html", null ],
+    [ "SharpBCI.IArtifactDetector", "interface_sharp_b_c_i_1_1_i_artifact_detector.html", [
+      [ "SharpBCI.ARArtifactDetector", "class_sharp_b_c_i_1_1_a_r_artifact_detector.html", null ],
+      [ "SharpBCI.TournamentArtifactDectector", "class_sharp_b_c_i_1_1_tournament_artifact_dectector.html", null ]
+    ] ],
     [ "IDisposable", null, [
       [ "SharpBCI.ILogOutput", "interface_sharp_b_c_i_1_1_i_log_output.html", [
         [ "SharpBCI.ConsoleLogger", "class_sharp_b_c_i_1_1_console_logger.html", null ],
@@ -43,11 +47,12 @@ var hierarchy =
       ] ],
       [ "SharpBCI.Pipeable", "class_sharp_b_c_i_1_1_pipeable.html", [
         [ "SharpBCI.AggregatePredictionPipeable", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html", null ],
+        [ "SharpBCI.BandpassPipeable", "class_sharp_b_c_i_1_1_bandpass_pipeable.html", null ],
         [ "SharpBCI.EEGDeviceProducer", "class_sharp_b_c_i_1_1_e_e_g_device_producer.html", null ],
         [ "SharpBCI.FFTPipeable", "class_sharp_b_c_i_1_1_f_f_t_pipeable.html", null ],
         [ "SharpBCI.RawEventEmitter", "class_sharp_b_c_i_1_1_raw_event_emitter.html", null ],
         [ "SharpBCI.SimpleFilterPipeable", "class_sharp_b_c_i_1_1_simple_filter_pipeable.html", null ],
-        [ "SharpBCI.TimeSeriesSmootherPipeable", "class_sharp_b_c_i_1_1_time_series_smoother_pipeable.html", null ],
+        [ "SharpBCI.TournamentArtifactPipeable", "class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html", null ],
         [ "SharpBCI.TrainedEventEmitter", "class_sharp_b_c_i_1_1_trained_event_emitter.html", null ]
       ] ]
     ] ],
@@ -76,9 +81,5 @@ var hierarchy =
     [ "SharpBCI.SharpBCI", "class_sharp_b_c_i_1_1_sharp_b_c_i.html", null ],
     [ "SharpBCI.SharpBCIBuilder", "class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html", null ],
     [ "SharpBCI.SharpBCIConfig", "class_sharp_b_c_i_1_1_sharp_b_c_i_config.html", null ],
-    [ "SharpBCI.TimeSeriesSmoother", "class_sharp_b_c_i_1_1_time_series_smoother.html", [
-      [ "SharpBCI.SimpleMovingAverageSmoother", "class_sharp_b_c_i_1_1_simple_moving_average_smoother.html", null ],
-      [ "SharpBCI.SingleExponentialSmoother", "class_sharp_b_c_i_1_1_single_exponential_smoother.html", null ]
-    ] ],
     [ "SharpBCI.TrainedEvent", "class_sharp_b_c_i_1_1_trained_event.html", null ]
 ];

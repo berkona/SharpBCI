@@ -126,6 +126,16 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_aggregate_k_n_n_d_t_w_predictor.html">AggregateKNNDTWPredictor</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html">TournamentArtifactPipeable</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html">IArtifactDetector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">An interface which defines an abstract artifact detector You can implement this to utilize classes which find the best detector implementation.  <a href="interface_sharp_b_c_i_1_1_i_artifact_detector.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html">ARArtifactDetector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A detector which uses an underlying AR model to detect artifacts.  <a href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html">TournamentArtifactDectector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_reader.html">AsyncStreamReader</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_writer.html">AsyncStreamWriter</a></td></tr>
@@ -156,15 +166,21 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class which represent various types of events relating to EEG data.  <a href="class_sharp_b_c_i_1_1_e_e_g_event.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">interface &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html">IVectorizedSmoother&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A common interface for a generic smoother which operates on arrays of type T Currently, only used by <a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html" title="A Pipeable which performs an FFT on each channel It outputs an FFTEvent every windowSize samples...">FFTPipeable</a> for smoothing.  <a href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html">ExponentialVectorizedSmoother</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a vectorized version of exponential smoothing Each value in the input array is assumed to belong to the same time series as the previous value at the same index in the last input array.  <a href="class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_x_corr_vectorized_smoother.html">XCorrVectorizedSmoother</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html">FFTPipeable</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">Pipeable</a> which performs an FFT on each channel It outputs an FFTEvent every windowSize samples.  <a href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_bandpass_pipeable.html">BandpassPipeable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pipeable which implements a band-pass filter on all incoming data Input types: <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> Output types: <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a>.  <a href="class_sharp_b_c_i_1_1_bandpass_pipeable.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_simple_filter_pipeable.html">SimpleFilterPipeable</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">This pipeable is deprecated and may be removed at any point without warning.  <a href="class_sharp_b_c_i_1_1_simple_filter_pipeable.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>FilterUtilities</b></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -247,12 +263,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_producer.html">EEGDeviceProducer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps an <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> with a <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">Pipeable</a> and emits EEGDataType.EEG events Should only be used as a producer not consumer.  <a href="class_sharp_b_c_i_1_1_e_e_g_device_producer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html">TimeSeriesSmoother</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_simple_moving_average_smoother.html">SimpleMovingAverageSmoother</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_single_exponential_smoother.html">SingleExponentialSmoother</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>StatsUtils</b></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for statistical utility functions. <br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -261,8 +271,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_a_r_model.html">ARModel</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple AR model class which can predict the next value of X given AR parameters (phi), a constant factor (i.e., E[noise(X)]), and previous values of X O(p) performance.  <a href="class_sharp_b_c_i_1_1_a_r_model.html#details">More...</a><br/></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother_pipeable.html">TimeSeriesSmootherPipeable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>

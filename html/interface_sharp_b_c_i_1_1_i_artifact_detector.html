@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SharpBCI: SharpBCI.SingleExponentialSmoother Class Reference</title>
+<title>SharpBCI: SharpBCI.IArtifactDetector Interface Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_single_exponential_smoother.html','');});
+$(document).ready(function(){initNavTree('interface_sharp_b_c_i_1_1_i_artifact_detector.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -106,109 +106,88 @@ $(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_single_exponenti
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="class_sharp_b_c_i_1_1_single_exponential_smoother-members.html">List of all members</a>  </div>
+<a href="interface_sharp_b_c_i_1_1_i_artifact_detector-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SharpBCI.SingleExponentialSmoother Class Reference</div>  </div>
+<div class="title">SharpBCI.IArtifactDetector Interface Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An interface which defines an abstract artifact detector You can implement this to utilize classes which find the best detector implementation.  
+ <a href="interface_sharp_b_c_i_1_1_i_artifact_detector.html#details">More...</a></p>
 <div class="dynheader">
-Inheritance diagram for SharpBCI.SingleExponentialSmoother:</div>
+Inheritance diagram for SharpBCI.IArtifactDetector:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_sharp_b_c_i_1_1_single_exponential_smoother.png" usemap="#SharpBCI.SingleExponentialSmoother_map" alt=""/>
-  <map id="SharpBCI.SingleExponentialSmoother_map" name="SharpBCI.SingleExponentialSmoother_map">
-<area href="class_sharp_b_c_i_1_1_time_series_smoother.html" alt="SharpBCI.TimeSeriesSmoother" shape="rect" coords="0,0,223,24"/>
+  <img src="interface_sharp_b_c_i_1_1_i_artifact_detector.png" usemap="#SharpBCI.IArtifactDetector_map" alt=""/>
+  <map id="SharpBCI.IArtifactDetector_map" name="SharpBCI.IArtifactDetector_map">
+<area href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html" title="A detector which uses an underlying AR model to detect artifacts. " alt="SharpBCI.ARArtifactDetector" shape="rect" coords="0,56,232,80"/>
+<area href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html" alt="SharpBCI.TournamentArtifactDectector" shape="rect" coords="242,56,474,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5d11a37a7a271251fac88c1d21568ee3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_single_exponential_smoother.html#a5d11a37a7a271251fac88c1d21568ee3">SingleExponentialSmoother</a> (double a)</td></tr>
-<tr class="separator:a5d11a37a7a271251fac88c1d21568ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6ed9dfef4698c829cdc4f66525303eb"><td class="memItemLeft" align="right" valign="top">override double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_single_exponential_smoother.html#aa6ed9dfef4698c829cdc4f66525303eb">Next</a> (double x)</td></tr>
-<tr class="separator:aa6ed9dfef4698c829cdc4f66525303eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_class_sharp_b_c_i_1_1_time_series_smoother"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_sharp_b_c_i_1_1_time_series_smoother')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html">SharpBCI.TimeSeriesSmoother</a></td></tr>
-<tr class="memitem:a5b14174f3d73c070e0a0398e79458be0 inherit pub_methods_class_sharp_b_c_i_1_1_time_series_smoother"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html#a5b14174f3d73c070e0a0398e79458be0">getAverage</a> ()</td></tr>
-<tr class="separator:a5b14174f3d73c070e0a0398e79458be0 inherit pub_methods_class_sharp_b_c_i_1_1_time_series_smoother"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:aff3589e1a6524c65eedf5d2738fbca94"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_single_exponential_smoother.html#aff3589e1a6524c65eedf5d2738fbca94">alpha</a></td></tr>
-<tr class="separator:aff3589e1a6524c65eedf5d2738fbca94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_attribs_class_sharp_b_c_i_1_1_time_series_smoother"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_class_sharp_b_c_i_1_1_time_series_smoother')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html">SharpBCI.TimeSeriesSmoother</a></td></tr>
-<tr class="memitem:a18840ca004a4977436bdc7d60cea5c86 inherit pro_attribs_class_sharp_b_c_i_1_1_time_series_smoother"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html#a18840ca004a4977436bdc7d60cea5c86">current</a></td></tr>
-<tr class="separator:a18840ca004a4977436bdc7d60cea5c86 inherit pro_attribs_class_sharp_b_c_i_1_1_time_series_smoother"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a443c2af0e4206bedf14e6dce6cd7aa84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html#a443c2af0e4206bedf14e6dce6cd7aa84">Detect</a> (double next)</td></tr>
+<tr class="memdesc:a443c2af0e4206bedf14e6dce6cd7aa84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update artifact detector using next.  <a href="#a443c2af0e4206bedf14e6dce6cd7aa84">More...</a><br/></td></tr>
+<tr class="separator:a443c2af0e4206bedf14e6dce6cd7aa84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4ea65c57762df34c30d3e313c168bdc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html#ac4ea65c57762df34c30d3e313c168bdc">Error</a> ()</td></tr>
+<tr class="memdesc:ac4ea65c57762df34c30d3e313c168bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform the caller of the current confusion of this implementation The returned value should be a double greater than or equal to zero Otherwise no range is assumed, but lower values should indicate lower confusion For example, a detector that perfectly models the signal with no artifacts should have an error of zero Pragmatically, error will generally be non-zero due to presence of artifacts and noise.  <a href="#ac4ea65c57762df34c30d3e313c168bdc">More...</a><br/></td></tr>
+<tr class="separator:ac4ea65c57762df34c30d3e313c168bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5d11a37a7a271251fac88c1d21568ee3"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An interface which defines an abstract artifact detector You can implement this to utilize classes which find the best detector implementation. </p>
+<dl class="section see"><dt>See Also</dt><dd>TournamentArtifactDetector </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="a443c2af0e4206bedf14e6dce6cd7aa84"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SharpBCI.SingleExponentialSmoother.SingleExponentialSmoother </td>
+          <td class="memname">bool SharpBCI.IArtifactDetector.Detect </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>a</em></td><td>)</td>
+          <td class="paramname"><em>next</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Update artifact detector using next. </p>
+<dl class="section return"><dt>Returns</dt><dd>true iff next is an artifact, false otherwise </dd></dl>
+
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#a01efe38531b7f97f2ea8e381e6cf14ae">SharpBCI.TournamentArtifactDectector</a>, and <a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#aef4067905cbf8ca15abd5ecfd8e24a51">SharpBCI.ARArtifactDetector</a>.</p>
+
 </div>
 </div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="aa6ed9dfef4698c829cdc4f66525303eb"></a>
+<a class="anchor" id="ac4ea65c57762df34c30d3e313c168bdc"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">override double SharpBCI.SingleExponentialSmoother.Next </td>
+          <td class="memname">double SharpBCI.IArtifactDetector.Error </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Implements <a class="el" href="class_sharp_b_c_i_1_1_time_series_smoother.html#aa56601ad17c96a95326b646886f81e41">SharpBCI.TimeSeriesSmoother</a>.</p>
+<p>Inform the caller of the current confusion of this implementation The returned value should be a double greater than or equal to zero Otherwise no range is assumed, but lower values should indicate lower confusion For example, a detector that perfectly models the signal with no artifacts should have an error of zero Pragmatically, error will generally be non-zero due to presence of artifacts and noise. </p>
+<dl class="section return"><dt>Returns</dt><dd>the internal confusion metric of this implementation </dd></dl>
+
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#af93a8d359344221b3fa62224704e742b">SharpBCI.TournamentArtifactDectector</a>, and <a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#a4d048d14ad15f5203376e0685a79d867">SharpBCI.ARArtifactDetector</a>.</p>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a class="anchor" id="aff3589e1a6524c65eedf5d2738fbca94"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double SharpBCI.SingleExponentialSmoother.alpha</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/travis/build/berkona/SharpBCI/SharpBCI/<a class="el" href="_smoothers_8cs.html">Smoothers.cs</a></li>
+<hr/>The documentation for this interface was generated from the following file:<ul>
+<li>/home/travis/build/berkona/SharpBCI/SharpBCI/<a class="el" href="_artifacts_8cs.html">Artifacts.cs</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespace_sharp_b_c_i.html">SharpBCI</a></li><li class="navelem"><a class="el" href="class_sharp_b_c_i_1_1_single_exponential_smoother.html">SingleExponentialSmoother</a></li>
+    <li class="navelem"><a class="el" href="namespace_sharp_b_c_i.html">SharpBCI</a></li><li class="navelem"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html">IArtifactDetector</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

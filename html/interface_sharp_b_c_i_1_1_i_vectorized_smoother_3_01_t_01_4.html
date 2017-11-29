@@ -111,13 +111,16 @@ $(document).ready(function(){initNavTree('interface_sharp_b_c_i_1_1_i_vectorized
 <div class="title">SharpBCI.IVectorizedSmoother&lt; T &gt; Interface Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A common interface for a generic smoother which operates on arrays of type T Currently, only used by <a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html" title="A Pipeable which performs an FFT on each channel It outputs an FFTEvent every windowSize samples...">FFTPipeable</a> for smoothing.  
+ <a href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.IVectorizedSmoother&lt; T &gt;:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.png" usemap="#SharpBCI.IVectorizedSmoother&lt; T &gt;_map" alt=""/>
   <map id="SharpBCI.IVectorizedSmoother&lt; T &gt;_map" name="SharpBCI.IVectorizedSmoother&lt; T &gt;_map">
-<area href="class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html" alt="SharpBCI.ExponentialVectorizedSmoother" shape="rect" coords="0,56,249,80"/>
+<area href="class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html" title="Implements a vectorized version of exponential smoothing Each value in the input array is assumed to ..." alt="SharpBCI.ExponentialVectorizedSmoother" shape="rect" coords="0,56,249,80"/>
 <area href="class_sharp_b_c_i_1_1_x_corr_vectorized_smoother.html" alt="SharpBCI.XCorrVectorizedSmoother" shape="rect" coords="259,56,508,80"/>
 </map>
  </div></div>
@@ -125,9 +128,12 @@ Inheritance diagram for SharpBCI.IVectorizedSmoother&lt; T &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a339980dffe6ed383e41138b6353a924f"><td class="memItemLeft" align="right" valign="top">T[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html#a339980dffe6ed383e41138b6353a924f">Smooth</a> (T[] values)</td></tr>
+<tr class="memdesc:a339980dffe6ed383e41138b6353a924f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept an array of type T and output an array of type T with a smoothing function applied to all values of the input array.  <a href="#a339980dffe6ed383e41138b6353a924f">More...</a><br/></td></tr>
 <tr class="separator:a339980dffe6ed383e41138b6353a924f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A common interface for a generic smoother which operates on arrays of type T Currently, only used by <a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html" title="A Pipeable which performs an FFT on each channel It outputs an FFTEvent every windowSize samples...">FFTPipeable</a> for smoothing. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a339980dffe6ed383e41138b6353a924f"></a>
 <div class="memitem">
 <div class="memproto">
@@ -141,6 +147,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Accept an array of type T and output an array of type T with a smoothing function applied to all values of the input array. </p>
 
 </div>
 </div>

@@ -15,14 +15,13 @@ var searchData=
   ['connectionstatus',['connectionStatus',['../class_sharp_b_c_i_1_1_sharp_b_c_i.html#a4ee5fa59eef86aad0254305e58d43a63',1,'SharpBCI::SharpBCI']]],
   ['consolelogger',['ConsoleLogger',['../class_sharp_b_c_i_1_1_console_logger.html',1,'SharpBCI']]],
   ['contact_5fquality',['CONTACT_QUALITY',['../namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651a7643982a6ca8757bf8cddc3211688015',1,'SharpBCI']]],
-  ['convolvingdoubleendedfilter',['ConvolvingDoubleEndedFilter',['../class_sharp_b_c_i_1_1_convolving_double_ended_filter.html#ae9231e4e63d6010e200243b378a37119',1,'SharpBCI::ConvolvingDoubleEndedFilter']]],
   ['convolvingdoubleendedfilter',['ConvolvingDoubleEndedFilter',['../class_sharp_b_c_i_1_1_convolving_double_ended_filter.html',1,'SharpBCI']]],
+  ['convolvingdoubleendedfilter',['ConvolvingDoubleEndedFilter',['../class_sharp_b_c_i_1_1_convolving_double_ended_filter.html#ae9231e4e63d6010e200243b378a37119',1,'SharpBCI::ConvolvingDoubleEndedFilter']]],
   ['convolvingfilter',['ConvolvingFilter',['../class_sharp_b_c_i_1_1_convolving_filter.html#aa798d77719a7734b551ed051de22382b',1,'SharpBCI::ConvolvingFilter']]],
   ['convolvingfilter',['ConvolvingFilter',['../class_sharp_b_c_i_1_1_convolving_filter.html',1,'SharpBCI']]],
-  ['convolvingsingleendedfilter',['ConvolvingSingleEndedFilter',['../class_sharp_b_c_i_1_1_convolving_single_ended_filter.html',1,'SharpBCI']]],
   ['convolvingsingleendedfilter',['ConvolvingSingleEndedFilter',['../class_sharp_b_c_i_1_1_convolving_single_ended_filter.html#a0291e08e37ec9f640eed1e245eeb7ade',1,'SharpBCI::ConvolvingSingleEndedFilter']]],
+  ['convolvingsingleendedfilter',['ConvolvingSingleEndedFilter',['../class_sharp_b_c_i_1_1_convolving_single_ended_filter.html',1,'SharpBCI']]],
   ['count',['Count',['../class_sharp_b_c_i_1_1_indexable_queue_3_01_t_01_4.html#ac4511d96e94c49f65ec5aa548f6fa5b7',1,'SharpBCI::IndexableQueue&lt; T &gt;']]],
-  ['csvreadadapter',['CSVReadAdapter',['../class_sharp_b_c_i_1_1_c_s_v_read_adapter.html#a966ec5c247fb60050c089c4bb95a4cd0',1,'SharpBCI::CSVReadAdapter']]],
   ['csvreadadapter',['CSVReadAdapter',['../class_sharp_b_c_i_1_1_c_s_v_read_adapter.html',1,'SharpBCI']]],
-  ['current',['current',['../class_sharp_b_c_i_1_1_time_series_smoother.html#a18840ca004a4977436bdc7d60cea5c86',1,'SharpBCI::TimeSeriesSmoother']]]
+  ['csvreadadapter',['CSVReadAdapter',['../class_sharp_b_c_i_1_1_c_s_v_read_adapter.html#a966ec5c247fb60050c089c4bb95a4cd0',1,'SharpBCI::CSVReadAdapter']]]
 ];

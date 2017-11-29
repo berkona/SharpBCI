@@ -129,6 +129,7 @@ Inheritance diagram for SharpBCI.FFTPipeable:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:adccb1ad4c6b2de01616b8da01ab79403"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html#adccb1ad4c6b2de01616b8da01ab79403">FFTPipeable</a> (int windowSize, int channels, double sampleRate)</td></tr>
+<tr class="memdesc:adccb1ad4c6b2de01616b8da01ab79403"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html" title="A Pipeable which performs an FFT on each channel It outputs an FFTEvent every windowSize samples...">FFTPipeable</a> which performs an FFT over windowSize.  <a href="#adccb1ad4c6b2de01616b8da01ab79403">More...</a><br/></td></tr>
 <tr class="separator:adccb1ad4c6b2de01616b8da01ab79403"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6c93e5647568cec62c1b190b4170bee2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html#a6c93e5647568cec62c1b190b4170bee2">FFTPipeable</a> (int windowSize, int channels, double sampleRate, double targetFFTRate)</td></tr>
 <tr class="memdesc:a6c93e5647568cec62c1b190b4170bee2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html" title="A Pipeable which performs an FFT on each channel It outputs an FFTEvent every windowSize samples...">FFTPipeable</a> which performs an FFT over windowSize.  <a href="#a6c93e5647568cec62c1b190b4170bee2">More...</a><br/></td></tr>
@@ -166,6 +167,20 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">Pipeable</a> which performs an FFT on each channel It outputs an FFTEvent every windowSize samples. </p>
+<p>Input Types: <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> of type RAW Output Types: <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> of the following types:</p>
+<ul>
+<li>FFT_RAW</li>
+<li>FFT_SMOOTHED</li>
+<li>ALPHA_ABSOLUTE</li>
+<li>BETA_ABSOLUTE</li>
+<li>GAMMA_ABSOLUTE</li>
+<li>DELTA_ABSOLUTE</li>
+<li>THETA_ABSOLUTE</li>
+<li>ALPHA_RELATIVE</li>
+<li>BETA_RELATIVE</li>
+<li>GAMMA_RELATIVE</li>
+<li>THETA_RELATIVE</li>
+</ul>
 <dl class="section see"><dt>See Also</dt><dd>FFTEvent </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="adccb1ad4c6b2de01616b8da01ab79403"></a>
@@ -197,6 +212,18 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create a new <a class="el" href="class_sharp_b_c_i_1_1_f_f_t_pipeable.html" title="A Pipeable which performs an FFT on each channel It outputs an FFTEvent every windowSize samples...">FFTPipeable</a> which performs an FFT over windowSize. </p>
+<p>targetFFTRate defaults to 10 Hz with this constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">windowSize</td><td>The size of the FFT window, determines granularity (google FFT) </td></tr>
+    <tr><td class="paramname">channels</td><td>How many channels to operate on </td></tr>
+    <tr><td class="paramname">sampleRate</td><td>Sampling rate of data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> </dd></dl>
 
 </div>
 </div>

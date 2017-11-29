@@ -111,13 +111,16 @@ $(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_exponential_vect
 <div class="title">SharpBCI.ExponentialVectorizedSmoother Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implements a vectorized version of exponential smoothing Each value in the input array is assumed to belong to the same time series as the previous value at the same index in the last input array.  
+ <a href="class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.ExponentialVectorizedSmoother:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_sharp_b_c_i_1_1_exponential_vectorized_smoother.png" usemap="#SharpBCI.ExponentialVectorizedSmoother_map" alt=""/>
   <map id="SharpBCI.ExponentialVectorizedSmoother_map" name="SharpBCI.ExponentialVectorizedSmoother_map">
-<area href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html" alt="SharpBCI.IVectorizedSmoother&lt; T &gt;" shape="rect" coords="0,0,249,24"/>
+<area href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html" title="A common interface for a generic smoother which operates on arrays of type T Currently, only used by FFTPipeable for smoothing. " alt="SharpBCI.IVectorizedSmoother&lt; T &gt;" shape="rect" coords="0,0,249,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -129,9 +132,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aed0192a1c5733ba06cf30ea5277c9f83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html">SharpBCI.IVectorizedSmoother&lt; T &gt;</a></td></tr>
 <tr class="memitem:a339980dffe6ed383e41138b6353a924f inherit pub_methods_interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4"><td class="memItemLeft" align="right" valign="top">T[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html#a339980dffe6ed383e41138b6353a924f">Smooth</a> (T[] values)</td></tr>
+<tr class="memdesc:a339980dffe6ed383e41138b6353a924f inherit pub_methods_interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept an array of type T and output an array of type T with a smoothing function applied to all values of the input array.  <a href="#a339980dffe6ed383e41138b6353a924f">More...</a><br/></td></tr>
 <tr class="separator:a339980dffe6ed383e41138b6353a924f inherit pub_methods_interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implements a vectorized version of exponential smoothing Each value in the input array is assumed to belong to the same time series as the previous value at the same index in the last input array. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a77761bb55f497e7c23e983a00c784205"></a>
 <div class="memitem">
 <div class="memproto">

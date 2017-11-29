@@ -6,6 +6,7 @@ var searchData=
   ['delta_5fabsolute',['DELTA_ABSOLUTE',['../namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651ad81826f89ec3bf8930eff369f0d624d3',1,'SharpBCI']]],
   ['delta_5frelative',['DELTA_RELATIVE',['../namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651a1bcd0d7f687b2d97b13e6a4e6ba03e81',1,'SharpBCI']]],
   ['dequeue',['Dequeue',['../class_sharp_b_c_i_1_1_indexable_queue_3_01_t_01_4.html#a35944c11bb3aebd494962375e41a4d1e',1,'SharpBCI::IndexableQueue&lt; T &gt;']]],
+  ['detect',['Detect',['../interface_sharp_b_c_i_1_1_i_artifact_detector.html#a443c2af0e4206bedf14e6dce6cd7aa84',1,'SharpBCI.IArtifactDetector.Detect()'],['../class_sharp_b_c_i_1_1_a_r_artifact_detector.html#aef4067905cbf8ca15abd5ecfd8e24a51',1,'SharpBCI.ARArtifactDetector.Detect()'],['../class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#a01efe38531b7f97f2ea8e381e6cf14ae',1,'SharpBCI.TournamentArtifactDectector.Detect()']]],
   ['deviceadapters_2ecs',['DeviceAdapters.cs',['../_device_adapters_8cs.html',1,'']]],
   ['dft',['DFT',['../class_d_s_p_lib_1_1_d_f_t.html',1,'DSPLib']]],
   ['dft',['DFT',['../class_d_s_p_lib_1_1_d_f_t.html#ae6d9b5e0a3d6ff0db7032fe663f71191',1,'DSPLib::DFT']]],
@@ -20,7 +21,7 @@ var searchData=
   ['dummyadapter',['DummyAdapter',['../class_sharp_b_c_i_1_1_dummy_adapter.html#a8f12c89b4f94a6f9beb49787cc719128',1,'SharpBCI.DummyAdapter.DummyAdapter(DummyAdapterSignal signal, double sampleRate)'],['../class_sharp_b_c_i_1_1_dummy_adapter.html#ad1b7490f7aadbb1148a84b59caada133',1,'SharpBCI.DummyAdapter.DummyAdapter(DummyAdapterSignal signal, double sampleRate, double signalToNoise)']]],
   ['dummyadaptersignal',['DummyAdapterSignal',['../struct_sharp_b_c_i_1_1_dummy_adapter_signal.html',1,'SharpBCI']]],
   ['dummyadaptersignal',['DummyAdapterSignal',['../struct_sharp_b_c_i_1_1_dummy_adapter_signal.html#ac2fd60e6f2c5eb2e7fcf0e3f114a9075',1,'SharpBCI::DummyAdapterSignal']]],
-  ['dynamictimewarping',['DynamicTimeWarping',['../class_sharp_b_c_i_1_1_dynamic_time_warping.html#a4a64c28b917dc511f399a9c779e04353',1,'SharpBCI::DynamicTimeWarping']]],
   ['dynamictimewarping',['DynamicTimeWarping',['../class_sharp_b_c_i_1_1_dynamic_time_warping.html',1,'SharpBCI']]],
+  ['dynamictimewarping',['DynamicTimeWarping',['../class_sharp_b_c_i_1_1_dynamic_time_warping.html#a4a64c28b917dc511f399a9c779e04353',1,'SharpBCI::DynamicTimeWarping']]],
   ['dynamictimewarping_2ecs',['DynamicTimeWarping.cs',['../_dynamic_time_warping_8cs.html',1,'']]]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['pipeable',['Pipeable',['../class_sharp_b_c_i_1_1_pipeable.html',1,'SharpBCI']]],
-  ['predictor',['Predictor',['../class_sharp_b_c_i_1_1_predictor.html',1,'SharpBCI']]],
-  ['preprocessors',['Preprocessors',['../class_sharp_b_c_i_1_1_preprocessors.html',1,'SharpBCI']]]
+  ['onlinevariance',['OnlineVariance',['../class_sharp_b_c_i_1_1_online_variance.html',1,'SharpBCI']]]
 ];

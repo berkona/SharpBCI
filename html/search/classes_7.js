@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['narrowpassfilter',['NarrowPassFilter',['../class_sharp_b_c_i_1_1_narrow_pass_filter.html',1,'SharpBCI']]],
-  ['nonepreprocessor',['NonePreprocessor',['../class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html',1,'SharpBCI::Preprocessors']]],
-  ['normalizationpreprocessor',['NormalizationPreprocessor',['../class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html',1,'SharpBCI::Preprocessors']]],
-  ['notchfilter',['NotchFilter',['../class_sharp_b_c_i_1_1_notch_filter.html',1,'SharpBCI']]]
+  ['movingaveragefilter',['MovingAverageFilter',['../class_sharp_b_c_i_1_1_moving_average_filter.html',1,'SharpBCI']]],
+  ['multifilter_3c_20t_20_3e',['MultiFilter&lt; T &gt;',['../class_sharp_b_c_i_1_1_multi_filter_3_01_t_01_4.html',1,'SharpBCI']]]
 ];
