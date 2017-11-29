@@ -199,6 +199,8 @@ namespace SharpBCI
             return distances.ToList();
         }
 
+
+
         public int Vote(List<KeyValuePair<int, double>> distances)
         {
             var nearestNeighbors = distances.OrderByDescending((x) => x.Value).Take(k);
