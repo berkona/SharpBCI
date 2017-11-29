@@ -24,18 +24,16 @@ namespace SharpBCI
         protected void DoRead() {
             string line;
             while ((line = reader.ReadLine()) != null) {
-                readQueue.add(line);
+                readQueue.Add(line);
             }
         }
 
-        public void Close()
-        {
+        public void Close() {
             readQueue.CompleteAdding();
-            readThread.Join();
+            readingThread.Join();
         }
 
-        public string ReadLine()
-        {
+        public string ReadLine() {
             return readQueue.Take();
         }
     }

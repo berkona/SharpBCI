@@ -325,6 +325,8 @@ namespace SharpBCI {
 
         AsyncStreamReader reader;
         string filePath;
+		Thread thread;
+		bool isCancelled;
 
         public CSVReadAdapter(string filePath, double sampleRate) : base(4, sampleRate) {
             Logger.Log("CSVReadAdapter Constructed");
@@ -344,7 +346,7 @@ namespace SharpBCI {
         }
 
         void Run() {
-            reader = AsyncStreamReader(filePath);
+            reader = new AsyncStreamReader(filePath);
             //First iteration of ReadLine is for the header which is unused
             string line = reader.ReadLine();
             char[] delimiterChars = { ',' };
@@ -352,7 +354,14 @@ namespace SharpBCI {
             while (!isCancelled) {
                 line = reader.ReadLine();
                 columns = line.Split(delimiterChars);
-                EmitData(new EEGEvent(DateTime.Parse(columns[0]), EEGDataType.EEG, int.TryParse(columns[2], null), new double[] { Convert.ToDouble(columns[3]), Convert.ToDouble(columns[4]), Convert.ToDouble(columns[5]), Convert.ToDouble(columns[6]) }));
+
+				object a = null;
+				int channel;
+				if (int.TryParse(columns[2], out channel)) {
+					a = channel;
+				}
+
+                EmitData(new EEGEvent(DateTime.Parse(columns[0]), EEGDataType.EEG, new double[] { Convert.ToDouble(columns[3]), Convert.ToDouble(columns[4]), Convert.ToDouble(columns[5]), Convert.ToDouble(columns[6]) }, a));
             }
         }
 
