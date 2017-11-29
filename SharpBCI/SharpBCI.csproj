@@ -76,6 +76,7 @@
     <Compile Include="DynamicTimeWarping.cs" />
     <Compile Include="Artifacts.cs" />
     <Compile Include="ArtifactPipeables.cs" />
+    <Compile Include="AsyncStreamReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AggregatePredictors.cs" />
