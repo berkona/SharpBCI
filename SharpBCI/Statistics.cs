@@ -40,7 +40,7 @@ namespace SharpBCI
             return Math.Sqrt(SampleVar(x));
         }
 
-        public static double Cov(double[] x, double[] y)
+        public static double SampleCov(double[] x, double[] y)
         {
             if (x == null || x.Length == 0 || x.Length != y.Length)
                 throw new ArgumentOutOfRangeException();
