@@ -62,8 +62,8 @@ namespace SharpBCI.Tests {
 		[Test]
 		public void DetectNormal() {
 			var model = new ARModel(0, new double[] { 0.5 });
-			var detector = new TournamentArtifactDectector(1, 1000, 1, 1);
-			var r = new Random();
+			var detector = new TournamentArtifactDectector(1, 1000, 1, 100);
+			var r = new Random(12345);
 			var last = r.NextDouble();
 			// prime detector
 			for (int i = 0; i < 1005; i++) {
@@ -82,7 +82,7 @@ namespace SharpBCI.Tests {
 		public void DetectArtifact() {
 			var model = new ARModel(0, new double[] { 0.5 });
 			var detector = new TournamentArtifactDectector(1, 1000, 1, 1);
-			var r = new Random();
+			var r = new Random(12345);
 			var last = 10 * r.NextDouble();
 			// extra 2 to ensure underlying ARArtifactDetector is primed
 			for (int i = 0; i < 1002; i++) {
@@ -101,7 +101,7 @@ namespace SharpBCI.Tests {
 			// change underlying model and see if it adapts
 			var model = new ARModel(0, new double[] { 0.5 });
 			var detector = new TournamentArtifactDectector(3, 1000, 1, 1);
-			var r = new Random();
+			var r = new Random(12345);
 			var last = 10 * r.NextDouble();
 			// extra 2 to ensure underlying ARArtifactDetector is primed
 			for (int i = 0; i< 1002; i++) {
