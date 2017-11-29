@@ -112,6 +112,9 @@ $(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_tournament_artif
 <div class="title">SharpBCI.TournamentArtifactPipeable Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>An artifact detector which uses a TournamentArtifactDectector on a per-channel basis to detect artifacts Input types: EEG, Output types: EEG.  
+ <a href="class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.TournamentArtifactPipeable:</div>
 <div class="dyncontent">
@@ -126,6 +129,7 @@ Inheritance diagram for SharpBCI.TournamentArtifactPipeable:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5854fbdbaa30bb4e8e70d6b211450c81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html#a5854fbdbaa30bb4e8e70d6b211450c81">TournamentArtifactPipeable</a> (int channels, double sampleRate, double learningTime, uint tournamentSize, uint nAccept, uint initialMerits)</td></tr>
+<tr class="memdesc:a5854fbdbaa30bb4e8e70d6b211450c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html" title="An artifact detector which uses a TournamentArtifactDectector on a per-channel basis to detect artifa...">TournamentArtifactPipeable</a> with following params.  <a href="#a5854fbdbaa30bb4e8e70d6b211450c81">More...</a><br/></td></tr>
 <tr class="separator:a5854fbdbaa30bb4e8e70d6b211450c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_sharp_b_c_i_1_1_pipeable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_sharp_b_c_i_1_1_pipeable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">SharpBCI.Pipeable</a></td></tr>
 <tr class="memitem:a3dd47de67c12f9bdb7a521c0ad5f9bb2 inherit pub_methods_class_sharp_b_c_i_1_1_pipeable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a3dd47de67c12f9bdb7a521c0ad5f9bb2">SetInput</a> (BlockingCollection&lt; object &gt; newInput)</td></tr>
@@ -158,7 +162,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a71fce27c4da6c0faf794ec240c974f71 inherit pub_attribs_class_sharp_b_c_i_1_1_pipeable"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a71fce27c4da6c0faf794ec240c974f71">DEFAULT_BUFFER_SIZE</a> = 1000</td></tr>
 <tr class="separator:a71fce27c4da6c0faf794ec240c974f71 inherit pub_attribs_class_sharp_b_c_i_1_1_pipeable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An artifact detector which uses a TournamentArtifactDectector on a per-channel basis to detect artifacts Input types: EEG, Output types: EEG. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5854fbdbaa30bb4e8e70d6b211450c81"></a>
 <div class="memitem">
 <div class="memproto">
@@ -206,6 +212,19 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create a new <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html" title="An artifact detector which uses a TournamentArtifactDectector on a per-channel basis to detect artifa...">TournamentArtifactPipeable</a> with following params. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channels</td><td>channels as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> </td></tr>
+    <tr><td class="paramname">sampleRate</td><td>sample rate as reported by the underlying <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> </td></tr>
+    <tr><td class="paramname">learningTime</td><td>This many seconds of data will be used to fit the underlying <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html" title="An artifact detector which uses a TournamentArtifactDectector on a per-channel basis to detect artifa...">TournamentArtifactPipeable</a> </td></tr>
+    <tr><td class="paramname">tournamentSize</td><td>how many IArtifactDetectors should compete </td></tr>
+    <tr><td class="paramname">nAccept</td><td>the majority of the top nAccept <a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html" title="An interface which defines an abstract artifact detector You can implement this to utilize classes wh...">IArtifactDetector</a>'s determines if the <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> is considered to be an artifact </td></tr>
+    <tr><td class="paramname">initialMerits</td><td>determines how quickly an <a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html" title="An interface which defines an abstract artifact detector You can implement this to utilize classes wh...">IArtifactDetector</a> is thrown out of the tournament in the worst case. Should be large in relation to sampleRate. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

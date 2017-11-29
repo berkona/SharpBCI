@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>SharpBCI: SharpBCI.TournamentArtifactDectector Class Reference</title>
+<title>SharpBCI: SharpBCI.TournamentArtifactDetector Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -86,7 +86,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_tournament_artifact_dectector.html','');});
+$(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_tournament_artifact_detector.html','');});
 </script>
 <div id="doc-content">
 <!-- window showing the filter options -->
@@ -107,44 +107,50 @@ $(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_tournament_artif
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="class_sharp_b_c_i_1_1_tournament_artifact_dectector-members.html">List of all members</a>  </div>
+<a href="class_sharp_b_c_i_1_1_tournament_artifact_detector-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">SharpBCI.TournamentArtifactDectector Class Reference</div>  </div>
+<div class="title">SharpBCI.TournamentArtifactDetector Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html" title="The TournamentArtifactDetector holds a &quot;tournament&quot; of some number ARArtifactDetectors (termed compet...">TournamentArtifactDetector</a> holds a "tournament" of some number ARArtifactDetectors (termed competitors) The majority consensus of the most well-fit models is the final determination of whether or not the data is an artifact.  
+ <a href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#details">More...</a></p>
 <div class="dynheader">
-Inheritance diagram for SharpBCI.TournamentArtifactDectector:</div>
+Inheritance diagram for SharpBCI.TournamentArtifactDetector:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="class_sharp_b_c_i_1_1_tournament_artifact_dectector.png" usemap="#SharpBCI.TournamentArtifactDectector_map" alt=""/>
-  <map id="SharpBCI.TournamentArtifactDectector_map" name="SharpBCI.TournamentArtifactDectector_map">
-<area href="interface_sharp_b_c_i_1_1_i_artifact_detector.html" title="An interface which defines an abstract artifact detector You can implement this to utilize classes wh..." alt="SharpBCI.IArtifactDetector" shape="rect" coords="0,0,232,24"/>
+  <img src="class_sharp_b_c_i_1_1_tournament_artifact_detector.png" usemap="#SharpBCI.TournamentArtifactDetector_map" alt=""/>
+  <map id="SharpBCI.TournamentArtifactDetector_map" name="SharpBCI.TournamentArtifactDetector_map">
+<area href="interface_sharp_b_c_i_1_1_i_artifact_detector.html" title="An interface which defines an abstract artifact detector You can implement this to utilize classes wh..." alt="SharpBCI.IArtifactDetector" shape="rect" coords="0,0,225,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a98308aafbfc023179ab8d700b40a5072"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#a98308aafbfc023179ab8d700b40a5072">TournamentArtifactDectector</a> (uint tournamentSize, uint learningSetSize, uint nAccept, uint initialMerits)</td></tr>
-<tr class="separator:a98308aafbfc023179ab8d700b40a5072"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af93a8d359344221b3fa62224704e742b"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#af93a8d359344221b3fa62224704e742b">Error</a> ()</td></tr>
-<tr class="memdesc:af93a8d359344221b3fa62224704e742b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform the caller of the current confusion of this implementation The returned value should be a double greater than or equal to zero Otherwise no range is assumed, but lower values should indicate lower confusion For example, a detector that perfectly models the signal with no artifacts should have an error of zero Pragmatically, error will generally be non-zero due to presence of artifacts and noise.  <a href="#af93a8d359344221b3fa62224704e742b">More...</a><br/></td></tr>
-<tr class="separator:af93a8d359344221b3fa62224704e742b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01efe38531b7f97f2ea8e381e6cf14ae"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#a01efe38531b7f97f2ea8e381e6cf14ae">Detect</a> (double data)</td></tr>
-<tr class="memdesc:a01efe38531b7f97f2ea8e381e6cf14ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update artifact detector using next.  <a href="#a01efe38531b7f97f2ea8e381e6cf14ae">More...</a><br/></td></tr>
-<tr class="separator:a01efe38531b7f97f2ea8e381e6cf14ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb34ed3463d5ed24a77bd79b8d058cb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#adb34ed3463d5ed24a77bd79b8d058cb0">TournamentArtifactDetector</a> (uint tournamentSize, uint learningSetSize, uint nAccept, uint initialMerits)</td></tr>
+<tr class="separator:adb34ed3463d5ed24a77bd79b8d058cb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a239ad7c9d019be7d2f9159f8b8555c5a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a239ad7c9d019be7d2f9159f8b8555c5a">Error</a> ()</td></tr>
+<tr class="memdesc:a239ad7c9d019be7d2f9159f8b8555c5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inform the caller of the current confusion of this implementation The returned value should be a double greater than or equal to zero Otherwise no range is assumed, but lower values should indicate lower confusion For example, a detector that perfectly models the signal with no artifacts should have an error of zero Pragmatically, error will generally be non-zero due to presence of artifacts and noise.  <a href="#a239ad7c9d019be7d2f9159f8b8555c5a">More...</a><br/></td></tr>
+<tr class="separator:a239ad7c9d019be7d2f9159f8b8555c5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7293416227e8e13633ff294c54bc44"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a7e7293416227e8e13633ff294c54bc44">Detect</a> (double data)</td></tr>
+<tr class="memdesc:a7e7293416227e8e13633ff294c54bc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update artifact detector using next.  <a href="#a7e7293416227e8e13633ff294c54bc44">More...</a><br/></td></tr>
+<tr class="separator:a7e7293416227e8e13633ff294c54bc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:ad5e51bbee33acd3177ee8485dba53e04"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html">IArtifactDetector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#ad5e51bbee33acd3177ee8485dba53e04">NewCompetitor</a> ()</td></tr>
-<tr class="separator:ad5e51bbee33acd3177ee8485dba53e04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a325a1e9eb501bc586dd78b7a6a538ad8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html">IArtifactDetector</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a325a1e9eb501bc586dd78b7a6a538ad8">NewCompetitor</a> ()</td></tr>
+<tr class="separator:a325a1e9eb501bc586dd78b7a6a538ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a98308aafbfc023179ab8d700b40a5072"></a>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>The <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html" title="The TournamentArtifactDetector holds a &quot;tournament&quot; of some number ARArtifactDetectors (termed compet...">TournamentArtifactDetector</a> holds a "tournament" of some number ARArtifactDetectors (termed competitors) The majority consensus of the most well-fit models is the final determination of whether or not the data is an artifact. </p>
+<p>The detector defines a concept called "(de)merits". (De)merits are points which are added when the competitor's error is low and taken away when the competitor's error is high. If the (de)merits of a competitor is less than zero, it will be ejected from the tournament and replaced with a newly fit competitor. Thus, every once in a while, the artifact detector will potentially re-fit some number of competitors. The time interval, in the worst case, between re-fits of the model is determined by initialMerits. In this way, the <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html" title="The TournamentArtifactDetector holds a &quot;tournament&quot; of some number ARArtifactDetectors (termed compet...">TournamentArtifactDetector</a> will converge on the best fit for the underlying process while this process is wide-sense stationary. If the underlying process changes model, the <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html" title="The TournamentArtifactDetector holds a &quot;tournament&quot; of some number ARArtifactDetectors (termed compet...">TournamentArtifactDetector</a> will eventually converge on the best-fit for the new process. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="adb34ed3463d5ed24a77bd79b8d058cb0"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SharpBCI.TournamentArtifactDectector.TournamentArtifactDectector </td>
+          <td class="memname">SharpBCI.TournamentArtifactDetector.TournamentArtifactDetector </td>
           <td>(</td>
           <td class="paramtype">uint&#160;</td>
           <td class="paramname"><em>tournamentSize</em>, </td>
@@ -174,16 +180,25 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tournamentSize</td><td>the number of competitors in the tournament </td></tr>
+    <tr><td class="paramname">learningSetSize</td><td>the size of the dataset used to fit new competitors </td></tr>
+    <tr><td class="paramname">nAccept</td><td>how many competitors should be used to determine the consensus opinion of the detector </td></tr>
+    <tr><td class="paramname">initialMerits</td><td>competitors which have high error will be ejected </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a01efe38531b7f97f2ea8e381e6cf14ae"></a>
+<a class="anchor" id="a7e7293416227e8e13633ff294c54bc44"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool SharpBCI.TournamentArtifactDectector.Detect </td>
+          <td class="memname">bool SharpBCI.TournamentArtifactDetector.Detect </td>
           <td>(</td>
           <td class="paramtype">double&#160;</td>
           <td class="paramname"><em>next</em></td><td>)</td>
@@ -199,12 +214,12 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af93a8d359344221b3fa62224704e742b"></a>
+<a class="anchor" id="a239ad7c9d019be7d2f9159f8b8555c5a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double SharpBCI.TournamentArtifactDectector.Error </td>
+          <td class="memname">double SharpBCI.TournamentArtifactDetector.Error </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -219,7 +234,7 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad5e51bbee33acd3177ee8485dba53e04"></a>
+<a class="anchor" id="a325a1e9eb501bc586dd78b7a6a538ad8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -227,7 +242,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html">IArtifactDetector</a> SharpBCI.TournamentArtifactDectector.NewCompetitor </td>
+          <td class="memname"><a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html">IArtifactDetector</a> SharpBCI.TournamentArtifactDetector.NewCompetitor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -250,7 +265,7 @@ Protected Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="namespace_sharp_b_c_i.html">SharpBCI</a></li><li class="navelem"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html">TournamentArtifactDectector</a></li>
+    <li class="navelem"><a class="el" href="namespace_sharp_b_c_i.html">SharpBCI</a></li><li class="navelem"><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html">TournamentArtifactDetector</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>

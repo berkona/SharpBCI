@@ -143,6 +143,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A detector which uses an underlying AR model to detect artifacts. </p>
+<p>The difference between the observed data and the predicted data is known internally as error. This error is distributed normally and if the observed error is more than the 95% CI interval, the observed data is assumed to be an artifact and is not added to the error distribution. In this <a class="el" href="interface_sharp_b_c_i_1_1_i_artifact_detector.html" title="An interface which defines an abstract artifact detector You can implement this to utilize classes wh...">IArtifactDetector</a>, Error is equal to the variance of another (unfiltered) distribution of error. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a16b96172344165d878674aa28d9970fd"></a>
 <div class="memitem">

@@ -120,8 +120,8 @@ Inheritance diagram for SharpBCI.IArtifactDetector:</div>
  <div class="center">
   <img src="interface_sharp_b_c_i_1_1_i_artifact_detector.png" usemap="#SharpBCI.IArtifactDetector_map" alt=""/>
   <map id="SharpBCI.IArtifactDetector_map" name="SharpBCI.IArtifactDetector_map">
-<area href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html" title="A detector which uses an underlying AR model to detect artifacts. " alt="SharpBCI.ARArtifactDetector" shape="rect" coords="0,56,232,80"/>
-<area href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html" alt="SharpBCI.TournamentArtifactDectector" shape="rect" coords="242,56,474,80"/>
+<area href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html" title="A detector which uses an underlying AR model to detect artifacts. " alt="SharpBCI.ARArtifactDetector" shape="rect" coords="0,56,225,80"/>
+<area href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html" title="The TournamentArtifactDetector holds a &quot;tournament&quot; of some number ARArtifactDetectors (termed compet..." alt="SharpBCI.TournamentArtifactDetector" shape="rect" coords="235,56,460,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An interface which defines an abstract artifact detector You can implement this to utilize classes which find the best detector implementation. </p>
-<dl class="section see"><dt>See Also</dt><dd>TournamentArtifactDetector </dd></dl>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html" title="The TournamentArtifactDetector holds a &quot;tournament&quot; of some number ARArtifactDetectors (termed compet...">TournamentArtifactDetector</a> </dd></dl>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a443c2af0e4206bedf14e6dce6cd7aa84"></a>
 <div class="memitem">
@@ -155,7 +155,7 @@ Public Member Functions</h2></td></tr>
 <p>Update artifact detector using next. </p>
 <dl class="section return"><dt>Returns</dt><dd>true iff next is an artifact, false otherwise </dd></dl>
 
-<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#a01efe38531b7f97f2ea8e381e6cf14ae">SharpBCI.TournamentArtifactDectector</a>, and <a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#aef4067905cbf8ca15abd5ecfd8e24a51">SharpBCI.ARArtifactDetector</a>.</p>
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a7e7293416227e8e13633ff294c54bc44">SharpBCI.TournamentArtifactDetector</a>, and <a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#aef4067905cbf8ca15abd5ecfd8e24a51">SharpBCI.ARArtifactDetector</a>.</p>
 
 </div>
 </div>
@@ -175,7 +175,7 @@ Public Member Functions</h2></td></tr>
 <p>Inform the caller of the current confusion of this implementation The returned value should be a double greater than or equal to zero Otherwise no range is assumed, but lower values should indicate lower confusion For example, a detector that perfectly models the signal with no artifacts should have an error of zero Pragmatically, error will generally be non-zero due to presence of artifacts and noise. </p>
 <dl class="section return"><dt>Returns</dt><dd>the internal confusion metric of this implementation </dd></dl>
 
-<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#af93a8d359344221b3fa62224704e742b">SharpBCI.TournamentArtifactDectector</a>, and <a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#a4d048d14ad15f5203376e0685a79d867">SharpBCI.ARArtifactDetector</a>.</p>
+<p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a239ad7c9d019be7d2f9159f8b8555c5a">SharpBCI.TournamentArtifactDetector</a>, and <a class="el" href="class_sharp_b_c_i_1_1_a_r_artifact_detector.html#a4d048d14ad15f5203376e0685a79d867">SharpBCI.ARArtifactDetector</a>.</p>
 
 </div>
 </div>

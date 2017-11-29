@@ -9,7 +9,7 @@ var namespace_sharp_b_c_i =
     [ "TournamentArtifactPipeable", "class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html", "class_sharp_b_c_i_1_1_tournament_artifact_pipeable" ],
     [ "IArtifactDetector", "interface_sharp_b_c_i_1_1_i_artifact_detector.html", "interface_sharp_b_c_i_1_1_i_artifact_detector" ],
     [ "ARArtifactDetector", "class_sharp_b_c_i_1_1_a_r_artifact_detector.html", "class_sharp_b_c_i_1_1_a_r_artifact_detector" ],
-    [ "TournamentArtifactDectector", "class_sharp_b_c_i_1_1_tournament_artifact_dectector.html", "class_sharp_b_c_i_1_1_tournament_artifact_dectector" ],
+    [ "TournamentArtifactDetector", "class_sharp_b_c_i_1_1_tournament_artifact_detector.html", "class_sharp_b_c_i_1_1_tournament_artifact_detector" ],
     [ "AsyncStreamReader", "class_sharp_b_c_i_1_1_async_stream_reader.html", "class_sharp_b_c_i_1_1_async_stream_reader" ],
     [ "AsyncStreamWriter", "class_sharp_b_c_i_1_1_async_stream_writer.html", "class_sharp_b_c_i_1_1_async_stream_writer" ],
     [ "EEGDeviceAdapter", "class_sharp_b_c_i_1_1_e_e_g_device_adapter.html", "class_sharp_b_c_i_1_1_e_e_g_device_adapter" ],

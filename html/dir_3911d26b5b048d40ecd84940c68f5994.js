@@ -16,7 +16,7 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
     [ "Artifacts.cs", "_artifacts_8cs.html", [
       [ "IArtifactDetector", "interface_sharp_b_c_i_1_1_i_artifact_detector.html", "interface_sharp_b_c_i_1_1_i_artifact_detector" ],
       [ "ARArtifactDetector", "class_sharp_b_c_i_1_1_a_r_artifact_detector.html", "class_sharp_b_c_i_1_1_a_r_artifact_detector" ],
-      [ "TournamentArtifactDectector", "class_sharp_b_c_i_1_1_tournament_artifact_dectector.html", "class_sharp_b_c_i_1_1_tournament_artifact_dectector" ]
+      [ "TournamentArtifactDetector", "class_sharp_b_c_i_1_1_tournament_artifact_detector.html", "class_sharp_b_c_i_1_1_tournament_artifact_detector" ]
     ] ],
     [ "AsyncStreamReader.cs", "_async_stream_reader_8cs.html", [
       [ "AsyncStreamReader", "class_sharp_b_c_i_1_1_async_stream_reader.html", "class_sharp_b_c_i_1_1_async_stream_reader" ]

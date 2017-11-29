@@ -6,7 +6,7 @@ var searchData=
   ['delta_5fabsolute',['DELTA_ABSOLUTE',['../namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651ad81826f89ec3bf8930eff369f0d624d3',1,'SharpBCI']]],
   ['delta_5frelative',['DELTA_RELATIVE',['../namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651a1bcd0d7f687b2d97b13e6a4e6ba03e81',1,'SharpBCI']]],
   ['dequeue',['Dequeue',['../class_sharp_b_c_i_1_1_indexable_queue_3_01_t_01_4.html#a35944c11bb3aebd494962375e41a4d1e',1,'SharpBCI::IndexableQueue&lt; T &gt;']]],
-  ['detect',['Detect',['../interface_sharp_b_c_i_1_1_i_artifact_detector.html#a443c2af0e4206bedf14e6dce6cd7aa84',1,'SharpBCI.IArtifactDetector.Detect()'],['../class_sharp_b_c_i_1_1_a_r_artifact_detector.html#aef4067905cbf8ca15abd5ecfd8e24a51',1,'SharpBCI.ARArtifactDetector.Detect()'],['../class_sharp_b_c_i_1_1_tournament_artifact_dectector.html#a01efe38531b7f97f2ea8e381e6cf14ae',1,'SharpBCI.TournamentArtifactDectector.Detect()']]],
+  ['detect',['Detect',['../interface_sharp_b_c_i_1_1_i_artifact_detector.html#a443c2af0e4206bedf14e6dce6cd7aa84',1,'SharpBCI.IArtifactDetector.Detect()'],['../class_sharp_b_c_i_1_1_a_r_artifact_detector.html#aef4067905cbf8ca15abd5ecfd8e24a51',1,'SharpBCI.ARArtifactDetector.Detect()'],['../class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a7e7293416227e8e13633ff294c54bc44',1,'SharpBCI.TournamentArtifactDetector.Detect()']]],
   ['deviceadapters_2ecs',['DeviceAdapters.cs',['../_device_adapters_8cs.html',1,'']]],
   ['dft',['DFT',['../class_d_s_p_lib_1_1_d_f_t.html',1,'DSPLib']]],
   ['dft',['DFT',['../class_d_s_p_lib_1_1_d_f_t.html#ae6d9b5e0a3d6ff0db7032fe663f71191',1,'DSPLib::DFT']]],

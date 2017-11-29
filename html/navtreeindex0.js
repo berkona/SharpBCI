@@ -82,7 +82,8 @@ var NAVTREEINDEX0 =
 "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#aad04e6f696308b2953245f2fc84e5f62":[2,0,1,2,4],
 "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#ae2fd4843420a2294bdd6ebc7a55d3943":[2,0,1,2,1],
 "class_sharp_b_c_i_1_1_async_stream_reader.html":[2,0,1,10],
-"class_sharp_b_c_i_1_1_async_stream_reader.html#a5249f7c75527f63afef9eab9ad583053":[2,0,1,10,3],
+"class_sharp_b_c_i_1_1_async_stream_reader.html#a5249f7c75527f63afef9eab9ad583053":[2,0,1,10,4],
+"class_sharp_b_c_i_1_1_async_stream_reader.html#a77d62f1d0954e66c543b73507c0b0ffc":[2,0,1,10,3],
 "class_sharp_b_c_i_1_1_async_stream_reader.html#a78cf47da393720850b13fac2b720e0be":[2,0,1,10,1],
 "class_sharp_b_c_i_1_1_async_stream_reader.html#a7de22520a6cac31024b9078abce71683":[2,0,1,10,0],
 "class_sharp_b_c_i_1_1_async_stream_reader.html#adec4cec14e791ef2504e23d8013182ca":[2,0,1,10,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_sharp_b_c_i_1_1_series_variable.html#af2522ba63be7b6e36c22028201b29aff":[2,0,1,19,4],
 "class_sharp_b_c_i_1_1_sharp_b_c_i.html":[2,0,1,53],
 "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a21580f8553223a87d5098f4911e45e70":[2,0,1,53,17],
-"class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3a1fef163f303e6b7d0aacd72aacc7a5":[2,0,1,53,0],
-"class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3de9635ac1944af5ff2ac8ac20fc3ded":[2,0,1,53,14]
+"class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3a1fef163f303e6b7d0aacd72aacc7a5":[2,0,1,53,0]
 };

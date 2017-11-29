@@ -19,7 +19,7 @@ var hierarchy =
     [ "DSPLib.FFT", "class_d_s_p_lib_1_1_f_f_t.html", null ],
     [ "SharpBCI.IArtifactDetector", "interface_sharp_b_c_i_1_1_i_artifact_detector.html", [
       [ "SharpBCI.ARArtifactDetector", "class_sharp_b_c_i_1_1_a_r_artifact_detector.html", null ],
-      [ "SharpBCI.TournamentArtifactDectector", "class_sharp_b_c_i_1_1_tournament_artifact_dectector.html", null ]
+      [ "SharpBCI.TournamentArtifactDetector", "class_sharp_b_c_i_1_1_tournament_artifact_detector.html", null ]
     ] ],
     [ "IDisposable", null, [
       [ "SharpBCI.ILogOutput", "interface_sharp_b_c_i_1_1_i_log_output.html", [
