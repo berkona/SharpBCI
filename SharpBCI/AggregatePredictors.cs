@@ -36,10 +36,31 @@ namespace SharpBCI
         int Predict(T test);
     }
 
+    /**
+     * Extends the typical pipeable to include training controls
+     * SharpBCI uses these functions to interface with the prediction mechanisms
+     * @see IPipeable
+     * @see IPredictor<T>
+     */
     public interface IPredictorPipeable : IPipeable
     {
+        /**
+         * Starts training data collection on a particular id (label)
+         * Should continue training on that id until StopTraining() is called on the same id
+         */
         void StartTraining(int id);
+
+        /**
+         * Ends training data collection on a particular id (label)
+         * Must be paired with a preceding StartTraining on that label
+         */
         void StopTraining(int id);
+
+        /**
+         * Clears all training data stored within the encapsulated predictor
+         * Essentially a reset of the entire prediction system
+         * Use between changing environments and/or participants
+         */
         void ClearTrainingData();
     }
 
@@ -50,7 +71,10 @@ namespace SharpBCI
     public class AggregatePredictionPipeable : Pipeable, IPredictorPipeable
     {
 
-        public static int ID_PREDICT = 0;
+        /**
+         * Constant used to indicate when the encapsulated predictor is actively predicting
+         */
+        public const int ID_PREDICT = 0;
 
         IPredictor<EEGEvent[]> predictor;
         int trainingId = ID_PREDICT;
@@ -58,12 +82,6 @@ namespace SharpBCI
         EEGEvent[] buffer;
         EEGDataType[] types;
         Dictionary<EEGDataType, int> indexMap;
-
-        public AggregatePredictionPipeable(int channels, int k, double thresholdProb, object[] typeNames)
-            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray())
-        {
-
-        }
 
         public AggregatePredictionPipeable(int channels, int k, double thresholdProb, EEGDataType[] types)
         {
@@ -82,6 +100,12 @@ namespace SharpBCI
             {
                 indexMap.Add(types[i], i);
             }
+        }
+
+        public AggregatePredictionPipeable(int channels, int k, double thresholdProb, object[] typeNames)
+            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray())
+        {
+
         }
 
         /**
@@ -114,7 +138,10 @@ namespace SharpBCI
         public void StopTraining(int id)
         {
             if (trainingId == ID_PREDICT)
-                throw new InvalidOperationException("No training started");
+                throw new InvalidOperationException("No training in progress");
+            if (id != trainingId)
+                throw new InvalidOperationException("Attempting to call StopTraining on an inactive id");
+
             trainingId = ID_PREDICT;
         }
 
