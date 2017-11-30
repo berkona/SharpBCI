@@ -72,15 +72,36 @@ namespace SharpBCI
     {
 
         /**
-         * Constant used to indicate when the encapsulated predictor is actively predicting
+         * Constants used to indicate when the encapsulated predictor is actively predicting
          */
         public const int ID_PREDICT = 0;
+        public const int NO_PREDICTION = -1;
 
-        IPredictor<EEGEvent[]> predictor;
+        /**
+         * Ensure predictor starts in predicting mode as there is no trained data to predict on
+         */
         int trainingId = ID_PREDICT;
-        DateTime currentTimeStep;
-        EEGEvent[] buffer;
+
+        /**
+         * Encapsulated predictor which the Pipeable will pass all data to and recieve predictions from
+         * For more information @see Predictor
+         * For an example predictor @see AggregateKNNCorrelationPredictor
+         */
+        IPredictor<EEGEvent[]> predictor;
+
+        /*
+         * List of EEGDataTypes that the predictor expects for its training and predictions
+         */
         EEGDataType[] types;
+
+        /**
+         * Records the time of incoming EEGEvents. Multiple EEGEvents will come for each timestamp
+         * (one for each type). An incoming EEGEvent with a newer timestamp indicates the previous buffer is full.
+         */
+        DateTime currentTimeStep;
+
+        EEGEvent[] buffer;
+
         Dictionary<EEGDataType, int> indexMap;
 
         public AggregatePredictionPipeable(int channels, int k, double thresholdProb, EEGDataType[] types)
@@ -176,7 +197,7 @@ namespace SharpBCI
             if (trainingId == ID_PREDICT)
             {
                 var prediction = predictor.Predict(buffer);
-                if (prediction != -1)
+                if (prediction != NO_PREDICTION)
                     Logger.Log(string.Format("Predicted: {0}", prediction));
                 Add(new TrainedEvent(prediction));
             }
@@ -194,6 +215,8 @@ namespace SharpBCI
 	 */
     public abstract class Predictor : IPredictor<EEGEvent[]>
     {
+
+        public const int NO_PREDICTION = -1;
 
         protected readonly Dictionary<EEGDataType, int> bandLookup = new Dictionary<EEGDataType, int>();
         protected readonly Dictionary<int, List<double[][]>> trainingData = new Dictionary<int, List<double[][]>>();
@@ -242,7 +265,7 @@ namespace SharpBCI
             var nearestNeighbors = ComputeDistances(TransformToBandSpace(events));
 
             if (nearestNeighbors == null)
-                return -1;
+                return NO_PREDICTION;
 
             int prediction = Vote(nearestNeighbors);
 
@@ -289,7 +312,7 @@ namespace SharpBCI
             }
 
             var winner = votes.OrderBy((x) => x.Value).First();
-            return winner.Value / voteSum > thresholdProb ? winner.Key : -1;
+            return winner.Value / voteSum > thresholdProb ? winner.Key : NO_PREDICTION;
         }
 
 
