@@ -4,14 +4,14 @@ using System.Collections.Generic;
 
 namespace SharpBCI
 {
-    /*
+    /**
      * Interface for all predictors. All current predictors take double[] as data.
      * Should be encapsulated in an IPredictorPipeable.
      * @see IPredictorPipeable
      */
     public interface IPredictor<T>
     {
-        /*
+        /**
          * Add data to labeled training data set. The collection of trained
          * data is used to create a model for Predict.
          * @see Predict(T test)
@@ -20,14 +20,14 @@ namespace SharpBCI
          */
         void AddTrainingData(int label, T data);
 
-        /*
+        /**
          * Clears all training data stored within the predictor
          * Essentially a reset of the entire prediction system
          * Use between changing environments and/or participants
          */
         void ClearTrainingData();
 
-        /*
+        /**
          * Makes a prediction from the underlying model based off the new data
          * @see AddTrainingData(int label, T data)
          * @param test - data to be predicted on. Must be the same type/shape/format of AddTrainingData data
