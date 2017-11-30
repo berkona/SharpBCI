@@ -487,15 +487,14 @@ namespace SharpBCI
                 fileName = DateTime.Now.ToString("MM-dd-yyyy HH-mm-ss");
                 fileName = fileName + ".csv";
             }
-            rawLogFile = fileName;
-            var csv = new StringBuilder();
-            csv.Append("Timestamp,Data Type,Extra,Data");
-            if (file == null)
-            {
-                file = new AsyncStreamWriter(rawLogFile, true);
-            }
-            var writableCsv = csv.ToString();
-            file.WriteLine(writableCsv);
+
+			if (file == null) {
+				file = new AsyncStreamWriter(fileName, true);
+				var csv = new StringBuilder();
+				csv.Append("Timestamp,Data Type,Extra,Data");
+				var writableCsv = csv.ToString();
+				file.WriteLine(writableCsv);
+			}
             this.AddRawHandler(dataType, OnRawEEGData);
         }
 
