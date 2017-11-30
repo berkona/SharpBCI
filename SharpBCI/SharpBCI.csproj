@@ -68,7 +68,6 @@
     <Compile Include="Matrix.cs" />
     <Compile Include="Pipeline.cs" />
     <Compile Include="PipelineSerializer.cs" />
-    <Compile Include="Preprocessors.cs" />
     <Compile Include="SharpBCI.cs" />
     <Compile Include="Statistics.cs" />
     <Compile Include="DSPLib.cs" />
