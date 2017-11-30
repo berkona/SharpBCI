@@ -467,6 +467,34 @@ namespace SharpBCI
             }
         }
 
+		/**
+		 * Add an annotation to the current CSV file SharpBCI is logging to
+		 * @param time time of the annotation
+		 * @param comment an optional comment to add to row in the csv file
+		 */
+		public void MarkTime(DateTime time, string comment) {
+			if (time == null) {
+				throw new ArgumentException("time must not be null");
+				}
+
+			if (file == null) {
+				throw new InvalidOperationException("SharpBCI is not currently logging any data to a CSV file");
+				}
+
+			if (comment == null) comment = "";
+
+			var row = new StringBuilder()
+				.Append(time.ToString("o"))
+				.Append(",")
+				.Append("ANNOTATION")
+				.Append(",")
+				.Append(comment)
+				.Append(",")
+					.ToString();
+			file.WriteLine(row);
+
+			}
+
         /**
          * Records the raw data for the current session to a newly created file
          */
