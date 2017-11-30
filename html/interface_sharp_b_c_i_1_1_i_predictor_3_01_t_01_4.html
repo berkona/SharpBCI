@@ -111,6 +111,9 @@ $(document).ready(function(){initNavTree('interface_sharp_b_c_i_1_1_i_predictor_
 <div class="title">SharpBCI.IPredictor&lt; T &gt; Interface Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Interface for all predictors.  
+ <a href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.IPredictor&lt; T &gt;:</div>
 <div class="dyncontent">
@@ -126,13 +129,20 @@ Inheritance diagram for SharpBCI.IPredictor&lt; T &gt;:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aecb16fdf13e2e18231ac46d1c3062a4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#aecb16fdf13e2e18231ac46d1c3062a4d">AddTrainingData</a> (int label, T data)</td></tr>
+<tr class="memdesc:aecb16fdf13e2e18231ac46d1c3062a4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add data to labeled training data set.  <a href="#aecb16fdf13e2e18231ac46d1c3062a4d">More...</a><br/></td></tr>
 <tr class="separator:aecb16fdf13e2e18231ac46d1c3062a4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9104d1e0db6275104f5e80beef1d8e31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#a9104d1e0db6275104f5e80beef1d8e31">ClearTrainingData</a> ()</td></tr>
+<tr class="memdesc:a9104d1e0db6275104f5e80beef1d8e31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all training data stored within the predictor Essentially a reset of the entire prediction system Use between changing environments and/or participants.  <a href="#a9104d1e0db6275104f5e80beef1d8e31">More...</a><br/></td></tr>
 <tr class="separator:a9104d1e0db6275104f5e80beef1d8e31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0f54060aaec1d8ca6db41d514d59666"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#af0f54060aaec1d8ca6db41d514d59666">Predict</a> (T test)</td></tr>
+<tr class="memdesc:af0f54060aaec1d8ca6db41d514d59666"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes a prediction from the underlying model based off the new data.  <a href="#af0f54060aaec1d8ca6db41d514d59666">More...</a><br/></td></tr>
 <tr class="separator:af0f54060aaec1d8ca6db41d514d59666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for all predictors. </p>
+<p>All current predictors take double[] as data. Should be encapsulated in an <a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_pipeable.html">IPredictorPipeable</a>. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_pipeable.html">IPredictorPipeable</a> </dd></dl>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="aecb16fdf13e2e18231ac46d1c3062a4d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,6 +167,17 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Add data to labeled training data set. </p>
+<p>The collection of trained data is used to create a model for Predict. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#af0f54060aaec1d8ca6db41d514d59666" title="Makes a prediction from the underlying model based off the new data. ">Predict(T test)</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">label</td><td>- a unique non-negative non-zero integer which identifies the label being trained on </td></tr>
+    <tr><td class="paramname">data</td><td>- training data for predictor. Generally double[] </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a9104d1e0db6275104f5e80beef1d8e31"></a>
@@ -171,6 +192,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Clears all training data stored within the predictor Essentially a reset of the entire prediction system Use between changing environments and/or participants. </p>
 
 <p>Implemented in <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a35ec542f6bde19de4074566378683ea5">SharpBCI.Predictor</a>.</p>
 
@@ -189,6 +212,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Makes a prediction from the underlying model based off the new data. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#aecb16fdf13e2e18231ac46d1c3062a4d" title="Add data to labeled training data set. ">AddTrainingData(int label, T data)</a> </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">test</td><td>- data to be predicted on. Must be the same type/shape/format of AddTrainingData data </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int the corresponds with the label of the predicted class </dd></dl>
 
 </div>
 </div>
