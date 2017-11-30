@@ -4,10 +4,35 @@ using System.Collections.Generic;
 
 namespace SharpBCI
 {
+    /*
+     * Interface for all predictors. All current predictors take double[] as data.
+     * Should be encapsulated in an IPredictorPipeable.
+     * @see IPredictorPipeable
+     */
     public interface IPredictor<T>
     {
+        /*
+         * Add data to labeled training data set. The collection of trained
+         * data is used to create a model for Predict.
+         * @see Predict(T test)
+         * @param label - a unique non-negative non-zero integer which identifies the label being trained on
+         * @param data - training data for predictor. Generally double[]
+         */
         void AddTrainingData(int label, T data);
+
+        /*
+         * Clears all training data stored within the predictor
+         * Essentially a reset of the entire prediction system
+         * Use between changing environments and/or participants
+         */
         void ClearTrainingData();
+
+        /*
+         * Makes a prediction from the underlying model based off the new data
+         * @see AddTrainingData(int label, T data)
+         * @param test - data to be predicted on. Must be the same type/shape/format of AddTrainingData data
+         * @return int the corresponds with the label of the predicted class
+         */
         int Predict(T test);
     }
 
@@ -35,7 +60,8 @@ namespace SharpBCI
         Dictionary<EEGDataType, int> indexMap;
 
         public AggregatePredictionPipeable(int channels, int k, double thresholdProb, object[] typeNames)
-            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray()){
+            : this(channels, k, thresholdProb, typeNames.Select((x) => (EEGDataType)Enum.Parse(typeof(EEGDataType), (string)x)).ToArray())
+        {
 
         }
 
@@ -58,11 +84,21 @@ namespace SharpBCI
             }
         }
 
+        /**
+         * Clears all training data stored within the predictor
+         * Essentially a reset of the entire prediction system
+         * Use between changing environments and/or participants
+         */
         public void ClearTrainingData()
         {
             predictor.ClearTrainingData();
         }
 
+        /**
+         * Start training predictor on the EEG data from now on
+         * Should be paired w/ a StopTraining(id) call
+         * @param id - a unique non-negative non-zero integer which identifies this trained event
+         */
         public void StartTraining(int id)
         {
             if (trainingId != ID_PREDICT)
@@ -70,7 +106,11 @@ namespace SharpBCI
             trainingId = id;
         }
 
-
+        /**
+         * Stop training predictor on the EEG data from now on
+         * Should be paired w/ a StopTraining(id) call
+         * @param id - a unique non-negative non-zero integer which identifies this trained event
+         */
         public void StopTraining(int id)
         {
             if (trainingId == ID_PREDICT)
@@ -78,6 +118,10 @@ namespace SharpBCI
             trainingId = ID_PREDICT;
         }
 
+        /**
+         * 
+         * 
+         */
         protected override bool Process(object item)
         {
             EEGEvent evt = (EEGEvent)item;
@@ -234,7 +278,7 @@ namespace SharpBCI
                 var bIdx = bandLookup[evt.type];
                 for (int cIdx = 0; cIdx < evt.data.Length; cIdx++)
                 {
-					points[cIdx][bIdx] = evt.data[cIdx];
+                    points[cIdx][bIdx] = evt.data[cIdx];
                 }
             }
             return points;
