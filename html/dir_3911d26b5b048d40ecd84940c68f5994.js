@@ -78,17 +78,7 @@ var dir_3911d26b5b048d40ecd84940c68f5994 =
       [ "SerializedStage", "class_sharp_b_c_i_1_1_serialized_stage.html", "class_sharp_b_c_i_1_1_serialized_stage" ],
       [ "SerializedConnectionInfo", "class_sharp_b_c_i_1_1_serialized_connection_info.html", "class_sharp_b_c_i_1_1_serialized_connection_info" ]
     ] ],
-    [ "Preprocessors.cs", "_preprocessors_8cs.html", [
-      [ "IPreprocessor", "interface_sharp_b_c_i_1_1_i_preprocessor.html", "interface_sharp_b_c_i_1_1_i_preprocessor" ],
-      [ "Preprocessors", "class_sharp_b_c_i_1_1_preprocessors.html", [
-        [ "NonePreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor" ],
-        [ "NormalizationPreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor" ]
-      ] ],
-      [ "NonePreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor" ],
-      [ "NormalizationPreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor" ],
-      [ "StandardizationPreprocessor", "class_sharp_b_c_i_1_1_standardization_preprocessor.html", "class_sharp_b_c_i_1_1_standardization_preprocessor" ],
-      [ "CentralizationPreprocessor", "class_sharp_b_c_i_1_1_centralization_preprocessor.html", "class_sharp_b_c_i_1_1_centralization_preprocessor" ]
-    ] ],
+    [ "Preprocessors.cs", "_preprocessors_8cs.html", null ],
     [ "SharpBCI.cs", "_sharp_b_c_i_8cs.html", [
       [ "SharpBCIConfig", "class_sharp_b_c_i_1_1_sharp_b_c_i_config.html", "class_sharp_b_c_i_1_1_sharp_b_c_i_config" ],
       [ "SharpBCIBuilder", "class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html", "class_sharp_b_c_i_1_1_sharp_b_c_i_builder" ],

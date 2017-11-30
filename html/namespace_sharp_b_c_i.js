@@ -20,6 +20,13 @@ var namespace_sharp_b_c_i =
     [ "DummyAdapter", "class_sharp_b_c_i_1_1_dummy_adapter.html", "class_sharp_b_c_i_1_1_dummy_adapter" ],
     [ "DynamicTimeWarping", "class_sharp_b_c_i_1_1_dynamic_time_warping.html", "class_sharp_b_c_i_1_1_dynamic_time_warping" ],
     [ "SeriesVariable", "class_sharp_b_c_i_1_1_series_variable.html", "class_sharp_b_c_i_1_1_series_variable" ],
+    [ "IPreprocessor", "interface_sharp_b_c_i_1_1_i_preprocessor.html", "interface_sharp_b_c_i_1_1_i_preprocessor" ],
+    [ "Preprocessors", "class_sharp_b_c_i_1_1_preprocessors.html", [
+      [ "NonePreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor" ],
+      [ "NormalizationPreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor" ]
+    ] ],
+    [ "StandardizationPreprocessor", "class_sharp_b_c_i_1_1_standardization_preprocessor.html", "class_sharp_b_c_i_1_1_standardization_preprocessor" ],
+    [ "CentralizationPreprocessor", "class_sharp_b_c_i_1_1_centralization_preprocessor.html", "class_sharp_b_c_i_1_1_centralization_preprocessor" ],
     [ "EEGEvent", "class_sharp_b_c_i_1_1_e_e_g_event.html", "class_sharp_b_c_i_1_1_e_e_g_event" ],
     [ "IVectorizedSmoother< T >", "interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html", "interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4" ],
     [ "ExponentialVectorizedSmoother", "class_sharp_b_c_i_1_1_exponential_vectorized_smoother.html", "class_sharp_b_c_i_1_1_exponential_vectorized_smoother" ],
@@ -46,13 +53,6 @@ var namespace_sharp_b_c_i =
     [ "SerializedPipeline", "class_sharp_b_c_i_1_1_serialized_pipeline.html", "class_sharp_b_c_i_1_1_serialized_pipeline" ],
     [ "SerializedStage", "class_sharp_b_c_i_1_1_serialized_stage.html", "class_sharp_b_c_i_1_1_serialized_stage" ],
     [ "SerializedConnectionInfo", "class_sharp_b_c_i_1_1_serialized_connection_info.html", "class_sharp_b_c_i_1_1_serialized_connection_info" ],
-    [ "IPreprocessor", "interface_sharp_b_c_i_1_1_i_preprocessor.html", "interface_sharp_b_c_i_1_1_i_preprocessor" ],
-    [ "Preprocessors", "class_sharp_b_c_i_1_1_preprocessors.html", [
-      [ "NonePreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor" ],
-      [ "NormalizationPreprocessor", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html", "class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor" ]
-    ] ],
-    [ "StandardizationPreprocessor", "class_sharp_b_c_i_1_1_standardization_preprocessor.html", "class_sharp_b_c_i_1_1_standardization_preprocessor" ],
-    [ "CentralizationPreprocessor", "class_sharp_b_c_i_1_1_centralization_preprocessor.html", "class_sharp_b_c_i_1_1_centralization_preprocessor" ],
     [ "SharpBCIConfig", "class_sharp_b_c_i_1_1_sharp_b_c_i_config.html", "class_sharp_b_c_i_1_1_sharp_b_c_i_config" ],
     [ "SharpBCIBuilder", "class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html", "class_sharp_b_c_i_1_1_sharp_b_c_i_builder" ],
     [ "TrainedEvent", "class_sharp_b_c_i_1_1_trained_event.html", "class_sharp_b_c_i_1_1_trained_event" ],
