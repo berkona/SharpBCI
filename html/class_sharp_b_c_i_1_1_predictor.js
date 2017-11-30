@@ -12,6 +12,7 @@ var class_sharp_b_c_i_1_1_predictor =
     [ "bandWeights", "class_sharp_b_c_i_1_1_predictor.html#ae2d0a153c7aa0a0f832ebcee8ac7e370", null ],
     [ "channels", "class_sharp_b_c_i_1_1_predictor.html#a87bfea5e6fc9c61c14e74af37a7f1cf2", null ],
     [ "k", "class_sharp_b_c_i_1_1_predictor.html#af36c22334170fb9895eeadb783cbf601", null ],
+    [ "NO_PREDICTION", "class_sharp_b_c_i_1_1_predictor.html#abc9cf210feb1aedf7bd8f313d92966b7", null ],
     [ "thresholdProb", "class_sharp_b_c_i_1_1_predictor.html#a357a50b006bb39ddba19495e94c1218e", null ],
     [ "trainingData", "class_sharp_b_c_i_1_1_predictor.html#a8f034f60f3617552a18b6eb7719e7439", null ]
 ];

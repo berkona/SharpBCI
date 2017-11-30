@@ -6,5 +6,6 @@ var class_sharp_b_c_i_1_1_aggregate_prediction_pipeable =
     [ "Process", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1dadddfc61fa388435668843b4f5566f", null ],
     [ "StartTraining", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#aad04e6f696308b2953245f2fc84e5f62", null ],
     [ "StopTraining", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a2d50e5d2eb8eeb0bd85499ce580371ae", null ],
-    [ "ID_PREDICT", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1bca1623b751f570d44f35400c039b42", null ]
+    [ "ID_PREDICT", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1bca1623b751f570d44f35400c039b42", null ],
+    [ "NO_PREDICTION", "class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a6b087d4a6ea83226a495f07aca71957a", null ]
 ];

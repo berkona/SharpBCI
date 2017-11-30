@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['one',['One',['../struct_system_1_1_numerics_1_1_complex.html#a7b2234519d3dc80c5896beddbbeeb281',1,'System::Numerics::Complex']]],
-  ['outputs',['outputs',['../class_sharp_b_c_i_1_1_serialized_connection_info.html#a142c8cf9bdd4deec7f22a98a72cd5b4b',1,'SharpBCI::SerializedConnectionInfo']]]
+  ['no_5fprediction',['NO_PREDICTION',['../class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a6b087d4a6ea83226a495f07aca71957a',1,'SharpBCI.AggregatePredictionPipeable.NO_PREDICTION()'],['../class_sharp_b_c_i_1_1_predictor.html#abc9cf210feb1aedf7bd8f313d92966b7',1,'SharpBCI.Predictor.NO_PREDICTION()']]]
 ];
