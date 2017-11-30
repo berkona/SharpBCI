@@ -2,7 +2,7 @@ var searchData=
 [
   ['iartifactdetector',['IArtifactDetector',['../interface_sharp_b_c_i_1_1_i_artifact_detector.html',1,'SharpBCI']]],
   ['id',['id',['../class_sharp_b_c_i_1_1_trained_event.html#a74f1950ad5b72ae1e425aba5a9a595a4',1,'SharpBCI::TrainedEvent']]],
-  ['id_5fpredict',['ID_PREDICT',['../class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a73723855012d3c68ae40fb47d7b87980',1,'SharpBCI::AggregatePredictionPipeable']]],
+  ['id_5fpredict',['ID_PREDICT',['../class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1bca1623b751f570d44f35400c039b42',1,'SharpBCI::AggregatePredictionPipeable']]],
   ['ifilter_3c_20t_20_3e',['IFilter&lt; T &gt;',['../interface_sharp_b_c_i_1_1_i_filter_3_01_t_01_4.html',1,'SharpBCI']]],
   ['ilogoutput',['ILogOutput',['../interface_sharp_b_c_i_1_1_i_log_output.html',1,'SharpBCI']]],
   ['im',['im',['../struct_system_1_1_numerics_1_1_complex.html#a39646f86fb3f8d28fd84942101c9604f',1,'System::Numerics::Complex']]],
