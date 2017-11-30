@@ -2,6 +2,7 @@ var searchData=
 [
   ['magnitude',['Magnitude',['../struct_system_1_1_numerics_1_1_complex.html#a6629c755b0ddcab8c44cee1684ab005f',1,'System::Numerics::Complex']]],
   ['manhattan',['Manhattan',['../namespace_sharp_b_c_i.html#ac3ee47b1ee7f40a2fc3c86d88f117e80a1834cdf9bf35ea1d737c15eef72e18c7',1,'SharpBCI']]],
+  ['marktime',['MarkTime',['../class_sharp_b_c_i_1_1_sharp_b_c_i.html#a1db0733f405c08fa0e335fe2920999b1',1,'SharpBCI::SharpBCI']]],
   ['matrix_2ecs',['Matrix.cs',['../_matrix_8cs.html',1,'']]],
   ['maximum',['Maximum',['../namespace_sharp_b_c_i.html#ac3ee47b1ee7f40a2fc3c86d88f117e80a8321e79c278ec510f63675c040594892',1,'SharpBCI']]],
   ['mean',['mean',['../class_sharp_b_c_i_1_1_online_variance.html#a491a13d1520c389d5e70bdfe612912f6',1,'SharpBCI::OnlineVariance']]],

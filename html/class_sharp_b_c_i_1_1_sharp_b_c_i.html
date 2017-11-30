@@ -149,6 +149,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae7465d4262ea17036d3cc33cbc6bdaf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#ae7465d4262ea17036d3cc33cbc6bdaf4">RemoveRawHandler</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> type, <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a70268de29756f5f85d063f28f4be0a5a">SharpBCIRawHandler</a> handler)</td></tr>
 <tr class="memdesc:ae7465d4262ea17036d3cc33cbc6bdaf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a handler for raw(i.e, anything in EEGDataType) events.  <a href="#ae7465d4262ea17036d3cc33cbc6bdaf4">More...</a><br/></td></tr>
 <tr class="separator:ae7465d4262ea17036d3cc33cbc6bdaf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1db0733f405c08fa0e335fe2920999b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a1db0733f405c08fa0e335fe2920999b1">MarkTime</a> (DateTime time, string comment)</td></tr>
+<tr class="memdesc:a1db0733f405c08fa0e335fe2920999b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an annotation to the current CSV file <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html" title="This is the &quot;main&quot; class which you should create. ">SharpBCI</a> is logging to.  <a href="#a1db0733f405c08fa0e335fe2920999b1">More...</a><br/></td></tr>
+<tr class="separator:a1db0733f405c08fa0e335fe2920999b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f19efd7134df8bc544ea69911225acb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3f19efd7134df8bc544ea69911225acb">LogRawData</a> (<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a> dataType)</td></tr>
 <tr class="memdesc:a3f19efd7134df8bc544ea69911225acb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the raw data for the current session to a newly created file.  <a href="#a3f19efd7134df8bc544ea69911225acb">More...</a><br/></td></tr>
 <tr class="separator:a3f19efd7134df8bc544ea69911225acb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -381,6 +384,41 @@ Properties</h2></td></tr>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">ArgumentException</td><td>if dataType is null </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a1db0733f405c08fa0e335fe2920999b1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.SharpBCI.MarkTime </td>
+          <td>(</td>
+          <td class="paramtype">DateTime&#160;</td>
+          <td class="paramname"><em>time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>comment</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add an annotation to the current CSV file <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html" title="This is the &quot;main&quot; class which you should create. ">SharpBCI</a> is logging to. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">time</td><td>time of the annotation </td></tr>
+    <tr><td class="paramname">comment</td><td>an optional comment to add to row in the csv file </td></tr>
   </table>
   </dd>
 </dl>
