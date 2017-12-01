@@ -164,9 +164,10 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a1bca1623b751f570d44f35400c039b42"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1bca1623b751f570d44f35400c039b42">ID_PREDICT</a> = 0</td></tr>
-<tr class="memdesc:a1bca1623b751f570d44f35400c039b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants used to indicate when the encapsulated predictor is actively predicting.  <a href="#a1bca1623b751f570d44f35400c039b42">More...</a><br/></td></tr>
+<tr class="memdesc:a1bca1623b751f570d44f35400c039b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant used to indicate when the encapsulated predictor is actively predicting.  <a href="#a1bca1623b751f570d44f35400c039b42">More...</a><br/></td></tr>
 <tr class="separator:a1bca1623b751f570d44f35400c039b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b087d4a6ea83226a495f07aca71957a"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a6b087d4a6ea83226a495f07aca71957a">NO_PREDICTION</a> = -1</td></tr>
+<tr class="memdesc:a6b087d4a6ea83226a495f07aca71957a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant used to indicate when the encapsulated predictor has no valid prediction.  <a href="#a6b087d4a6ea83226a495f07aca71957a">More...</a><br/></td></tr>
 <tr class="separator:a6b087d4a6ea83226a495f07aca71957a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_class_sharp_b_c_i_1_1_pipeable"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_class_sharp_b_c_i_1_1_pipeable')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="class_sharp_b_c_i_1_1_pipeable.html">SharpBCI.Pipeable</a></td></tr>
 <tr class="memitem:a71fce27c4da6c0faf794ec240c974f71 inherit pub_attribs_class_sharp_b_c_i_1_1_pipeable"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_pipeable.html#a71fce27c4da6c0faf794ec240c974f71">DEFAULT_BUFFER_SIZE</a> = 1000</td></tr>
@@ -182,6 +183,10 @@ Protected Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A pipeable which aggregates received EEGEvents into an array based on the reported <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> timestamp and then uses an IPredictor&lt;EEGEvent[]&gt; to train/classify on them. </p>
+<p>A <a class="el" href="class_sharp_b_c_i_1_1_trained_event.html" title="A generic event which indicates previously trained event occured. ">TrainedEvent</a> will be pushed on to the next stage. </p>
+<dl class="section see"><dt>See Also</dt><dd><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a> </dd>
+<dd>
+<a class="el" href="class_sharp_b_c_i_1_1_trained_event.html" title="A generic event which indicates previously trained event occured. ">TrainedEvent</a> </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ae2fd4843420a2294bdd6ebc7a55d3943"></a>
 <div class="memitem">
@@ -368,7 +373,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Constants used to indicate when the encapsulated predictor is actively predicting. </p>
+<p>Constant used to indicate when the encapsulated predictor is actively predicting. </p>
 
 </div>
 </div>
@@ -381,6 +386,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constant used to indicate when the encapsulated predictor has no valid prediction. </p>
 
 </div>
 </div>
