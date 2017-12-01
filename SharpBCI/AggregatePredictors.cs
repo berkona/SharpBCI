@@ -106,8 +106,15 @@ namespace SharpBCI
          */
         DateTime currentTimeStep;
 
+        /**
+         * Buffer of incoming events with the same timestamp that will be passed to the IPredictor<EEGEvent[]> when
+         * full/when a more currently timestamped EEGEvent is recieved.
+         */
         EEGEvent[] buffer;
 
+        /**
+         * Dictionary which maps EEGDataTypes to incrementing integers for easy indexing into the buffer
+         */
         Dictionary<EEGDataType, int> indexMap;
 
         /*
@@ -124,11 +131,13 @@ namespace SharpBCI
 
             if (types.Length == 0 || types == null)
                 throw new ArgumentOutOfRangeException();
+
+            predictor = new AggregateKNNCorrelationPredictor(channels, k, thresholdProb, types);
+            
             this.types = types;
 
             buffer = new EEGEvent[types.Length];
 
-            predictor = new AggregateKNNCorrelationPredictor(channels, k, thresholdProb, types);
             indexMap = new Dictionary<EEGDataType, int>();
             for (int i = 0; i < types.Length; i++)
             {
@@ -182,21 +191,29 @@ namespace SharpBCI
         }
 
         /**
-         * 
-         * 
+         * Collects incoming EEGEvents (one per type), and stores them in buffer. If the incoming
+         * event's timestamp is new, attempt to send the buffer onto the IPredictor<EEGEvent[]>
+         * If the current trainingId is non-zero, the data will be used for training on the trainingId label
+         * If the current trainingId is zero, the data will be predicted on
+         * @see Pipeable
          */
         protected override bool Process(object item)
         {
+            //Incoming objects must be EEGEvent
             EEGEvent evt = (EEGEvent)item;
+
+            //Also must be a type we care about
             if (!types.Contains(evt.type))
                 return true;
 
+            //If we start getting data from a new time, send it to the predictor
             if (evt.timestamp != currentTimeStep)
             {
                 CheckBufferAndPredict();
                 currentTimeStep = evt.timestamp;
             }
 
+            //Add the new event into the buffer
             buffer[indexMap[evt.type]] = evt;
 
             return true;
@@ -204,23 +221,30 @@ namespace SharpBCI
 
         void CheckBufferAndPredict()
         {
+            //Ensure the buffer is full
             for (int i = 0; i < buffer.Length; i++)
             {
                 if (buffer[i] == null) return;
             }
 
+
+            //If the predictor is in its prediction state, predict and pass on the result
             if (trainingId == ID_PREDICT)
             {
                 var prediction = predictor.Predict(buffer);
                 if (prediction != NO_PREDICTION)
+                {
                     Logger.Log(string.Format("Predicted: {0}", prediction));
-                Add(new TrainedEvent(prediction));
+                    Add(new TrainedEvent(prediction));
+                }
             }
+            //Otherwise add the data to the training data set at the corresponding label
             else
             {
                 predictor.AddTrainingData(trainingId, buffer);
             }
 
+            //Reset the buffer
             buffer = new EEGEvent[types.Length];
         }
     }
@@ -231,15 +255,45 @@ namespace SharpBCI
     public abstract class Predictor : IPredictor<EEGEvent[]>
     {
 
+        /**
+         * see AggregatePredictionPipeable.NO_PREDICTION
+         */
         public const int NO_PREDICTION = -1;
 
+        /**
+         * Dictionary which maps EEGDataTypes to integers for easy indexing into the buffer
+         */
         protected readonly Dictionary<EEGDataType, int> bandLookup = new Dictionary<EEGDataType, int>();
+
+        /**
+         * Dictionary storing all training data. Key is the label of the value's data
+         * Value is a list of data associated with this label
+         */
         protected readonly Dictionary<int, List<double[][]>> trainingData = new Dictionary<int, List<double[][]>>();
+
+        /**
+         * List of EEGDataTypes that the predictor expects for its training and predictions
+         */
         protected readonly EEGDataType[] bands;
+
+        /** 
+         * Number of channels on the headset, as reported by @see SharpBCIAdapter
+         */
         protected readonly int channels;
+
+        /** 
+         * A non-negative non-zero integer representing the number of results from KNN algorithm.
+         * @link https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm
+         */
         protected readonly int k;
+
+        /**
+         * A double between 0-1 indicating the probability threshhold below which predictions will be thrown out
+         */
         protected readonly double thresholdProb;
-        protected double[] bandWeights, channelWeights;
+
+        protected double[] bandWeights;
+        protected double[] channelWeights;
 
         public Predictor(int channels, int k, double thresholdProb, EEGDataType[] bands)
         {
@@ -273,6 +327,24 @@ namespace SharpBCI
         public void ClearTrainingData()
         {
             trainingData.Clear();
+        }
+
+        public void SetChannelWeights(double[] newWeights) {
+            if(newWeights ==null || newWeights.Length != channelWeights.Length) {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            channelWeights = newWeights;
+        }
+
+        public void SetBandWeights(double[] newWeights)
+        {
+            if (newWeights == null || newWeights.Length != bandWeights.Length)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
+
+            bandWeights = newWeights;
         }
 
         public int Predict(EEGEvent[] events)
