@@ -66,15 +66,21 @@ namespace SharpBCI
 
     /**
 	 * A pipeable which aggregates received EEGEvents into an array based on the reported EEGEvent timestamp
-	 * and then uses an IPredictor<EEGEvent[]> to train/classify on them
+	 * and then uses an IPredictor<EEGEvent[]> to train/classify on them. A TrainedEvent will be pushed
+	 * on to the next stage.
+     * @see EEGEvent
+     * @see TrainedEvent
 	 */
     public class AggregatePredictionPipeable : Pipeable, IPredictorPipeable
     {
 
         /**
-         * Constants used to indicate when the encapsulated predictor is actively predicting
+         * Constant used to indicate when the encapsulated predictor is actively predicting
          */
         public const int ID_PREDICT = 0;
+        /**
+         * Constant used to indicate when the encapsulated predictor has no valid prediction
+         */
         public const int NO_PREDICTION = -1;
 
         /**
@@ -103,6 +109,13 @@ namespace SharpBCI
         EEGEvent[] buffer;
 
         Dictionary<EEGDataType, int> indexMap;
+
+        /*
+         * param channels - number of channels on the headset, as reported by @SharpBCIAdapter
+         * param k - a non-negative non-zero integer representing the number of results from KNN algorithm. @link https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm
+         * param thesholdProb - a double between 0-1 indicating the probability threshhold below which predictions will be thrown out
+         * param type - EEGDataType[] indicating which types the predictor is interested in (and will use in its prediction)
+         */
 
         public AggregatePredictionPipeable(int channels, int k, double thresholdProb, EEGDataType[] types)
         {
@@ -148,6 +161,7 @@ namespace SharpBCI
         {
             if (trainingId != ID_PREDICT)
                 throw new InvalidOperationException("Training already started");
+            
             trainingId = id;
         }
 
@@ -160,6 +174,7 @@ namespace SharpBCI
         {
             if (trainingId == ID_PREDICT)
                 throw new InvalidOperationException("No training in progress");
+            
             if (id != trainingId)
                 throw new InvalidOperationException("Attempting to call StopTraining on an inactive id");
 
