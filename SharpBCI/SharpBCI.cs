@@ -17,7 +17,7 @@ using System.Text;
  * \section getting-started Getting Started
  * //TODO create getting started section
  * 
- * \section Creating the Library
+ * \section creation Creating the Library
  * SharpBCI should ideally be created using SharpBCIBuilder, but for flexiblity the "raw" SharpBCIConfig class is also provided.
  * \section config Configuration
  * 
