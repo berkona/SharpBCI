@@ -251,6 +251,9 @@ namespace SharpBCI
 
     /**
 	 * An IPredictor which uses a 3-dimensional loci of points in the form of an array of EEGEvent's to classify EEG data
+	 * Uses nearest neighbor predictions with distance computed by the abstract Compute(double[] x, double[] y) function
+	 * Predictions occur by computing the distance between the incoming sample and all training samples, pulls the k
+	 * nearest neighbors, and determines the final prediction
 	 */
     public abstract class Predictor : IPredictor<EEGEvent[]>
     {
