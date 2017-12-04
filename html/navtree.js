@@ -34,7 +34,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_8_n_e_t_framework_00_version_0Av4_85_8_assembly_attribute_8cs.html",
-"class_sharp_b_c_i_1_1_sharp_b_c_i.html"
+"class_sharp_b_c_i_1_1_series_variable.html#a98384000b28efe24217c9ea1ee6a858b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

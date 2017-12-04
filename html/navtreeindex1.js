@@ -1,5 +1,8 @@
 var NAVTREEINDEX1 =
 {
+"class_sharp_b_c_i_1_1_series_variable.html#a98384000b28efe24217c9ea1ee6a858b":[2,0,1,19,2],
+"class_sharp_b_c_i_1_1_series_variable.html#ad1f5d864876d9a0ac0360aa81b6e25b8":[2,0,1,19,1],
+"class_sharp_b_c_i_1_1_series_variable.html#af2522ba63be7b6e36c22028201b29aff":[2,0,1,19,4],
 "class_sharp_b_c_i_1_1_sharp_b_c_i.html":[2,0,1,53],
 "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a1db0733f405c08fa0e335fe2920999b1":[2,0,1,53,8],
 "class_sharp_b_c_i_1_1_sharp_b_c_i.html#a21580f8553223a87d5098f4911e45e70":[2,0,1,53,18],
@@ -121,12 +124,12 @@ var NAVTREEINDEX1 =
 "interface_sharp_b_c_i_1_1_i_preprocessor.html#ad184e05c5c64f69ac7777e22c199e0fc":[2,0,1,20,1],
 "interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html":[2,0,1,25],
 "interface_sharp_b_c_i_1_1_i_vectorized_smoother_3_01_t_01_4.html#a339980dffe6ed383e41138b6353a924f":[2,0,1,25,0],
-"namespace_d_s_p_lib.html":[1,0,0],
 "namespace_d_s_p_lib.html":[2,0,0],
+"namespace_d_s_p_lib.html":[1,0,0],
 "namespace_sharp_b_c_i.html":[2,0,1],
 "namespace_sharp_b_c_i.html":[1,0,1],
-"namespace_system.html":[1,0,2],
 "namespace_system.html":[2,0,2],
+"namespace_system.html":[1,0,2],
 "namespace_system_1_1_numerics.html":[1,0,2,0],
 "namespace_system_1_1_numerics.html":[2,0,2,0],
 "namespacemembers.html":[1,1,0],

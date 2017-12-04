@@ -115,7 +115,7 @@ $(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_predictor.html',
 </div><!--header-->
 <div class="contents">
 
-<p>An IPredictor which uses a 3-dimensional loci of points in the form of an array of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a>'s to classify EEG data.  
+<p>An IPredictor which uses a 3-dimensional loci of points in the form of an array of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a>'s to classify EEG data Uses nearest neighbor predictions with distance computed by the abstract <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a6b443572ab1915f1129500730c13d240">Compute(double[] x, double[] y)</a> function Predictions occur by computing the distance between the incoming sample and all training samples, pulls the k nearest neighbors, and determines the final prediction.  
  <a href="class_sharp_b_c_i_1_1_predictor.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.Predictor:</div>
@@ -138,6 +138,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a35ec542f6bde19de4074566378683ea5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a35ec542f6bde19de4074566378683ea5">ClearTrainingData</a> ()</td></tr>
 <tr class="memdesc:a35ec542f6bde19de4074566378683ea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all training data stored within the predictor Essentially a reset of the entire prediction system Use between changing environments and/or participants.  <a href="#a35ec542f6bde19de4074566378683ea5">More...</a><br/></td></tr>
 <tr class="separator:a35ec542f6bde19de4074566378683ea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5720c681bc7e70e32416daae50253ec3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a5720c681bc7e70e32416daae50253ec3">SetChannelWeights</a> (double[] newWeights)</td></tr>
+<tr class="separator:a5720c681bc7e70e32416daae50253ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a195d91298f217bdaf64d2bfdb3af8b37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a195d91298f217bdaf64d2bfdb3af8b37">SetBandWeights</a> (double[] newWeights)</td></tr>
+<tr class="separator:a195d91298f217bdaf64d2bfdb3af8b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7b0700e7c3dba9d60a62724a8e3a3b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#ad7b0700e7c3dba9d60a62724a8e3a3b6">Predict</a> (<a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a>[] events)</td></tr>
 <tr class="separator:ad7b0700e7c3dba9d60a62724a8e3a3b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5265d37b297bb85db5d5921c887f13e6"><td class="memItemLeft" align="right" valign="top">List&lt; KeyValuePair&lt; int, double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a5265d37b297bb85db5d5921c887f13e6">ComputeDistances</a> (double[][] data)</td></tr>
@@ -155,6 +159,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:abc9cf210feb1aedf7bd8f313d92966b7"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#abc9cf210feb1aedf7bd8f313d92966b7">NO_PREDICTION</a> = -1</td></tr>
+<tr class="memdesc:abc9cf210feb1aedf7bd8f313d92966b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">see <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a6b087d4a6ea83226a495f07aca71957a" title="Constant used to indicate when the encapsulated predictor has no valid prediction. ">AggregatePredictionPipeable.NO_PREDICTION</a>  <a href="#abc9cf210feb1aedf7bd8f313d92966b7">More...</a><br/></td></tr>
 <tr class="separator:abc9cf210feb1aedf7bd8f313d92966b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -166,23 +171,31 @@ Protected Member Functions</h2></td></tr>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a23dd603e4a48b0f12921d58a9f91252a"><td class="memItemLeft" align="right" valign="top">readonly Dictionary<br class="typebreak"/>
 &lt; <a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a>, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a23dd603e4a48b0f12921d58a9f91252a">bandLookup</a> = new Dictionary&lt;<a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a>, int&gt;()</td></tr>
+<tr class="memdesc:a23dd603e4a48b0f12921d58a9f91252a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dictionary which maps EEGDataTypes to integers for easy indexing into the buffer.  <a href="#a23dd603e4a48b0f12921d58a9f91252a">More...</a><br/></td></tr>
 <tr class="separator:a23dd603e4a48b0f12921d58a9f91252a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f034f60f3617552a18b6eb7719e7439"><td class="memItemLeft" align="right" valign="top">readonly Dictionary&lt; int, List<br class="typebreak"/>
 &lt; double[][]&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a8f034f60f3617552a18b6eb7719e7439">trainingData</a> = new Dictionary&lt;int, List&lt;double[][]&gt;&gt;()</td></tr>
+<tr class="memdesc:a8f034f60f3617552a18b6eb7719e7439"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dictionary storing all training data.  <a href="#a8f034f60f3617552a18b6eb7719e7439">More...</a><br/></td></tr>
 <tr class="separator:a8f034f60f3617552a18b6eb7719e7439"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad107a8fb722300eae48d45e66e97f94"><td class="memItemLeft" align="right" valign="top">readonly <a class="el" href="namespace_sharp_b_c_i.html#a093a660576d1484ca08f82f943ba6651">EEGDataType</a>[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#aad107a8fb722300eae48d45e66e97f94">bands</a></td></tr>
+<tr class="memdesc:aad107a8fb722300eae48d45e66e97f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of EEGDataTypes that the predictor expects for its training and predictions.  <a href="#aad107a8fb722300eae48d45e66e97f94">More...</a><br/></td></tr>
 <tr class="separator:aad107a8fb722300eae48d45e66e97f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87bfea5e6fc9c61c14e74af37a7f1cf2"><td class="memItemLeft" align="right" valign="top">readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a87bfea5e6fc9c61c14e74af37a7f1cf2">channels</a></td></tr>
+<tr class="memdesc:a87bfea5e6fc9c61c14e74af37a7f1cf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of channels on the headset, as reported by.  <a href="#a87bfea5e6fc9c61c14e74af37a7f1cf2">More...</a><br/></td></tr>
 <tr class="separator:a87bfea5e6fc9c61c14e74af37a7f1cf2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af36c22334170fb9895eeadb783cbf601"><td class="memItemLeft" align="right" valign="top">readonly int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#af36c22334170fb9895eeadb783cbf601">k</a></td></tr>
+<tr class="memdesc:af36c22334170fb9895eeadb783cbf601"><td class="mdescLeft">&#160;</td><td class="mdescRight">A non-negative non-zero integer representing the number of results from KNN algorithm.  <a href="#af36c22334170fb9895eeadb783cbf601">More...</a><br/></td></tr>
 <tr class="separator:af36c22334170fb9895eeadb783cbf601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a357a50b006bb39ddba19495e94c1218e"><td class="memItemLeft" align="right" valign="top">readonly double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a357a50b006bb39ddba19495e94c1218e">thresholdProb</a></td></tr>
+<tr class="memdesc:a357a50b006bb39ddba19495e94c1218e"><td class="mdescLeft">&#160;</td><td class="mdescRight">A double between 0-1 indicating the probability threshhold below which predictions will be thrown out.  <a href="#a357a50b006bb39ddba19495e94c1218e">More...</a><br/></td></tr>
 <tr class="separator:a357a50b006bb39ddba19495e94c1218e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2d0a153c7aa0a0f832ebcee8ac7e370"><td class="memItemLeft" align="right" valign="top">double[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#ae2d0a153c7aa0a0f832ebcee8ac7e370">bandWeights</a></td></tr>
 <tr class="separator:ae2d0a153c7aa0a0f832ebcee8ac7e370"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac353f48804c912336fae91df27699dcd"><td class="memItemLeft" align="right" valign="top">double[]&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_predictor.html#ac353f48804c912336fae91df27699dcd">channelWeights</a></td></tr>
+<tr class="separator:ac353f48804c912336fae91df27699dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An IPredictor which uses a 3-dimensional loci of points in the form of an array of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a>'s to classify EEG data. </p>
+<div class="textblock"><p>An IPredictor which uses a 3-dimensional loci of points in the form of an array of <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html" title="A class which represent various types of events relating to EEG data. ">EEGEvent</a>'s to classify EEG data Uses nearest neighbor predictions with distance computed by the abstract <a class="el" href="class_sharp_b_c_i_1_1_predictor.html#a6b443572ab1915f1129500730c13d240">Compute(double[] x, double[] y)</a> function Predictions occur by computing the distance between the incoming sample and all training samples, pulls the k nearest neighbors, and determines the final prediction. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="ab6ce548a0610c879dd379d9b150ebd20"></a>
 <div class="memitem">
@@ -336,6 +349,38 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a195d91298f217bdaf64d2bfdb3af8b37"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.Predictor.SetBandWeights </td>
+          <td>(</td>
+          <td class="paramtype">double[]&#160;</td>
+          <td class="paramname"><em>newWeights</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5720c681bc7e70e32416daae50253ec3"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SharpBCI.Predictor.SetChannelWeights </td>
+          <td>(</td>
+          <td class="paramtype">double[]&#160;</td>
+          <td class="paramname"><em>newWeights</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0e2a501bda652f89fe56f7ffc7e3478c"></a>
 <div class="memitem">
 <div class="memproto">
@@ -371,6 +416,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Dictionary which maps EEGDataTypes to integers for easy indexing into the buffer. </p>
+
 </div>
 </div>
 <a class="anchor" id="aad107a8fb722300eae48d45e66e97f94"></a>
@@ -390,6 +437,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>List of EEGDataTypes that the predictor expects for its training and predictions. </p>
 
 </div>
 </div>
@@ -431,6 +480,29 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Number of channels on the headset, as reported by. </p>
+<dl class="section see"><dt>See Also</dt><dd>SharpBCIAdapter </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac353f48804c912336fae91df27699dcd"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double [] SharpBCI.Predictor.channelWeights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <a class="anchor" id="af36c22334170fb9895eeadb783cbf601"></a>
@@ -451,6 +523,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A non-negative non-zero integer representing the number of results from KNN algorithm. </p>
+<p><a class="el" href="">https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm</a></p>
+
 </div>
 </div>
 <a class="anchor" id="abc9cf210feb1aedf7bd8f313d92966b7"></a>
@@ -462,6 +537,8 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>see <a class="el" href="class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a6b087d4a6ea83226a495f07aca71957a" title="Constant used to indicate when the encapsulated predictor has no valid prediction. ">AggregatePredictionPipeable.NO_PREDICTION</a> </p>
 
 </div>
 </div>
@@ -483,6 +560,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>A double between 0-1 indicating the probability threshhold below which predictions will be thrown out. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8f034f60f3617552a18b6eb7719e7439"></a>
@@ -502,6 +581,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Dictionary storing all training data. </p>
+<p>Key is the label of the value's data Value is a list of data associated with this label </p>
 
 </div>
 </div>
