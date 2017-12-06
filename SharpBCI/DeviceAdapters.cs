@@ -207,6 +207,7 @@ namespace SharpBCI {
 				}
 
 				if (DateTime.UtcNow.Subtract(lastPacketRecieved).TotalMilliseconds > HANGUP_TIME) {
+					lastPacketRecieved = DateTime.UtcNow;
 					EmitData(
 						new EEGEvent(
 							DateTime.UtcNow, 
