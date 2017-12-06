@@ -33,6 +33,13 @@ namespace SharpBCI.Tests {
 			adapter.FlushEvents();
 			CheckConnStatus(new double[] { 4, 4, 4, 4 });
 
+			// test recovery
+			messageReceived = false;
+			sender.Send(packet);
+			while (!messageReceived)
+				adapter.FlushEvents();
+			CheckConnStatus(new double[] { 1, 1, 1, 1 });
+
 			// teardown
 			adapter.Stop();
 		}
