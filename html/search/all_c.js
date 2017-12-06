@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['one',['One',['../struct_system_1_1_numerics_1_1_complex.html#a7b2234519d3dc80c5896beddbbeeb281',1,'System::Numerics::Complex']]],
-  ['onlinevariance',['OnlineVariance',['../class_sharp_b_c_i_1_1_online_variance.html',1,'SharpBCI']]],
-  ['operator_2a',['operator*',['../struct_system_1_1_numerics_1_1_complex.html#a6db2c3190087dde413411125ea0f4bb1',1,'System::Numerics::Complex']]],
-  ['operator_2b',['operator+',['../struct_system_1_1_numerics_1_1_complex.html#ade5bed39d81925e0dd2d620ac17fc998',1,'System::Numerics::Complex']]],
-  ['operator_2f',['operator/',['../struct_system_1_1_numerics_1_1_complex.html#a6386891a61a289cff360116782a1bfdd',1,'System::Numerics::Complex']]],
-  ['originalxseries',['OriginalXSeries',['../class_sharp_b_c_i_1_1_series_variable.html#a7bd67ec2f80b3714eb342bbb6f23113c',1,'SharpBCI::SeriesVariable']]],
-  ['originalyseries',['OriginalYSeries',['../class_sharp_b_c_i_1_1_series_variable.html#af2522ba63be7b6e36c22028201b29aff',1,'SharpBCI::SeriesVariable']]],
-  ['outputs',['outputs',['../class_sharp_b_c_i_1_1_serialized_connection_info.html#a142c8cf9bdd4deec7f22a98a72cd5b4b',1,'SharpBCI::SerializedConnectionInfo']]]
+  ['narrowpassfilter',['NarrowPassFilter',['../class_sharp_b_c_i_1_1_narrow_pass_filter.html',1,'SharpBCI']]],
+  ['narrowpassfilter',['NarrowPassFilter',['../class_sharp_b_c_i_1_1_narrow_pass_filter.html#a69bf84943f6c6df883311d283ee1b83c',1,'SharpBCI::NarrowPassFilter']]],
+  ['newcompetitor',['NewCompetitor',['../class_sharp_b_c_i_1_1_tournament_artifact_detector.html#a325a1e9eb501bc586dd78b7a6a538ad8',1,'SharpBCI::TournamentArtifactDetector']]],
+  ['no_5fprediction',['NO_PREDICTION',['../class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a6b087d4a6ea83226a495f07aca71957a',1,'SharpBCI.AggregatePredictionPipeable.NO_PREDICTION()'],['../class_sharp_b_c_i_1_1_predictor.html#abc9cf210feb1aedf7bd8f313d92966b7',1,'SharpBCI.Predictor.NO_PREDICTION()']]],
+  ['nonepreprocessor',['NonePreprocessor',['../class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html',1,'SharpBCI::Preprocessors']]],
+  ['normalizationpreprocessor',['NormalizationPreprocessor',['../class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html#a778249265e2b060c1b9f5ae414ec26fc',1,'SharpBCI.Preprocessors.NormalizationPreprocessor.NormalizationPreprocessor()'],['../class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html#aff556c23114ba253897fe0ab59b0cde9',1,'SharpBCI.Preprocessors.NormalizationPreprocessor.NormalizationPreprocessor(double minBoundary, double maxBoundary)']]],
+  ['normalizationpreprocessor',['NormalizationPreprocessor',['../class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html',1,'SharpBCI::Preprocessors']]],
+  ['notchfilter',['NotchFilter',['../class_sharp_b_c_i_1_1_notch_filter.html',1,'SharpBCI']]],
+  ['notchfilter',['NotchFilter',['../class_sharp_b_c_i_1_1_notch_filter.html#a5c057b2902872ce8aad1ed62e45f36c4',1,'SharpBCI::NotchFilter']]]
 ];

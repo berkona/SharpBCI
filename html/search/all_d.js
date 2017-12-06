@@ -1,15 +1,11 @@
 var searchData=
 [
-  ['phase',['Phase',['../struct_system_1_1_numerics_1_1_complex.html#af01cc0a44334e72ff4b49e564e6bd22d',1,'System::Numerics::Complex']]],
-  ['pipeable',['Pipeable',['../class_sharp_b_c_i_1_1_pipeable.html',1,'SharpBCI']]],
-  ['pipeline_2ecs',['Pipeline.cs',['../_pipeline_8cs.html',1,'']]],
-  ['pipelinefile',['pipelineFile',['../class_sharp_b_c_i_1_1_sharp_b_c_i_config.html#a5a8a49f2d026156e3b45d29c9c5354cc',1,'SharpBCI.SharpBCIConfig.pipelineFile()'],['../class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html#acfae5df93d7b67b7c38b03cf0a1d68cd',1,'SharpBCI.SharpBCIBuilder.PipelineFile()']]],
-  ['pipelineserializer_2ecs',['PipelineSerializer.cs',['../_pipeline_serializer_8cs.html',1,'']]],
-  ['predict',['Predict',['../interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#af0f54060aaec1d8ca6db41d514d59666',1,'SharpBCI.IPredictor&lt; T &gt;.Predict()'],['../class_sharp_b_c_i_1_1_predictor.html#ad7b0700e7c3dba9d60a62724a8e3a3b6',1,'SharpBCI.Predictor.Predict()'],['../class_sharp_b_c_i_1_1_a_r_model.html#a7c7cc4f9b919636369ba48976bc592c1',1,'SharpBCI.ARModel.Predict()']]],
-  ['predictor',['Predictor',['../class_sharp_b_c_i_1_1_predictor.html',1,'SharpBCI']]],
-  ['predictor',['Predictor',['../class_sharp_b_c_i_1_1_predictor.html#ab6ce548a0610c879dd379d9b150ebd20',1,'SharpBCI::Predictor']]],
-  ['preprocess',['Preprocess',['../interface_sharp_b_c_i_1_1_i_preprocessor.html#a52cf4516cb7add4f2d47296125e228c8',1,'SharpBCI.IPreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html#ac25f2b83ceae238ccc1c19bef2ff1782',1,'SharpBCI.Preprocessors.NonePreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html#adf56c2145da26673862d80a63c152096',1,'SharpBCI.Preprocessors.NormalizationPreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_standardization_preprocessor.html#aeb653797be21081d049b97603769c5e0',1,'SharpBCI.StandardizationPreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_centralization_preprocessor.html#a976c264b5bd68de0ee7ca96e258ebdb4',1,'SharpBCI.CentralizationPreprocessor.Preprocess()']]],
-  ['preprocessors',['Preprocessors',['../class_sharp_b_c_i_1_1_preprocessors.html',1,'SharpBCI']]],
-  ['preprocessors_2ecs',['Preprocessors.cs',['../_preprocessors_8cs.html',1,'']]],
-  ['process',['Process',['../class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1dadddfc61fa388435668843b4f5566f',1,'SharpBCI.AggregatePredictionPipeable.Process()'],['../class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html#a424a8989d5e89e9c333ac3f52323cf9b',1,'SharpBCI.TournamentArtifactPipeable.Process()'],['../class_sharp_b_c_i_1_1_f_f_t_pipeable.html#a9c1a74d528d4069ea781561baf4c59c2',1,'SharpBCI.FFTPipeable.Process()'],['../class_sharp_b_c_i_1_1_bandpass_pipeable.html#a121857a40a009c0e793e8982f5981c89',1,'SharpBCI.BandpassPipeable.Process()'],['../class_sharp_b_c_i_1_1_simple_filter_pipeable.html#abb1cdd655d9c9ce3a1746c8602a9120b',1,'SharpBCI.SimpleFilterPipeable.Process()'],['../class_sharp_b_c_i_1_1_pipeable.html#a2c0cf40eff6ea6ab5de4c4f779a4d652',1,'SharpBCI.Pipeable.Process()'],['../class_sharp_b_c_i_1_1_trained_event_emitter.html#ade787b21339cea8e5ed6574c25e2a098',1,'SharpBCI.TrainedEventEmitter.Process()'],['../class_sharp_b_c_i_1_1_raw_event_emitter.html#a015b11fce55a364abb807c2ecabc6c08',1,'SharpBCI.RawEventEmitter.Process()'],['../class_sharp_b_c_i_1_1_e_e_g_device_producer.html#a0e5956cc35176fea04ad5788b128f70b',1,'SharpBCI.EEGDeviceProducer.Process()']]]
+  ['one',['One',['../struct_system_1_1_numerics_1_1_complex.html#a7b2234519d3dc80c5896beddbbeeb281',1,'System::Numerics::Complex']]],
+  ['onlinevariance',['OnlineVariance',['../class_sharp_b_c_i_1_1_online_variance.html',1,'SharpBCI']]],
+  ['operator_2a',['operator*',['../struct_system_1_1_numerics_1_1_complex.html#a6db2c3190087dde413411125ea0f4bb1',1,'System::Numerics::Complex']]],
+  ['operator_2b',['operator+',['../struct_system_1_1_numerics_1_1_complex.html#ade5bed39d81925e0dd2d620ac17fc998',1,'System::Numerics::Complex']]],
+  ['operator_2f',['operator/',['../struct_system_1_1_numerics_1_1_complex.html#a6386891a61a289cff360116782a1bfdd',1,'System::Numerics::Complex']]],
+  ['originalxseries',['OriginalXSeries',['../class_sharp_b_c_i_1_1_series_variable.html#a7bd67ec2f80b3714eb342bbb6f23113c',1,'SharpBCI::SeriesVariable']]],
+  ['originalyseries',['OriginalYSeries',['../class_sharp_b_c_i_1_1_series_variable.html#af2522ba63be7b6e36c22028201b29aff',1,'SharpBCI::SeriesVariable']]],
+  ['outputs',['outputs',['../class_sharp_b_c_i_1_1_serialized_connection_info.html#a142c8cf9bdd4deec7f22a98a72cd5b4b',1,'SharpBCI::SerializedConnectionInfo']]]
 ];

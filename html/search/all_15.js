@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['zero',['Zero',['../struct_system_1_1_numerics_1_1_complex.html#a1b859ab45c484dc3bfc729bbb54a2e29',1,'System::Numerics::Complex']]]
+  ['xcorrvectorizedsmoother',['XCorrVectorizedSmoother',['../class_sharp_b_c_i_1_1_x_corr_vectorized_smoother.html',1,'SharpBCI']]],
+  ['xcorrvectorizedsmoother',['XCorrVectorizedSmoother',['../class_sharp_b_c_i_1_1_x_corr_vectorized_smoother.html#afc81030117c560ce6ab8fb67f63e894e',1,'SharpBCI::XCorrVectorizedSmoother']]]
 ];

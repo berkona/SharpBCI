@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['raweventemitter',['RawEventEmitter',['../class_sharp_b_c_i_1_1_raw_event_emitter.html',1,'SharpBCI']]],
-  ['raweventemitter',['RawEventEmitter',['../class_sharp_b_c_i_1_1_raw_event_emitter.html#a89dc6d548c9fd7a017831dd43d41c24c',1,'SharpBCI::RawEventEmitter']]],
-  ['re',['re',['../struct_system_1_1_numerics_1_1_complex.html#a7344f576c3523c40d57c1bd15b713bfc',1,'System::Numerics::Complex']]],
-  ['readline',['ReadLine',['../class_sharp_b_c_i_1_1_async_stream_reader.html#a5249f7c75527f63afef9eab9ad583053',1,'SharpBCI::AsyncStreamReader']]],
-  ['real',['Real',['../struct_system_1_1_numerics_1_1_complex.html#a1f693b4220f05bd9351b78aad35c6220',1,'System::Numerics::Complex']]],
-  ['recursivefilter',['RecursiveFilter',['../class_sharp_b_c_i_1_1_recursive_filter.html',1,'SharpBCI']]],
-  ['remoteoscadapter',['RemoteOSCAdapter',['../class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#a8c40105f89cc017c2903ef06f1bfb226',1,'SharpBCI::RemoteOSCAdapter']]],
-  ['remoteoscadapter',['RemoteOSCAdapter',['../class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html',1,'SharpBCI']]],
-  ['removehandler',['RemoveHandler',['../class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a69d74be6c873c0f35a5cbfa7c5dfedef',1,'SharpBCI::EEGDeviceAdapter']]],
-  ['removerawhandler',['RemoveRawHandler',['../class_sharp_b_c_i_1_1_sharp_b_c_i.html#ae7465d4262ea17036d3cc33cbc6bdaf4',1,'SharpBCI::SharpBCI']]],
-  ['removetrainedhandler',['RemoveTrainedHandler',['../class_sharp_b_c_i_1_1_sharp_b_c_i.html#afd15e4a9d121e29024d73cf1b46af5c0',1,'SharpBCI::SharpBCI']]],
-  ['reserved_5fprefix',['RESERVED_PREFIX',['../class_sharp_b_c_i_1_1_sharp_b_c_i.html#af83bc3fdc6760bc0a54ed3baecdc1e5e',1,'SharpBCI::SharpBCI']]]
+  ['phase',['Phase',['../struct_system_1_1_numerics_1_1_complex.html#af01cc0a44334e72ff4b49e564e6bd22d',1,'System::Numerics::Complex']]],
+  ['pipeable',['Pipeable',['../class_sharp_b_c_i_1_1_pipeable.html',1,'SharpBCI']]],
+  ['pipeline_2ecs',['Pipeline.cs',['../_pipeline_8cs.html',1,'']]],
+  ['pipelinefile',['PipelineFile',['../class_sharp_b_c_i_1_1_sharp_b_c_i_builder.html#acfae5df93d7b67b7c38b03cf0a1d68cd',1,'SharpBCI.SharpBCIBuilder.PipelineFile()'],['../class_sharp_b_c_i_1_1_sharp_b_c_i_config.html#a5a8a49f2d026156e3b45d29c9c5354cc',1,'SharpBCI.SharpBCIConfig.pipelineFile()']]],
+  ['pipelineserializer_2ecs',['PipelineSerializer.cs',['../_pipeline_serializer_8cs.html',1,'']]],
+  ['predict',['Predict',['../interface_sharp_b_c_i_1_1_i_predictor_3_01_t_01_4.html#af0f54060aaec1d8ca6db41d514d59666',1,'SharpBCI.IPredictor&lt; T &gt;.Predict()'],['../class_sharp_b_c_i_1_1_predictor.html#ad7b0700e7c3dba9d60a62724a8e3a3b6',1,'SharpBCI.Predictor.Predict()'],['../class_sharp_b_c_i_1_1_a_r_model.html#a7c7cc4f9b919636369ba48976bc592c1',1,'SharpBCI.ARModel.Predict()']]],
+  ['predictor',['Predictor',['../class_sharp_b_c_i_1_1_predictor.html',1,'SharpBCI']]],
+  ['predictor',['Predictor',['../class_sharp_b_c_i_1_1_predictor.html#ab6ce548a0610c879dd379d9b150ebd20',1,'SharpBCI::Predictor']]],
+  ['preprocess',['Preprocess',['../interface_sharp_b_c_i_1_1_i_preprocessor.html#a52cf4516cb7add4f2d47296125e228c8',1,'SharpBCI.IPreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_preprocessors_1_1_none_preprocessor.html#ac25f2b83ceae238ccc1c19bef2ff1782',1,'SharpBCI.Preprocessors.NonePreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_preprocessors_1_1_normalization_preprocessor.html#adf56c2145da26673862d80a63c152096',1,'SharpBCI.Preprocessors.NormalizationPreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_standardization_preprocessor.html#aeb653797be21081d049b97603769c5e0',1,'SharpBCI.StandardizationPreprocessor.Preprocess()'],['../class_sharp_b_c_i_1_1_centralization_preprocessor.html#a976c264b5bd68de0ee7ca96e258ebdb4',1,'SharpBCI.CentralizationPreprocessor.Preprocess()']]],
+  ['preprocessors',['Preprocessors',['../class_sharp_b_c_i_1_1_preprocessors.html',1,'SharpBCI']]],
+  ['preprocessors_2ecs',['Preprocessors.cs',['../_preprocessors_8cs.html',1,'']]],
+  ['process',['Process',['../class_sharp_b_c_i_1_1_aggregate_prediction_pipeable.html#a1dadddfc61fa388435668843b4f5566f',1,'SharpBCI.AggregatePredictionPipeable.Process()'],['../class_sharp_b_c_i_1_1_tournament_artifact_pipeable.html#a424a8989d5e89e9c333ac3f52323cf9b',1,'SharpBCI.TournamentArtifactPipeable.Process()'],['../class_sharp_b_c_i_1_1_f_f_t_pipeable.html#a9c1a74d528d4069ea781561baf4c59c2',1,'SharpBCI.FFTPipeable.Process()'],['../class_sharp_b_c_i_1_1_bandpass_pipeable.html#a121857a40a009c0e793e8982f5981c89',1,'SharpBCI.BandpassPipeable.Process()'],['../class_sharp_b_c_i_1_1_simple_filter_pipeable.html#abb1cdd655d9c9ce3a1746c8602a9120b',1,'SharpBCI.SimpleFilterPipeable.Process()'],['../class_sharp_b_c_i_1_1_pipeable.html#a2c0cf40eff6ea6ab5de4c4f779a4d652',1,'SharpBCI.Pipeable.Process()'],['../class_sharp_b_c_i_1_1_trained_event_emitter.html#ade787b21339cea8e5ed6574c25e2a098',1,'SharpBCI.TrainedEventEmitter.Process()'],['../class_sharp_b_c_i_1_1_raw_event_emitter.html#a015b11fce55a364abb807c2ecabc6c08',1,'SharpBCI.RawEventEmitter.Process()'],['../class_sharp_b_c_i_1_1_e_e_g_device_producer.html#a0e5956cc35176fea04ad5788b128f70b',1,'SharpBCI.EEGDeviceProducer.Process()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mirroroutputs',['mirrorOutputs',['../class_sharp_b_c_i_1_1_serialized_connection_info.html#aa0f4ae45617d749f6d04cd632d0b87be',1,'SharpBCI::SerializedConnectionInfo']]]
+  ['k',['k',['../class_sharp_b_c_i_1_1_predictor.html#af36c22334170fb9895eeadb783cbf601',1,'SharpBCI::Predictor']]]
 ];

@@ -231,6 +231,7 @@ var NAVTREEINDEX0 =
 "class_sharp_b_c_i_1_1_recursive_filter.html#a5347c37e9f54eff840c6320f7d5f2e1a":[2,0,1,35,0],
 "class_sharp_b_c_i_1_1_recursive_filter.html#a5b7e174457672ccae70b9349c5c731e9":[2,0,1,35,1],
 "class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html":[2,0,1,13],
+"class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#a4251beb349838ade360b164a7793cddc":[2,0,1,13,3],
 "class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#a8c40105f89cc017c2903ef06f1bfb226":[2,0,1,13,0],
 "class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#ab292d2dc26166c9a2ee873982dded677":[2,0,1,13,1],
 "class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html#aea4057959fc8197e3c8a13fe8c8ab63e":[2,0,1,13,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "class_sharp_b_c_i_1_1_series_variable.html":[2,0,1,19],
 "class_sharp_b_c_i_1_1_series_variable.html#a33a1a037b7453fa658d84970fd98c8e2":[2,0,1,19,5],
 "class_sharp_b_c_i_1_1_series_variable.html#a4bf1ee95a0d7aa7f6e330556f39a7d2a":[2,0,1,19,6],
-"class_sharp_b_c_i_1_1_series_variable.html#a6adcbf6271408bf943318f96943b009d":[2,0,1,19,0],
-"class_sharp_b_c_i_1_1_series_variable.html#a7bd67ec2f80b3714eb342bbb6f23113c":[2,0,1,19,3]
+"class_sharp_b_c_i_1_1_series_variable.html#a6adcbf6271408bf943318f96943b009d":[2,0,1,19,0]
 };
