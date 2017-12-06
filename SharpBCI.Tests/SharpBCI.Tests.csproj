@@ -55,6 +55,7 @@
     <Compile Include="Predictor.cs" />
     <Compile Include="Artifacts.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Logger.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpBCI\SharpBCI.csproj">

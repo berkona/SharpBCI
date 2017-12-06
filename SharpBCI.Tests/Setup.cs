@@ -9,6 +9,11 @@ namespace SharpBCI.Tests {
 		public void SetupLogger() {
 			Logger.AddLogOutput(new ConsoleLogger());
 		}
+
+		[TearDown]
+		public void TeardownLogger() {
+			Logger.Dispose();
+		}
 	}
 
 }
