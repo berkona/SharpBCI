@@ -30,20 +30,19 @@ namespace SharpBCI {
 
 	public class FileLogger : ILogOutput {
 
-		readonly StreamWriter outputStream;
+		readonly AsyncStreamWriter outputStream;
 
 		public FileLogger(string logName) {
-			outputStream = new StreamWriter(logName, true);
-			outputStream.WriteAsync("\n\n\n");
+			outputStream = new AsyncStreamWriter(logName, true);
+			outputStream.WriteLine("\n\n\n");
 		}
 
 		public void Dispose() {
-			outputStream.Flush();
-			outputStream.Dispose();
+			outputStream.Close();
 		}
 
 		public void Log(LogLevel level, object message) {
-			outputStream.WriteLineAsync(string.Format("{0} - [{1}]: {2}", DateTime.Now, level, message));
+			outputStream.WriteLine(string.Format("{0} - [{1}]: {2}", DateTime.Now, level, message));
 		}
 	}
 
