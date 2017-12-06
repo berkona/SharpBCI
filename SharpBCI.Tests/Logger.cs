@@ -7,9 +7,9 @@ namespace SharpBCI.Tests {
 	public class LoggerTesting {
 		
 		[Test]
-		public void TestLogger() {
+		public void LoggerFileWriteRegression() {
 			Logger.AddLogOutput(new FileLogger("test.txt"));
-			for (int i = 0; i < 1e5; i++) {
+			for (int i = 0; i < 1e3; i++) {
 				Logger.Log("Test");
 			}
 		}
