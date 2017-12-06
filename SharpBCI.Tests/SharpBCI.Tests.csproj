@@ -46,6 +46,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SharpOSC">
+      <HintPath>..\SharpBCI\SharpOSC.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -56,6 +59,7 @@
     <Compile Include="Artifacts.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="DeviceAdapters.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpBCI\SharpBCI.csproj">

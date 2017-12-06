@@ -116,6 +116,11 @@ namespace SharpBCI {
 	 */
 	public class RemoteOSCAdapter : EEGDeviceAdapter {
 		
+		/**
+		 * How long the RemoteOSCAdapter waits until it assumes the device has hung up
+		 */
+		public const int HANGUP_TIME = 1000;
+
         /**
          * Port number that OSC packets can be retrieved from
          */
@@ -129,6 +134,7 @@ namespace SharpBCI {
 
 		Thread listenerThread;
 		bool stopRequested;
+		DateTime lastPacketRecieved = DateTime.UtcNow;
 
 		public RemoteOSCAdapter(int port) : base(4, 220) {
 			this.port = port;
@@ -195,8 +201,20 @@ namespace SharpBCI {
 		void Run() {
 			while (!stopRequested) {
 				var packet = listener.Receive();
-				if (packet != null)
+				if (packet != null) {
+					lastPacketRecieved = DateTime.UtcNow;
 					OnOSCMessageReceived(packet);
+				}
+
+				if (DateTime.UtcNow.Subtract(lastPacketRecieved).TotalMilliseconds > HANGUP_TIME) {
+					EmitData(
+						new EEGEvent(
+							DateTime.UtcNow, 
+							EEGDataType.CONTACT_QUALITY, 
+							new double[] { 4, 4, 4, 4 }
+						)
+					);
+				}
 			}
 		}
 
