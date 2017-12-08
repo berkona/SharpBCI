@@ -122,7 +122,7 @@ Inheritance diagram for SharpBCI.EEGDeviceAdapter:</div>
  <div class="center">
   <img src="class_sharp_b_c_i_1_1_e_e_g_device_adapter.png" usemap="#SharpBCI.EEGDeviceAdapter_map" alt=""/>
   <map id="SharpBCI.EEGDeviceAdapter_map" name="SharpBCI.EEGDeviceAdapter_map">
-<area href="class_sharp_b_c_i_1_1_c_s_v_read_adapter.html" alt="SharpBCI.CSVReadAdapter" shape="rect" coords="0,56,227,80"/>
+<area href="class_sharp_b_c_i_1_1_c_s_v_read_adapter.html" title="A device adapter that can be used to replay or reemit the data logged during a previous session..." alt="SharpBCI.CSVReadAdapter" shape="rect" coords="0,56,227,80"/>
 <area href="class_sharp_b_c_i_1_1_instrumented_dummy_adapter.html" title="An EEGDeviceAdapter which is used to emit a certain set of signals via StartSignal. " alt="SharpBCI.InstrumentedDummyAdapter" shape="rect" coords="237,56,464,80"/>
 <area href="class_sharp_b_c_i_1_1_remote_o_s_c_adapter.html" title="An EEGDeviceAdapter which connects to an EEGDevice via OSC It then asynchronously listens for message..." alt="SharpBCI.RemoteOSCAdapter" shape="rect" coords="474,56,701,80"/>
 <area href="class_sharp_b_c_i_1_1_dummy_adapter.html" title="A version of InstrumentedDummyAdapter which constantly emits a given DummyAdapterSignal Generally use..." alt="SharpBCI.DummyAdapter" shape="rect" coords="237,112,464,136"/>
@@ -146,7 +146,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a69d74be6c873c0f35a5cbfa7c5dfedef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this function to remove a handler that has been added with the AddHandler function.  <a href="#a69d74be6c873c0f35a5cbfa7c5dfedef">More...</a><br/></td></tr>
 <tr class="separator:a69d74be6c873c0f35a5cbfa7c5dfedef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c359c3cbea6828e52086ed641e0b14"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a09c359c3cbea6828e52086ed641e0b14">FlushEvents</a> ()</td></tr>
-<tr class="memdesc:a09c359c3cbea6828e52086ed641e0b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines.  <a href="#a09c359c3cbea6828e52086ed641e0b14">More...</a><br/></td></tr>
+<tr class="memdesc:a09c359c3cbea6828e52086ed641e0b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread safe function that removes events from the event queue and calls FlushEvent (without a s) on each event to send data through pipelines.  <a href="#a09c359c3cbea6828e52086ed641e0b14">More...</a><br/></td></tr>
 <tr class="separator:a09c359c3cbea6828e52086ed641e0b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -163,6 +163,7 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:aa2b60a785b9233272de552568175679d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#aa2b60a785b9233272de552568175679d">EEGDeviceAdapter</a> (int <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a5c4d167d19d09f6f930a482db852ac69">channels</a>, double <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a80a3af93f2df50670ac6812075558baa">sampleRate</a>)</td></tr>
 <tr class="separator:aa2b60a785b9233272de552568175679d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71be273a5afe707165b8b36ea1a164fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a71be273a5afe707165b8b36ea1a164fa">EmitData</a> (<a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a> evt)</td></tr>
+<tr class="memdesc:a71be273a5afe707165b8b36ea1a164fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts EEGEvents into the eventQueue to wait; events are flushed and handlers operate on the events.  <a href="#a71be273a5afe707165b8b36ea1a164fa">More...</a><br/></td></tr>
 <tr class="separator:a71be273a5afe707165b8b36ea1a164fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -269,6 +270,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Puts EEGEvents into the eventQueue to wait; events are flushed and handlers operate on the events. </p>
+
 </div>
 </div>
 <a class="anchor" id="a09c359c3cbea6828e52086ed641e0b14"></a>
@@ -284,7 +287,7 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines. </p>
+<p>Thread safe function that removes events from the event queue and calls FlushEvent (without a s) on each event to send data through pipelines. </p>
 
 </div>
 </div>

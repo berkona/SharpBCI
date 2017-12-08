@@ -111,6 +111,9 @@ $(document).ready(function(){initNavTree('class_sharp_b_c_i_1_1_c_s_v_read_adapt
 <div class="title">SharpBCI.CSVReadAdapter Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A device adapter that can be used to replay or reemit the data logged during a previous session.  
+ <a href="class_sharp_b_c_i_1_1_c_s_v_read_adapter.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for SharpBCI.CSVReadAdapter:</div>
 <div class="dyncontent">
@@ -126,10 +129,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a966ec5c247fb60050c089c4bb95a4cd0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_c_s_v_read_adapter.html#a966ec5c247fb60050c089c4bb95a4cd0">CSVReadAdapter</a> (string filePath, double <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a80a3af93f2df50670ac6812075558baa">sampleRate</a>)</td></tr>
 <tr class="separator:a966ec5c247fb60050c089c4bb95a4cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a418d5ac0e24893b0eb9c9640f888e97f"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_c_s_v_read_adapter.html#a418d5ac0e24893b0eb9c9640f888e97f">Start</a> ()</td></tr>
-<tr class="memdesc:a418d5ac0e24893b0eb9c9640f888e97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that sets up the listener on and begins flushing data through the pipeline This function needs to be overridden in each device adapter implementation.  <a href="#a418d5ac0e24893b0eb9c9640f888e97f">More...</a><br/></td></tr>
+<tr class="memdesc:a418d5ac0e24893b0eb9c9640f888e97f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrite of the Start function from <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> class.  <a href="#a418d5ac0e24893b0eb9c9640f888e97f">More...</a><br/></td></tr>
 <tr class="separator:a418d5ac0e24893b0eb9c9640f888e97f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adef4fd655a09a735e3de7dc9ce7ba451"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_c_s_v_read_adapter.html#adef4fd655a09a735e3de7dc9ce7ba451">Stop</a> ()</td></tr>
-<tr class="memdesc:adef4fd655a09a735e3de7dc9ce7ba451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function that tears down the listener and stops flushing data through the pipeline This function needs to be overridden in each device adapter implementation.  <a href="#adef4fd655a09a735e3de7dc9ce7ba451">More...</a><br/></td></tr>
+<tr class="memdesc:adef4fd655a09a735e3de7dc9ce7ba451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets isCancelled to true to stop the Run function and joins the thread when complete.  <a href="#adef4fd655a09a735e3de7dc9ce7ba451">More...</a><br/></td></tr>
 <tr class="separator:adef4fd655a09a735e3de7dc9ce7ba451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html">SharpBCI.EEGDeviceAdapter</a></td></tr>
 <tr class="memitem:a6bc5578dae837bf0b6d9c55c26d036bb inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memItemLeft" align="right" valign="top">delegate void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a6bc5578dae837bf0b6d9c55c26d036bb">DataHandler</a> (<a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a> evt)</td></tr>
@@ -141,7 +144,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a69d74be6c873c0f35a5cbfa7c5dfedef inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use this function to remove a handler that has been added with the AddHandler function.  <a href="#a69d74be6c873c0f35a5cbfa7c5dfedef">More...</a><br/></td></tr>
 <tr class="separator:a69d74be6c873c0f35a5cbfa7c5dfedef inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09c359c3cbea6828e52086ed641e0b14 inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a09c359c3cbea6828e52086ed641e0b14">FlushEvents</a> ()</td></tr>
-<tr class="memdesc:a09c359c3cbea6828e52086ed641e0b14 inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines.  <a href="#a09c359c3cbea6828e52086ed641e0b14">More...</a><br/></td></tr>
+<tr class="memdesc:a09c359c3cbea6828e52086ed641e0b14 inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread safe function that removes events from the event queue and calls FlushEvent (without a s) on each event to send data through pipelines.  <a href="#a09c359c3cbea6828e52086ed641e0b14">More...</a><br/></td></tr>
 <tr class="separator:a09c359c3cbea6828e52086ed641e0b14 inherit pub_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -157,9 +160,13 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:aa2b60a785b9233272de552568175679d inherit pro_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#aa2b60a785b9233272de552568175679d">EEGDeviceAdapter</a> (int <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a5c4d167d19d09f6f930a482db852ac69">channels</a>, double <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a80a3af93f2df50670ac6812075558baa">sampleRate</a>)</td></tr>
 <tr class="separator:aa2b60a785b9233272de552568175679d inherit pro_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71be273a5afe707165b8b36ea1a164fa inherit pro_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a71be273a5afe707165b8b36ea1a164fa">EmitData</a> (<a class="el" href="class_sharp_b_c_i_1_1_e_e_g_event.html">EEGEvent</a> evt)</td></tr>
+<tr class="memdesc:a71be273a5afe707165b8b36ea1a164fa inherit pro_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puts EEGEvents into the eventQueue to wait; events are flushed and handlers operate on the events.  <a href="#a71be273a5afe707165b8b36ea1a164fa">More...</a><br/></td></tr>
 <tr class="separator:a71be273a5afe707165b8b36ea1a164fa inherit pro_methods_class_sharp_b_c_i_1_1_e_e_g_device_adapter"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A device adapter that can be used to replay or reemit the data logged during a previous session. </p>
+<p>After logging a session to a CSV file using the <a class="el" href="class_sharp_b_c_i_1_1_sharp_b_c_i.html#a3f19efd7134df8bc544ea69911225acb" title="Records the raw data for the current session to a newly created file. ">SharpBCI.LogRawData</a>, you can read the data, conver the data into rawEEGEvents, and emit them through your program acting as a dummy EEG device. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a966ec5c247fb60050c089c4bb95a4cd0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +215,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Function that sets up the listener on and begins flushing data through the pipeline This function needs to be overridden in each device adapter implementation. </p>
+<p>Overwrite of the Start function from <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html" title="An abstract base class from which all device adapters should inherit. ">EEGDeviceAdapter</a> class. </p>
+<p>Creates a new thread to run the Run function. </p>
 
 <p>Implements <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#a41278c1e7ace24403c1b631cff5e96ed">SharpBCI.EEGDeviceAdapter</a>.</p>
 
@@ -235,7 +243,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Function that tears down the listener and stops flushing data through the pipeline This function needs to be overridden in each device adapter implementation. </p>
+<p>Sets isCancelled to true to stop the Run function and joins the thread when complete. </p>
 
 <p>Implements <a class="el" href="class_sharp_b_c_i_1_1_e_e_g_device_adapter.html#ab7f342bb842da7708b5da5d6ff8676b1">SharpBCI.EEGDeviceAdapter</a>.</p>
 

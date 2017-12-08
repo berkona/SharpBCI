@@ -121,13 +121,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8d87f53af6a6c9082c0338a821ef9441"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_writer.html#a8d87f53af6a6c9082c0338a821ef9441">AsyncStreamWriter</a> (string fileName, bool append)</td></tr>
 <tr class="separator:a8d87f53af6a6c9082c0338a821ef9441"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42c01b84a995f1a4351729350bfb3990"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_writer.html#a42c01b84a995f1a4351729350bfb3990">Close</a> ()</td></tr>
+<tr class="memdesc:a42c01b84a995f1a4351729350bfb3990"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finish writing items in queue and close out the thread.  <a href="#a42c01b84a995f1a4351729350bfb3990">More...</a><br/></td></tr>
 <tr class="separator:a42c01b84a995f1a4351729350bfb3990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad869c6f76a2eec61b057bf5b5cba3df6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_writer.html#ad869c6f76a2eec61b057bf5b5cba3df6">WriteLine</a> (string line)</td></tr>
+<tr class="memdesc:ad869c6f76a2eec61b057bf5b5cba3df6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queue a line to be written.  <a href="#ad869c6f76a2eec61b057bf5b5cba3df6">More...</a><br/></td></tr>
 <tr class="separator:ad869c6f76a2eec61b057bf5b5cba3df6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a8b0dac47fea00119039d9c7c76366f20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_sharp_b_c_i_1_1_async_stream_writer.html#a8b0dac47fea00119039d9c7c76366f20">DoWrite</a> ()</td></tr>
+<tr class="memdesc:a8b0dac47fea00119039d9c7c76366f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main function that writes lines queued in the writeQueue blcoking collection to the file indicated.  <a href="#a8b0dac47fea00119039d9c7c76366f20">More...</a><br/></td></tr>
 <tr class="separator:a8b0dac47fea00119039d9c7c76366f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -173,6 +176,8 @@ Protected Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Finish writing items in queue and close out the thread. </p>
+
 </div>
 </div>
 <a class="anchor" id="a8b0dac47fea00119039d9c7c76366f20"></a>
@@ -196,6 +201,8 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Main function that writes lines queued in the writeQueue blcoking collection to the file indicated. </p>
+
 </div>
 </div>
 <a class="anchor" id="ad869c6f76a2eec61b057bf5b5cba3df6"></a>
@@ -211,6 +218,8 @@ Protected Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Queue a line to be written. </p>
 
 </div>
 </div>
