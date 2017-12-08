@@ -23,6 +23,9 @@ namespace SharpBCI {
 
 		}
 
+        /**
+         * Main function that writes lines queued in the writeQueue blcoking collection to the file indicated
+         */
 		protected void DoWrite() {
 			foreach (string line in writeQueue.GetConsumingEnumerable()) {
 				writer.WriteLine(line);	
@@ -31,11 +34,17 @@ namespace SharpBCI {
             writer.Close();
 		}
 
+        /**
+         * Finish writing items in queue and close out the thread
+         */ 
 		public void Close() {
 			writeQueue.CompleteAdding();
             writingThread.Join();
 		}
 
+        /**
+         * Queue a line to be written
+         */
 		public void WriteLine(string line) {
 			writeQueue.Add(line);	
 		}

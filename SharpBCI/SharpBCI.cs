@@ -526,6 +526,11 @@ namespace SharpBCI
             this.AddRawHandler(dataType, OnRawEEGData);
         }
 
+        /**
+         * Handler function for raw event emitter.
+         * Converts EEG events into lines of CSV and writes data to the rawLogFile
+         */
+
         internal void OnRawEEGData(EEGEvent evt)
         {
             var csv = new StringBuilder();
@@ -550,6 +555,9 @@ namespace SharpBCI
             file.WriteLine(writableCsv);
         }
 
+        /**
+         * Thread safe helper function for running raw event handlers on each raw event
+         */
         internal void EmitRawEvent(EEGEvent evt)
         {
             lock (rawHandlers)

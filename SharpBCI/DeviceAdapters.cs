@@ -70,7 +70,7 @@ namespace SharpBCI {
 
 
         /**
-         * Thread safe function that removes events from the event queue and calls FlushEvent (Without a s) on each event to send data through pipelines
+         * Thread safe function that removes events from the event queue and calls FlushEvent (without a s) on each event to send data through pipelines
          */
 		public void FlushEvents() {
 			//Logger.Log("FlushEvents()");
@@ -84,6 +84,9 @@ namespace SharpBCI {
 			}
 		}
 
+        /**
+         * Puts EEGEvents into the eventQueue to wait; events are flushed and handlers operate on the events
+         */ 
 		protected void EmitData(EEGEvent evt) {
 			//Logger.Log("EmitData type=" + evt.type);
 			lock (eventQueue) {
@@ -92,7 +95,9 @@ namespace SharpBCI {
 				//Logger.Log("EmitData lock released");
 			}
 		}
-
+        /**
+         * Runs the handler functions for each type of event on the events being flushed by the FlushEvents (with a s) in the public function
+         */ 
 		private void FlushEvent(EEGEvent evt) {
 			if (handlers.ContainsKey(evt.type)) {
 				//Debug.Log("FlushEvent type=" + evt.type);
@@ -293,19 +298,28 @@ namespace SharpBCI {
 			currentSignal = signal;
 			GenerateSamples();
 		}
-
+        /**
+         * Overwrite of the Start function from EEGDeviceAdapter class.
+         * Creates a new thread to run the Run function.
+         */
 		public override void Start() { 
 			Logger.Log("Starting DummyAdapter");
 			thread = new Thread(Run);
 			thread.Start();
 		}
 
+        /**
+         * Sets isCancelled to true to stop the Run function and joins the thread when complete
+         */
 		public override void Stop() {
 			Logger.Log("Stopping DummyAdapter");
 			isCancelled = true;
 			thread.Join();			
 		}
 
+        /**
+         * Main function that runs in its own thread that emits the EEG data generated through the model
+         */
 		void Run() {
 			DateTime start = DateTime.UtcNow;
 			EmitData(new EEGEvent(start, EEGDataType.CONTACT_QUALITY, new double[] { 1, 1, 1, 1 }));
@@ -325,7 +339,9 @@ namespace SharpBCI {
 				Thread.Sleep((int)(Math.Round((1.0 / sampleRate) * 1000)));
 			}
 		}
-
+        /**
+         * Uses the signal model to generate random simulated EEG data
+         */
 		void GenerateSamples() {
 			//Logger.Log("Generating samples using currentSample=" + currentSignal);
 			var noiseAmplitude = (currentSignal == -1 ? signals.Select((x) => x.amplitudes.Sum()).Average() : signals[currentSignal].amplitudes.Sum()) / signalToNoiseRatio;
@@ -340,9 +356,20 @@ namespace SharpBCI {
 		}
 	}
 
+    /**
+     * A device adapter that can be used to replay or reemit the data logged during a previous session.
+     * After logging a session to a CSV file using the SharpBCI.LogRawData, you can read the data, conver the data into rawEEGEvents, and emit them through your program acting as a dummy EEG device.
+     */
     public class CSVReadAdapter : EEGDeviceAdapter {
 
+        /**
+         * Asynchronous reader that reads CSV data in a seperate thread because the frequency of I/O operations is too high to run on this thread
+         */
         AsyncStreamReader reader;
+
+        /**
+         * Filepath of the CSV file
+         */ 
         string filePath;
 		Thread thread;
 		bool isCancelled;
@@ -352,18 +379,27 @@ namespace SharpBCI {
             this.filePath = filePath;
         }
 
+        /**
+         * Overwrite of the Start function from EEGDeviceAdapter class.
+         * Creates a new thread to run the Run function.
+         */
         public override void Start() {
             Logger.Log("Starting CSVReadAdapter");
             thread = new Thread(Run);
             thread.Start();
         }
 
+        /**
+         * Sets isCancelled to true to stop the Run function and joins the thread when complete
+         */
         public override void Stop() {
             Logger.Log("Stopping CSVReadAdapter");
             isCancelled = true;
             thread.Join();
         }
-
+        /**
+         * Main function of new thread that retrieves data from CSV, creates EEGEvents with each line, and emits the data
+         */
         void Run() {
             reader = new AsyncStreamReader(filePath);
             //First iteration of ReadLine is for the header which is unused
@@ -372,15 +408,13 @@ namespace SharpBCI {
             string[] columns;
             IEnumerable<string> readerEnumberable = reader.GetEnumerable();
             foreach(string line in readerEnumberable) {
-                Thread.Sleep(4);
+                Thread.Sleep((int)(Math.Round((1.0 / sampleRate) * 1000)));
                 columns = line.Split(delimiterChars);
-
 				object a = null;
 				int channel;
 				if (int.TryParse(columns[2], out channel)) {
 					a = channel;
 				}
-
                 EmitData(new EEGEvent(DateTime.Parse(columns[0]), EEGDataType.EEG, new double[] { Convert.ToDouble(columns[3]), Convert.ToDouble(columns[4]), Convert.ToDouble(columns[5]), Convert.ToDouble(columns[6]) }, a));
             }
         }
