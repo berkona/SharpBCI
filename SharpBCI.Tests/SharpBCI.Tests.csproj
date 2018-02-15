@@ -60,6 +60,7 @@
     <Compile Include="Setup.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="DeviceAdapters.cs" />
+    <Compile Include="IntegrationTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpBCI\SharpBCI.csproj">

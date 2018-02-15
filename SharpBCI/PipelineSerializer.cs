@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Reflection;
 using System.Linq;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
@@ -85,7 +86,7 @@ namespace SharpBCI {
 	 * A static class to read SerializedStage files from a file
 	 */
 	public static class PipelineSerializer {
-		
+
 		static readonly DataContractJsonSerializer _serializer = new DataContractJsonSerializer(typeof(SerializedPipeline), new Type[] {
 			typeof(SerializedStage),
 			typeof(SerializedConnectionInfo)
@@ -175,14 +176,102 @@ namespace SharpBCI {
 				var arg = stage.arguments[i];
 				if (arg is string && scope.ContainsKey(((string)arg))) {
 					stage.arguments[i] = scope[(string)arg];
-				} 
+				}
 				// kludge b/c it parses doubles as decimals
 				else if (arg is decimal) {
 					stage.arguments[i] = Convert.ToDouble(arg);
 				}
 			}
 
-			return (IPipeable)Activator.CreateInstance(pipeableType, stage.arguments);
+			return (IPipeable)CreateFromParams(pipeableType, stage.arguments);
+		}
+
+		static object CreateFromParams(Type type, object[] arguments) {
+			//Logger.Log("Trying to create {0} from arguments {1}", type, string.Join(",", arguments));
+
+			var allConstructors = type.GetConstructors();
+
+			var sameArrity = allConstructors
+				.Where((x) => x.GetParameters().Length == arguments.Length);
+
+			//Logger.Log(sameArrity.Count());
+
+			var canCoerce = sameArrity
+				.Where((x) => x.GetParameters().All((p) => CanConvert(arguments[p.Position], p.ParameterType)));
+
+			//Logger.Log(canCoerce.Count());
+
+			var constructor = canCoerce.OrderBy((x) => RankConstructor(x, arguments)).FirstOrDefault();
+
+			//Logger.Log(constructor);
+
+			// use Activator as last resort, will throw MissingMethodException if it fails to find one too
+			if (constructor == null) {
+				Logger.Warning("PipelineSerializer: Could not find matching constructor, falling back to Activator.CreateInstance");
+				return Activator.CreateInstance(type, arguments);
+			} else {
+				return constructor.Invoke(Coerce(constructor, arguments));
+			}
+		}
+
+		static object[] Coerce(ConstructorInfo constructor, object[] args) {
+			var parameters = constructor.GetParameters();
+			int n = parameters.Length;
+			for (int i = 0; i < n; i++) {
+				var p = parameters[i];
+				var pType = p.ParameterType;
+				var j = p.Position;
+				args[j] = pType == args[j].GetType() ? args[j] : Convert.ChangeType(args[j], pType);
+			}
+			return args;
+		}
+
+		static int RankConstructor(ConstructorInfo constr, object[] args) {
+			// return the number of conversions this constructor requires from args
+			return constr.GetParameters().Count((x) => args[x.Position].GetType() != x.ParameterType);
+		}
+
+		static bool CanConvert(object arg, Type toType) {
+			if (toType == typeof(object)) {
+				//Logger.Log("CanConvert, toObj");
+				return true;
+			} else if (arg.GetType() == toType) {
+				//Logger.Log("CanConvert, same type");
+				return true;
+			} else {
+				return converters.ContainsKey(arg.GetType()) && converters[arg.GetType()](arg, toType);
+			}
+		}
+
+		public delegate bool Converter(object arg, Type type);
+
+		readonly static Dictionary<Type, Converter> converters = new Dictionary<Type, Converter> {
+			{ typeof(decimal), ConvertNumber },
+			{ typeof(double), ConvertNumber },
+			{ typeof(float), ConvertNumber },
+			{ typeof(byte), ConvertNumber },
+			{ typeof(sbyte), ConvertNumber },
+			{ typeof(short), ConvertNumber },
+			{ typeof(ushort), ConvertNumber },
+			{ typeof(int), ConvertNumber },
+			{ typeof(uint), ConvertNumber },
+			{ typeof(long), ConvertNumber },
+			{ typeof(ulong), ConvertNumber },
+		};
+
+		static bool ConvertNumber(object arg, Type toType) {
+			// TODO only allow cast if information won't be lost here
+			return toType == typeof(decimal) 
+				|| toType == typeof(double) 
+				|| toType == typeof(float)
+				|| toType == typeof(sbyte)
+				|| toType == typeof(byte)
+				|| toType == typeof(short)
+				|| toType == typeof(ushort)
+				|| toType == typeof(int)
+				|| toType == typeof(uint)
+				|| toType == typeof(long)
+				|| toType == typeof(ulong);
 		}
 	}
 }
