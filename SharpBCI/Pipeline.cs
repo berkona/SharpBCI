@@ -91,13 +91,19 @@ namespace SharpBCI {
 		}
 
 		public virtual void Stop() {
-			// TODO do cooperative stopping here, or above us?
-			foreach (var o in allOutputs) {
-				o.Dispose();
+			try {
+				// TODO do cooperative stopping here, or above us?
+				foreach (var o in allOutputs) {
+					o.CompleteAdding();
+					o.Dispose();
+				}
+				allOutputs.Clear();
+				input = null;
+				runningTask.Wait();
+			} catch (Exception e) {
+				cts.Cancel();
+				Logger.Warning("Pipeable couldn't be stopped fully due to '{0}'", e); 
 			}
-			allOutputs.Clear();
-			input = null;
-			runningTask.Wait();
 		}
 
 		void Run() {
