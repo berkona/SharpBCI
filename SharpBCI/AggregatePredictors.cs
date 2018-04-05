@@ -321,15 +321,15 @@ namespace SharpBCI
         }
 
         public void AddTrainingData(int id, EEGEvent[] events)
-        {
-            if (!trainingData.ContainsKey(id))
-                trainingData.Add(id, new List<double[][]>());
-            trainingData[id].Add(TransformToBandSpace(events));
+		{
+			if (!trainingData.ContainsKey(id))
+				trainingData.Add(id, new List<double[][]>());
+			trainingData[id].Add(TransformToBandSpace(events));
         }
 
         public void ClearTrainingData()
         {
-            trainingData.Clear();
+			trainingData.Clear();
         }
 
         public void SetChannelWeights(double[] newWeights) {
@@ -363,19 +363,22 @@ namespace SharpBCI
 
         }
 
-        public List<KeyValuePair<int, double>> ComputeDistances(double[][] data)
-        {
+        public List<KeyValuePair<int, double>> ComputeDistances(double[][] data) {
             var distances = new List<KeyValuePair<int, double>>();
 
-            // O(N) * O(|channels|) * O(|bands|) performance
-            foreach (var pair in trainingData)
-            {
-                foreach (var point in pair.Value)
-                {
-                    double dist = Distance(data, point);
-                    distances.Add(new KeyValuePair<int, double>(pair.Key, dist));
-                }
-            }
+			// O(N) * O(|channels|) * O(|bands|) performance
+			try {
+				foreach (var pair in trainingData) {
+					foreach (var point in pair.Value) {
+						double dist = Distance(data, point);
+						distances.Add(new KeyValuePair<int, double>(pair.Key, dist));
+					}
+				}
+			} catch (InvalidOperationException) {
+				// trainingData was modified out from underneath of us,
+				// return null prediction
+				return null;
+			}
 
             if (distances.Count == 0)
                 return null;
